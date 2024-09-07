@@ -1,0 +1,5 @@
+1、链接器->输入->附加依赖项：libmysql.lib
+2、配置属性->VC++目录->包含目录：E:\MySQL\MySQL Server\include
+3、配置属性->VC++目录->库目录：E:\MySQL\MySQL Server\lib
+4、配置属性->常规->平台工具集：Visual Studio 2019 (v142)
+5、将文件libmysql.dll放置到对应的项目路径下

@@ -1,0 +1,159 @@
+注释：<!--  -->
+<form method=""></form>标签中添加属性method="GET"或method="POST"以发送请求
+action参数指明跳转位置
+
+
+语法：
+-----------<!DOCTYPE html>			文档类型声明，告诉浏览器使用哪种HTML版本来显示网页
+	<html></html>			页面中最大的标签，称为根标签
+	<head></head>			文档的头部
+	<title></title>			文档的标题，包含在head中
+	<body></body>			文档的主体
+
+
+
+-----------<h1></h1>~<h6></h6>		标题
+	<p></p>			段落
+	<br>				换行
+
+
+
+-----------<strong></strong>或<b></b>	文字加粗
+	<em></em>或<i></i>		倾斜
+	<del></del>或<s></s>		删除线
+	<ins></ins>或<u></u>		下划线
+
+
+
+-----------装内容的盒子
+		<div></div>		独占一行
+		<span></span>		一行上可以连续显示，不会独占行
+
+
+
+-----------<img src="path"/>	单标签	显示图像
+		img属性：
+		src		图像路径；
+		alt		替换文本，无法显示时替换
+		title		提示文本，鼠标放到图像上，显示的文字
+		width		像素，设置宽度
+		height		像素，设置高度
+		border		像素，设置图像的边框粗细
+
+
+
+-----------属性特点：必须写在标签后面，属性间空格隔开
+
+
+
+-----------<a href=""></a>			超链接
+		a属性：
+		href		指定链接目标的url地址
+		target		指定链接页面的打开方式，_self为默认值，_blank为在新窗口中打开方式
+
+
+
+-----------<table></table>			定义表格的标签
+	<tr></tr>			定义表格中的行，必须包含在table中
+	<td></td>			定义单元格，必须包含在tr中
+	<th></th>			定义表头，必须包含在tr中
+	<thead></thead>			定义表头结构，必须有tr，包含在table
+	<tbody></tbody>			定义表身结构，放数据，包含在table
+	
+		table属性：
+		align		对齐方式，left、center、right
+		border		是否有边框，1或""
+		cellpadding	规定单元边沿与其内容之间的空白，像素值
+		cellspacing	规定单元格之间的空白，像素值
+		width		表格宽度
+	合并单元格
+		选中扩展的单元格，定义colspan属性或rowspan属性=数字，删除多余格子
+
+
+
+-----------<ul></ul>			定义无序列表，只能嵌套li
+	<li></li>				定义列表项，可以容纳所有元素
+	<ol></ol>			定义有序列表，li定义列表项
+	<dl></dl>			定义列表
+	<dt></dt>			定义名字，包含在dl中
+	<dd></dd>			定义内容，包含在dl中
+
+
+
+-----------<form></form>			表单域，实现用户信息的收集和传递
+					会把表单提交给服务器
+		form属性：
+		action		指定接收并处理表单数据的服务器程序的url地址
+		method		设置表单数据的提交方式，取get或post
+		name		指定表单名称，以区分同一个页面的多个表单域
+	
+	<input/>单标签			表单元素
+		input属性：
+		type		指定不同的控件类型
+				button、checkbox、file(文件域，上传文件)、hidden、image、password
+				radio、reset、submit(把表单数据发送到服务器)、text、eamil、url、date、
+				time、month、week、number、tel、search、color
+		name		定义input元素名称，单/复选框所有元素name相同，选项才会互斥
+		value		规定input元素的值
+		checked		默认被选中
+		maxlength	规定输入字段的最大长度
+		id		分组
+		placeholer	提示文本"text"
+		required		必填，非空""
+		autofocus	自动聚焦到指定表单""
+		autocomplete	提示之前输入的内容，"on"、"off"
+		multiple		可以多选文件上传""
+
+	<label></label>			点击文本自动聚焦到表单元素
+		label属性：
+		for		指定id，规范行为
+
+	<select></select>			下拉标签，至少包含一个option
+	<option></option>		选项
+		option属性：
+		selected = "selected"	默认被选中的选项
+
+	<textarea></textarea>		多行文本输入
+		textarea属性：
+		rows		行数
+		cols		列数
+
+
+
+
+-----------<video src="path" controls = "controls"></video>		播放视频
+		vedio属性：
+		autoplay		自动播放 "autoplay"
+		controls		向用户显示播放控件""
+		loop		循环播放""
+		src		视频path""
+		muted		静音播放，"muted"
+		poster		加载等待的画面图片"path"
+		preload		规定是否预加载视频，auto、none
+		width		播放器宽度
+		height		播放器高度
+
+	<audio src="path" controls = "controls"></audio>		播放音频
+		audio属性：
+		autoplay
+		controls
+		loop
+		src
+
+
+
+
+
+
+
+#################################################################################
+<div class="search">
+            <input type="search" required="required"/>
+            <input type="submit" value="search"/>
+        </div>
+
+        <div class="upload">
+            <input type="file" name="BseleFile" style="display:none" onchange="iTest.value=this.value">
+            <input type="text" name="iTest" id="iTest" readonly="true">
+            <input type="button" value="browser" onclick="BseleFile.click()">
+        </div>

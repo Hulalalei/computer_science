@@ -1,0 +1,42 @@
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+
+
+int size = 6;
+int top = -1, t = 0, i = 0;
+char path[10], arr[10] {'a', 'b', 'c', 'd', 'e', 'f'}, stk[10];
+
+void dfs(int x) {
+    if (x == 2 * size) {
+        for (int j = 0; j != size; j ++) std::cout << path[j] << " ";
+        std::cout << "\n";
+        return;
+    }
+    
+    // 先深搜，再回溯
+    // 入栈
+    if (i != size) {
+        stk[++ top] = arr[i ++];
+        dfs(x + 1);
+        top --, i --;
+    }
+
+    // 出栈
+    int temp = 0;
+    if (top > -1) {
+        // 弹栈，放入路径上
+        temp = path[t ++] = stk[top --];
+        dfs(x + 1);
+        // 入栈
+        stk[++ top] = temp;
+        -- t;
+    }
+}
+
+int main(int argc, char **argv) {
+
+    dfs(0);
+
+    return 0;
+}

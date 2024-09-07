@@ -1,0 +1,9 @@
+包：
+用来管理各种不同功能的java类，方便后期代码维护
+
+命名规则：
+公司域名反写+包的作用，需要全部英文小写，简明知意. com.lebesgue.domain
+
+全类名：
+com.lebesgue.domain.Student
+使用其他类时，需要使用全类名

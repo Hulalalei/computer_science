@@ -1,0 +1,58 @@
+#导包
+import urllib.request	用于发送请求
+import urllib.parse		编码格式的转换
+
+#爬取源码：
+打开url，向服务器发送请求
+response = urllib.request.urlopen(url)
+
+其返回值response可以得到指定内容
+response.read(number)	一次读取number个字符，二进制形式
+尾接decode('utf-8')可以改变字符格式
+
+一个类型六个方法
+response 是HTTPResquest类型
+read(), readline(), readlines(), geturl(), getheaders(), getcode().
+
+两步：获得打开的请求的内容，再输出
+
+#下载图片、视频或网页等
+urllib.request.urlretrieve(url, 'filename.html')
+
+#url组成：
+协议	    主机	                  端口号	      路径	   参数	        锚点
+http/https   www.baidu.com    80/443         s            wd=周杰伦   #
+
+http		80
+https		443
+mysql		3306
+oracle		1521
+redis		6379
+mongodb	27017
+那些com后面乱起八糟的东西，都是用unicode表示的中文
+
+#反爬虫1：请求对象的定制
+request = urllib.request.Request(url= , headers= )
+headers中用字典存储User-Agent
+接下来即可将请求对象作为url传入urlopen函数中，流程与前面一样
+
+#编码格式转换
+get()请求
+urllib.parse.quote('')转换一个参数为unicode
+urllib.parse.urlencode('')直接对字典拼接参数为unicode
+
+post()请求
+必须进行编码，返回的data作为Request的参数
+urlencode后还必须encode，否则报错
+
+#反爬虫2
+headers中的cookie
+
+
+
+
+
+
+
+
+

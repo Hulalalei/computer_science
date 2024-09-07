@@ -1,0 +1,119 @@
+github加速：export https_proxy=192.168.1.103:8889	
+
+
+i		插入模式，前面插入
+a		插入模式，后面插
+o		插入模式，另开新的一行
+esc		退出模式
+v		视觉模式
+V		视觉行模式
+:w file_name 	保存文件
+
+命令模式下：
+# 光标移动：
+	{}[]()
+	HLJK		左右下上
+	6 L		向右移动6个字符
+	0		跳到行行首	
+	3 "shift + 4"	跳到后数3行行尾
+	"shift + 6"	跳到不含空格的行首
+	3 +/-		跳到前数或后数3行行首
+	w		跳到字符首
+	"shift + w"	跳到单词首
+	"shift + b"	反方向跳
+	"shift + e"	跳单词尾
+	6 G		跳转到第6行
+	G		到文末尾
+	6 gg		跳转
+	gg		文首
+# 删除：
+	dw		删除字符
+	de		删除单词
+	db		删除单词
+	ds		删除末尾所有
+	u		撤回操作
+	cw		删除的同时，进入插入模式
+# 查找&替换：
+	/text		查找字符，找到后 n跳转下一个，N跳前面
+	?text		反向查找字符
+	shift + 3		光标停留在某单词上，会向上查找
+	shift + 8		光标停留在某单词上，向下查找
+	f + char		定位到char
+	cf + char		删除char之前的		
+	t + char		定位到char
+	ct + char		删除char之前，不包括char
+	shift + i		跳到行首插入，不带空格
+	q		录入宏，打包操作@u重复执行
+	:%s/a/b/g		a替换为b，g表示多次替换,%每一行都执行
+# 编译：
+	:sh		临时shell脚本exit退出
+	:!make && ./main	直接执行
+	:make		直接编译
+	:cw		报错位置
+	ctrl + o		报错时，跳回原文件
+	ctrl + i		跳到头文件
+	gf		直接跳头文件
+	:ls		查看缓冲区文件
+	:b4		跳到第四个缓冲区文件
+	:split		纵向开窗口
+	:vsplit		横向开窗口
+	ctrl + w h/l	切换窗口光标
+	:terminal		内嵌终端
+
+视觉模式下：
+	e		选中一个单词
+	3 x		删除选中内容
+	norm 0x		选中的内容均进行相同操作
+	i + <		选中<>中的内容
+	>>和<<		缩进
+	y		复制
+	p		粘贴
+	dd		剪切一整行
+
+插入模式下：
+	shift + insert可以粘贴
+
+##################   脚本   #####################
+"表示注释
+vim .vimrc	vim默认执行的脚本
+:set mouse=a	启用鼠标
+:set cindent	换行自动tab
+:set nu		启用行号
+:set nonu		关闭行号
+:set ts=4		设置tab
+:set sw=4
+:set noet		阻止tab换为空格
+filetype on
+filetype plugin on
+filetype indent on	根据文件类型，自动缩进
+alias l = 'ls -CF'	快捷键
+nnoremap <F4> :wa<CR>
+nnoremap <F5> :wa<CR>:!make && ./main<CR>
+nnoremap <F6> :wa<CR>:make<CR><CR><CR>
+nnoremap <F8> :sh<CR>
+
+
+##################   插件   ######################
+
+
+
+
+
+
+
+
+
+
+
+
+~/.bashrc文件是在每次打开一个新的终端窗口时都会执行的，它通常包含一些与用户交互的命令，比如设置别名、定义函数等等。这个文件通常是用来定制用户的shell环境。
+
+~/.bash_profile文件是在用户登录时执行的，它通常包含一些与系统交互的命令，比如设置环境变量、添加系统路径等等。这个文件通常是用来定制用户的登录环境。
+
+
+centos中的下载命令格式和Ubuntu完全不一样
+
+如果连不上网：
+	mv /var/lib/NetworkManager /var/lib/NetworkManager.bak	然后重启即可
+	service network restart	后即可联网
+背景图默认路径：/home/hsf/Pictures

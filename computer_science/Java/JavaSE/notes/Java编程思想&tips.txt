@@ -1,0 +1,11 @@
+思想：
+1、学会mspaint画图工具与snipaste截图工具，便于画图，解决需求
+2、采用泛型思想、套娃思想
+3、开发时，先验证格式是否正确，再验证是否唯一，因为会调用数据库网络资源，浪费资源
+4、遇到新项目，先自己开发，再跟大牛比较规划的差异
+
+tips：
+1、可以在循环前加一个标志,例如 loop: while(true){};则可以用break loop;退出循环
+2、System.exit(0);停止虚拟机运行
+3、System.out.println(Long.toHexString(VM.current().addressOf(类对象)));
+将类对象地址以16进制的形式打印出来，但需要第三方工具

@@ -1,0 +1,14 @@
+ok-bug1 : core dumped --- 内存泄漏
+ok-bug3 : 各种显示页面封装
+ok-bug4 : 多线程封装
+bug5 : 图片显示问题
+ok-bug6 : JavaWeb知识
+bug7 : c++11封装三种池子
+ok-bug9 : 显示目录
+ok-bug10 : 日志
+ok-bug11 : lua+c++编程
+ok-bug12 : libevent
+ok-bug13 : 发送信息时，必须使用同一个clnt_write
+ok-bug14 : 关闭唯一的FILE *clnt_write时，套接字也会被关闭
+ok-bug15 : 必须使用二进制传输函数，才能正确传输其他格式文件
+

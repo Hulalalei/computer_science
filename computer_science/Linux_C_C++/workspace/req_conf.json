@@ -1,0 +1,18 @@
+{
+    "addr" : "39.156.66.14",
+    "port" : 80,
+    "GET" : "GET / HTTP/1.1\r\n",
+	"get_idx" : 16,
+    "Host" : "Host: 39.156.66.14\r\n",
+	"host_idx" : 20,
+    "Connection" : "Connection: close\r\n",
+	"conn_idx" : 19,
+	"UIR" : "Upgrade-Insecure-Requests: 1\r\n",
+	"uir_idx" : 30,
+	"Accept" : "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7\r\n",
+	"acc_idx" : 145,
+	"Accept-Encoding" : "Accept_Encoding: gzip, deflate\r\n",
+	"encode_idx" : 32,
+	"Accept-Language" : "Accept-Language: en-US,en;q=0.9\r\n",
+	"lan_idx" : 33
+}

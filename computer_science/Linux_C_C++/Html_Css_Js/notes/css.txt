@@ -1,0 +1,21 @@
+css导入方式
+	1、内联：<div style="color: red">Hello css</div>
+	2、内部：<style type="text/css"></style>（head标签中）
+	3、外部：<link rel="stylesheet" href="demo.css">（head标签中)
+
+语法规范：选择器 + 一条或多条声明
+
+	选择器：基础选择器、复合选择器
+		基础选择器：由单个选择器组成，包括
+				标签<p></p>		-----p {  }
+				类class		-----.class {  }、多类名class = "red font"
+				id		-----#id，只能调用一次
+				通配符选择器	-----* {   }
+		复合选择器：
+			后代选择器	-----parent child {   }
+			子选择器		-----parent child {   }选亲儿子
+			并集选择器	-----t1, t2 {   }
+			伪类选择器
+	属性
+		font-family、font-size、font-weight、font-style、color
+		text-align、text-decoration、text-indent、line-height

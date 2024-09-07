@@ -1,0 +1,75 @@
+js作用：跨平台、oop、控制网页行为、使网页可交互、能够进行表单验证
+
+js嵌入html
+	1、html中加入<script></script>标签，一般置于body标签底部
+	2、<script src="path"></script>
+语法
+	每句结尾分号可有可无
+	注释：//或/**/
+	输出：
+		window.alert()弹窗警告
+		document.write()写入html输出
+		console.log()写入浏览器控制台F12
+	变量：弱类型变量
+		var test = value全局变量，可重复声明
+		let test在let关键字所在代码块内有效，不允许重复声明，局部变量
+		const test只读
+	五种原始类型
+		number、string、bollean、null、undefined
+		typeof test获取类型
+	运算符
+		==等于-------20 == "20"
+		===全等于
+		>=
+		<=
+	类型转换
+		var test = "abc" 
+		parseInt(test)非数字转换为NaN
+
+		空串为false，null、undefined为false
+	函数
+		function name(a, b)
+		var name = function(a, b)
+		形参不需要定义类型，返回值也是
+		可以传递可变参数
+	数组(变长变类型)
+		var name = new Array();
+		var name = [];
+	字符串
+		var name = new String(s);
+		var name = "";
+		length;  charAt();  indexOf();
+
+	自定义对象
+		var name = {键值对};
+	BOM对象(浏览器对象模型)
+		Window：	属性：history、Navigator、Screen、location
+				函数：alert、confirm返回bool、setInterval、setTimeout
+		Navigator
+		Screen
+		History：		函数：history.back、history.forward
+		Location：	属性：location.href跳转url
+	DOM对象(文档对象模型)：将html语言的各个组成部分封装成对象
+		Document(整个文档对象)
+		Element(元素对象)
+		Attribute(属性对象)
+		Text(文本对象)
+		Comment(注释对象)
+		
+		获取元素对象的函数：document.getElementById（元素）、getElementsByTagName
+			getElementsByName、getElementByClassName（数组）
+		设置元素属性：查阅文档
+	事件监听
+		1、事件绑定：document.getElementById("").onclick = function(){}
+		onsubmit事件，用于验证表单，绑定的函数return false表示表单的用户输入未通过
+
+
+
+
+
+
+
+
+
+
+

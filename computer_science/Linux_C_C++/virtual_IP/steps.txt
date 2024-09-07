@@ -1,0 +1,5 @@
+VMware：编辑 -> 虚拟网络编辑器 -> VMnet8 -> 配置子网和子网掩码 -> net设置 -> 网关
+Linux：    su - root -> 
+	vim /etc/sysconfig/network-scripts/ifcfg-ens33 ->
+	systemctl stop network ->
+	systemctl start network

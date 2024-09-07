@@ -1,0 +1,6 @@
+String：SubString（）；equals（）；equalsIgnoreCase（）；replace（）；length（）；charAt（）；
+StringBuilder容器（）：append（）；reverse（）；length（）；toString（）；
+StringJonier,：在string中添加前后缀和间隔符
+StringBuffer, 
+Pattern, 
+Matcher

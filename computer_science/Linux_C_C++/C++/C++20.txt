@@ -1,0 +1,32 @@
+1、协程(无栈协程)
+    1.1：co_wait    -- 用于暂停执行，直到恢复
+    1.2：co_yield   -- 用于暂停执行并返回一个值
+    1.2：co_return  -- 用于完成执行并返回一个值
+
+std::declval<T>()                       编译期返回右值
+std::optional<T>                        一个类型安全，类似于pair的多功能模板，栈区开辟，性能高
+std::any
+std::variant<TS ...ts>                  union安全
+std::tuple<int, float, ...>             存储多个不同类型的元组 
+std::source_location::current()         获取当前文件的信息
+    .line()
+    .column()
+    .file_name()
+    .function_name()
+concept & requires                      优化模板元
+std::decay_t<T>                         移除修饰符，保留T: using decay_t = typename decay<T>::type
+auto &&[first, second, third] = tuple;  结构化绑定，结构体、元组均可解包
+lambda如果捕获变量，则作为参数传递时，会有额外开销(std::functional<>), 所以形参使用Func const& func
+
+# 项目(C++20)
+    1、协程 || 线程池
+    2、连接池
+    3、内存池(模板)
+    4、无锁队列(std::atomic<std::shared_ptr<> >)
+    5、静态反射实现Json序列化
+    6、模板日志库
+    7、traits + 静态重载
+    8、async && promise && future
+    9、定时器
+    10、qt客户端
+    11、设计模式

@@ -1,0 +1,356 @@
+#基于Linux的文件操作
+	1、对于Linux而言，socket操作与文件操作没有区别，因此在网络数据传输过程中自然可以用文件IO的相关函数
+		Windows则与Linux不同，是要区分socket和文件的，因此需要调用特殊的数据传输相关函数
+	2、标准输入输出的文件描述符：
+		standard input ： 0
+		standard output ： 1
+		standard error ： 2
+	3、#include <fcntl.h>	int open(const char *path, int flag);
+		flag : O_CREAT(创建文件)、O_TRUNC(删除全部数据)、O_APPEND(追加数据)、O_RDONLY(只读)、O_WRONLY(只写)、O_RDWR(读写)
+		成功返回：文件描述符，失败返回：-1
+	4、#include <unistd.h>	int close(int fd);
+		成功返回：0，失败返回-1
+	5、#include <unistd.h>	ssize_t write(int fd, const void *buf, size_t nbytes);
+		成功返回写入的字节数，失败返回-1
+	6、#include <unistd.h>	ssize_t read(int fd, void *buf, size_t nbytes);
+		成功返回接收的字节数，失败返回-1
+
+#创建套接字
+	#include <sys/socket.h>	int socket(int domain, int type, int protocol);
+		->domain : 协议族信息(PF_INET、PF_INET6、PF_LOCAL、PF_PACKET、PF_IPX)
+		->type : 数据传输类型信息(SOCK_STREAM、SOCK_DGRAM)
+		->protocol : 通信使用的协议信息(#include <netinet/in.h>	IPPROTO_TCP、IPPROTO_UDP)
+		若前两个参数已经确定，第三个参数可以省略为0
+
+#IPv4地址的结构体
+	struct sockaddr_in {
+		sa_family_t 		sin_family;		// 地址族(AF_INET、AF_INET6、AF_LOCAL)
+		uint16_t 			sin_port		// 16位TCP/UDP端口号(网络字节序)
+		struct in_addr {	sin_addr;		// 32位IP地址(网络字节序)
+			in_addr_t s_addr;				// 32位IPv4地址
+		}; 		
+		char				sin_zero[8];	// 不使用(为使结构体sockaddr_in的大小与sockaddr结构体保持一致而插入的成员)
+	};
+	struct sockaddr {
+		sa_family_t			sin_family;		// 地址族
+		char 				sa_data[14];	// 地址信息(IP, port. 其余补为0)
+	};
+
+#网络字节序(大端序)与地址转换
+	unsigned short htons(unsigned short);	// 端口转换
+	unsigned short ntohs(unsigned short);
+	unsigned long htonl(unsigned long);		// IP转换
+	unsigned long ntohl(unsigned long);
+
+#网络地址的初始化与分配
+	将字符串IP转换为整数IP，自动进行网络字节序转换，还可以检测无效IP
+
+	#include <arpa/inet.h>	in_addr_t inet_addr(const char *string)
+		失败时返回INADDR_NODE
+
+	#include <arpa/inet.h>
+	int inet_aton(const char *string, struct in_addr *addr);
+		成功返回1，失败返回0
+	char *inet_ntoa(struct in_addr adr);
+		成功返回转换的字符串地址，失败返回-1
+
+#网络地址的初始化
+	struct sockaddr_in addr;
+	char *serv_ip = "192.168.130.88";
+	char *serv_port = "9090";
+	memset(&addr, 0, sizeof addr);		// 为了将zero初始化为0
+	addr.sin_family = AF_INET;
+	addr.sin_addr.s_addr = inet_addr(serv_ip);
+	addr_sin_port = htons(atoi(serv_port));
+
+#INADDR_ANY
+	分配服务器段IP地址
+	自动获取运行服务器端的计算机IP地址，客户端一般不用
+
+#向套接字分配网络地址
+	#include <sys/socket.h>
+	int bind(int sockfd, struct sockaddr *myaddr, socklen_t addrlen);
+		成功返回0，失败返回-1
+
+#TCP服务器/客户端
+	1、监听
+		#include <sys/socket.h>
+		int listen(int sock, int backlog);
+			->sock : 服务器端套接字
+			->backlog : 请求队列
+			成功返回0，失败返回-1
+	2、受理
+		#include <sys/socket.h>
+		int accept(int sock, struct sockaddr *addr, socklen_t *addrlen);
+			->sock : 服务器端套接字
+			->addr : 保存传输来的客户端信息
+			成功时返回创建的套接字，失败返回-1
+	3、请求连接
+		#include <sys/socket.h>
+		int connect(int sock, struct sockaddr *servaddr, socklen_t addrlen);
+		->sock : 客户端套接字
+		->servaddr : 保存目标服务器地址信息
+		成功返回0，失败返回-1
+
+#UDP服务器/客户端(服务器端绑定bind，客户端直接发送即可)
+	1、只有创建套接字和数据交换的过程
+	2、客户端和服务器端只需1个套接字
+	3、UDP中的IO函数：(UDP套接字不会保持连接状态，因此每次传输数据都要添加目标地址信息)
+		3.1 #include <sys/socket.h>
+			ssize_t sendto(int sock, void *buff, size_t nbytes, int flags, struct sockaddr *to, socklen_t addrlen);
+			成功返回传输的字节数，失败返回-1
+			->sock : UDP套接字
+			->buff : 保存待传输数据的缓冲地址值
+			->nbytes : 待传输的数据长度
+			->flags : 可选项参数，没有则传0
+			->to : 存有目标地址信息的ockaddr结构体的地址
+			->addrlen : sizeof to
+		3.2 #include <sys/socket.h>
+			ssize_t recvfrom(int sock, void *buff, size_t nbytes, int flags, struct sockaddr *from, socklen_t *addrlen);
+			->sock : UDP套接字
+			->buff : 保存接收数据的缓冲地址值
+			->nbytes : 可接收的最大数据长度
+			->flags : 可选项参数，没有则传0
+			->to : 存有发送端信息的ockaddr结构体的地址
+			->addrlen : sizeof to
+	4、sendto函数自动分配ip和端口，IP用主机IP，端口选尚未使用的任意端口号，地址一直保存到程序结束为止
+	5、UDP数据边界：输入函数与输出函数的调用次数应该保持一致，才能保证接收全部已发送数据
+
+#断开连接/半关闭
+	#include <sys/socket.h>
+	int shutdown(int sock, int howto)
+		成功返回0，失败返回-1
+		->sock : 需要断开的套接字
+		->howto : 断开方式(SHUT_RD、SHUT_WR、SHUT_RDWR)
+
+#域名系统
+	0、hostent结构体
+		struct hostent {
+			char *h_name;		// 官方域名
+			char **h_aliases;	// 一个IP可对应多个域名，官方域名之外的名字
+			int h_addrtype;		// 获取保存在h_addr_list的IP地址的地址族信息
+			int h_length;		// IP地址长度
+			char **h_addr_list;	// 以整数形式保存域名对应的IP地址
+		};
+
+	1、利用域名获取IP
+		#include <netdb.h>
+		struct hostent *gethostbyname(const char *hostname);
+		成功返回hostent结构体地址，失败返回NULL
+	2、利用IP获取域名(要使用这个函数，本地要有反向解析的服务)
+		#include <netdb.h>
+		struct hostent *gethostbyaddr(const char *addr, socklen_t len, int family);
+		成功返回hostent结构体地址，失败返回NULL
+		->addr : 含有IP信息的in_addr结构体指针(强转)
+		->len : 向addr传递的地址信息的字节数，IPv4是4字节，IPv6是16字节
+		->family : 地址族信息(AF_INET、AF_INET6)
+
+#套接字中的可选项(可以禁用或使用Nagle算法)
+	1、读取
+		#include <sys.socket.h>
+		int getsockopt(int sock, int level, int opname, void *optval, socklen_t *opptlen);
+		成功返回0，失败返回-1
+		->sock : 用于查看选项的套接字
+		->level : 要查看的可选项的协议层
+		->optname : 要查看的可选项名
+		->optval : 保存查看结果的缓冲地址值
+		->oplten : 向optval传递的缓冲大小
+	2、更改
+		#include <sys/socket.h>
+		int setsockopt(int sock, int level, int optname, const void *optval, socklen_t optlen);
+		成功返回0，失败返回-1
+		->sock : 用于查看选项的套接字
+		->level : 要查看的可选项的协议层
+		->optname : 要查看的可选项名
+		->optval : 保存查看结果的缓冲地址值
+		->oplten : 向optval传递的缓冲大小
+
+#进程
+	#include <unistd.h>
+	pid_t fork(void);
+	成功返回进程ID，失败返回-1
+	
+	1、销毁僵尸进程
+		#include <sys/socket.h>
+		pid_t wait(int *statloc);
+		成功返回终止的子进程ID，失败返回-1
+
+		pid_t waitpid(pid_t pid, int *statloc, int options);
+		成功返回终止的子进程ID，失败返回-1
+	2、信号函数
+		#include <signal.h>
+
+		void (*signal(int signo, void (*func)(int)))(int);
+		int sigaction(int signo, const struct sigaction *act, struct sigaction *oldact);
+
+		struct sigaction {
+			void (*sa_handler)(int);
+			sigset_t sa_mask;
+			int sa_falgs;
+		};
+
+		信号：
+		SIGALRM(已到通过调用alarm函数注册的时间)
+		SIGINT(输入ctrl+c)
+		SIGCHLD(子进程终止)
+	3、管道
+		#include <unistd.h>
+		int pipe(int filedes[2]);
+
+#IO复用---select
+	#include <sys/select.h>
+	#include <sys/time.h>
+	fd_set为位数组
+	步骤一：
+		设置文件描述符
+		FD_ZERO(fd_set *fdset);
+		FD_SET(int fd, fd_set *fdset);
+		FD_CLR(int fd, fd_set *fdset);
+		FD_ISSET(int fd, fd_set *fdset);
+
+		设置检查范围及超时
+		int select(int maxfd, fd_set *readset, fd_set *writeset, fd_set *exceptset, const struct timeval *timeout);
+		成功返回大于0的值，失败返回-1，超时返回0
+		->maxfd : 监视对象文件描述符数量
+		->readset : 是否存在待读取数据的文件描述符，注册到fd_set
+		->writeset : 是否可传输无阻塞数据
+		->exceptset : 是否发生异常
+		->timeout : 防治陷入无限阻塞的状态，传递超时信息
+		struct timeval {
+			long tv_sec;		// seconds
+			long tv_usec;		// microseconds
+		};
+	步骤二：
+		调用select函数
+	步骤三：
+		查看调用结果：fd_set中值仍为1的位置上的文件描述符发生了变化
+
+#多种IO函数
+	#include <sys/socket.h>
+	
+	ssize_t send(int sockfd, const void *buf, size_t nbytes, int flags);
+	成功返回发送的字节数，失败返回-1
+	->flags : 可选项信息
+
+	ssize_t recv(int sockfd, void *buf, size_t nbytes, int flags);
+	成功返回接收的字节数，失败返回-1
+	->flags : 可选项信息
+
+	flags : 
+	MSG_OOB : 用于传输带外数据
+	MSG_PEEK : 验证输入缓冲中是否存在接收的数据
+	MSG_DONTROUTE : 数据传输过程中不参照路由表，在本地网络中寻找目的地
+	MSG_DONTWAIT : 调用IO函数时不阻塞，用于使用非阻塞IO
+	MSG_WAITALL : 防止函数返回，直到接收全部请求的字节数
+
+	#include <uio.h>
+	
+	ssize_t writev(int filedes, const struct iovec *iov, int iovcnt);
+	成功返回发送的字节数，失败返回-1
+	->filedes : 文件描述符
+	->iov : 结构体，包含待发送数据的位置和大小信息
+	->iovcnt : 向第二个参数传递的数组长度
+	
+	ssize_t readv(int filedes, const struct iovec *iov, int iovcnt);
+
+	struct iovec {
+		void *iov_base;		// 缓冲地址
+		size_t iov_len;		// 缓冲大小
+	};
+
+#多播/广播
+	1、多播:
+		sender: 
+			int send_sock;
+			int time_live = 64;
+			send_sock = socket(PF_INET, SOCK_DGRAM, 0);
+			setsockopt(sned_sock, IPPROTO_IP, IP_MULTICAST_TTL, (void *)&time_live, sizeof(time_live));
+		加入多播组:
+			int recv_sock;
+			struct ip_mreq join_adr;
+			recv_sock = socket(PF_INET, SOCK_DGRAM, 0);
+			join_adr.imr_multiaddr.s_addr = "多播组地址";
+			join_adr.imr_interface.s_addr = "加入多播组的主机地址";
+			setsockopt(recv_sock, IPPROTO_IP, IP_ADD_MEMBERSHIP, (void *)&join_adr, sizeof(join_adr));
+	2、广播:
+		int send_sock;
+		int bcast = 1;
+		send_sock = socket(PF_INET, SOCK_DGRAM, 0);
+		setsockopt(send_sock, SOL_SOCKET, SO_BROADCAST, (void*)&bcast, sizeof(bacst));
+
+#标准IO
+	1、优点：具有良好的移植性、可以利用缓冲提高性能(IO函数缓冲，与套接字缓冲不同)
+	2、缺点：不易进行双向通信、可能频繁调用fflush函数、需要以FILE指针的形式返回文件描述符
+
+	#include <stdio.h>
+	
+	int fd -> FILE *
+	FILE *fdopen(int fildes const char *mode);
+	成功返回FILE指针，失败返回NULL
+	
+	FILE * -> int fd
+	int fileno(FILE *stream);
+	成功返回fd，失败返回-1
+
+#IO复用---epoll，默认是条件触发
+	#include <sys/epoll.h>
+	
+----int epoll_create(int size);												创建保存epoll文件描述符的空间
+	成功返回epoll文件描述符，失败返回-1							
+	os会忽略size参数，自动设置，size是为os提供参考的		
+
+----int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event);		向空间注册并注销文件描述符
+	成功返回0，失败返回-1
+	->epfd : 用于注册监视对象的epoll例程的文件描述符
+	->op : 用于指定监视对象的添加、删除或更改等操作(EPOLL_CTL_ADD、EPOLL_CTL_DEL、EPOLL_CTL_MOD)
+	->fd : 需要注册的监视对象文件描述符
+	->event : 监视对象的事件类型
+	EPOLLIN : 需要读取数据的情况
+	EPOLLOUT : 输出缓冲为空，可以立即发送数据的情况
+	EPOLLPRI : 收到OOB数据的情况
+	EPOLLRDHUP : 断开连接或半关闭的情况，在边缘触发下有用
+	EPOLLERR : 发送错误的情况
+	EPOLLET : 以边缘触发的方式得到事件通知
+	EPOLLONESHOT : 发生一次事件后，相应文件描述符不再收到事件通知；因此需要向epoll_ctl函数的第二个参数传递MOD，再设置事件
+	struct epoll_event {
+		__uint32_t events;
+		epoll_data_t data;
+	};
+	typedef union epoll_data {
+		void *ptr;
+		int fd;
+		__uint32_t u32;
+		__uint64_t u64;
+	} epoll_data_t;
+
+----int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout);	与select函数类似，等待文件描述符发生变化
+	成功返回发生事件的文件描述符数，失败返回-1
+	->epfd : 表示事件发生监测范围的epoll例程的文件描述符
+	->events : 保存发生事件的文件描述符集合的结构体地址值
+	->maxevents : 第二个参数中可以保存的最大事件数
+	->timeout : 传递-1，一直等待到事件发生
+#条件触发与边缘触发
+	条件触发：缓冲区有数据，就会注册事件
+	边缘触发：只注册一次事件
+		#include <fcntl.h>
+		int fcntl(int filedes, int cmd, ...);
+		成功返回cmd参数相关值，失败返回-1
+
+		设置ET：
+			ev.events = EPOLLIN | EPOLLET;
+			int flag = fcntl(fd, F_GETFL, 0);
+			fcntl(fd, F_SETFL, flag | O_NONBLOCK);
+	
+#HTTP服务器端
+	应用层协议，基于TCP/IP，也称为无状态的Stateless协议(因为响应客户端请求后立即断开连接) 
+	为了弥补无法连接的缺陷，引入Cookie和Session技术
+    客户端会话跟踪技术：Cookie
+    服务端会话跟踪技术：Session
+	\r\n在http报文中表示换行
+
+    虚拟机NAT模式，会共享主机IP，外网无法访问，虚拟机可以访问外网
+    虚拟机桥接模式，可以将虚拟机连接到外网，外网可以访问虚拟机，反之亦可
+    相同网关下，才可以ping通
+    不能固定主机IP，否则dchp无法发送报文，无法联网
+
+	-std=gnu11

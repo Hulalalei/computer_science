@@ -1,0 +1,6 @@
+df -h			
+du
+fdisk				查看磁盘
+du -sh .            查看当前目录内存
+
+# 在/etc/apt/sources.list中更改apt下载源，更改前记得备份

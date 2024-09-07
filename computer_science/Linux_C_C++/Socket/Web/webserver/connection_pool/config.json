@@ -1,0 +1,7 @@
+{
+  "host": "192.168.43.248",
+  "user": "root",
+  "passwd": "20040618HSF",
+  "db": "web_user",
+  "port": 3306
+}

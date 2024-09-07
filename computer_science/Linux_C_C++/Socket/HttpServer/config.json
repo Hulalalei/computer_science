@@ -1,0 +1,6 @@
+{
+    "port" : "14025",
+    "min_size" : 3,
+    "max_size" : 6,
+    "capacity" : 10
+}

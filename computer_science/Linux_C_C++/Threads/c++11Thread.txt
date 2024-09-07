@@ -1,0 +1,176 @@
+g++ 9.3.1 不支持 类类型的原子变量，用boost库中的atomic即可
+
+#include <thread>   # g++ -pthread
+
+# std::thread t()/{};
+    1.1 向线程函数传参时，参数会默认复制到线程内部存储空间，这些副本被当成临时变量，以右值形式传给新线程上的函数或可
+        调用对象，即便可调用对象参数是引用，也依然发生
+    1.2 std::thread类的实例能够移动但不能赋值，保证了：对于任一特定的执行线程，任何时候都只有唯一的std::thread对象
+        与之关联，还允许程序员在其对象之间转移线程归属权
+    1.3 std::this_thread::sleep_for();
+
+# join()与detach()
+    1.1 t.join();   主线程等待子线程执行结束，只能调用一次，joinable将返回false
+    1.2 t.detach(); 
+        3.2.1 主线程与子线程分离，主线程即使结束，子线程也可继续执行
+        3.2.2 其归属权和控制权都转移给C++运行时库，一旦线程退出，与之关联的资源都会被正确回收
+        3.2.3 分离出去的线程常常被称为守护线程，几乎在应用程序的整个生存期内都一直运行，以执行后台任务
+    1.3 如果未决定join或detach，则对象销毁时会调用std::terminate()终止整个程序
+
+# 线程ID
+    1、类型：std::thread::id
+    2、获取方法：
+        2.1 t.get_id();
+        2.2 std::this_thread::get_id();
+    3、如果t未关联执行线程，则返回一个std::thread::id对象，默认构造生成，表示"线程不存在"
+
+# 互斥
+    1、std::mutex t;    t.lock(), t.unlock();
+    2、std::lock_guard<std::mutex> guard(t);    构造时加锁，析构时解锁
+    3、如果将锁和临界量放入一个类中，则接口不能向外提供临界量的引用或地址
+    4、类中的操作不能过于精细，否则一样条件竞争
+    5、std::lock(); 同时锁住多个互斥，避免死锁
+        std::lock(lhs.m, rhs.m);
+        std::lock_guard<std::mutex> lock_a(lhs.m, std::adopt_lock);
+        std::lock_guard<std::mutex> lock_b(rhs.m, std::adopt_lock);
+    std::adopt_lock指明互斥已上锁，guard在构造时不得加锁
+    6、hierarchical_mutex(自行编写)，优先级高的可以获得优先级低的锁进行加锁
+    7、std::unique_lock<>   空间占用多，比guard，慢，可移动，可自由加解锁，构造加锁，析构解锁
+        第二个参数：std::adopt_lock, std::defer_lock(完成构造时，处于无锁)
+    8、锁粒度：锁所保护的数据量
+
+# 共享数据初始化
+    1、std::call_once(std::once_flag flag, init_func);
+        call调用返回时，初始化由其中某线程安全且唯一地完成
+        flag实例存储必要的同步数据
+        flag与mutex均不能复制和移动
+    2、获取单例，以下方法可以代替call_once();
+        C++规定，只要控制流程第一次遇到静态数据的声明语句，静态变量即进行初始化
+        C++11规定，初始化完成之前，其他线程不会越过静态数据的声明而继续运行
+
+# 甚少更新的数据保护
+    1、读写互斥
+    2、std::shared_mutex(c++17)、std::shared_timed_mutex(c++14) boost库中二者皆有
+
+# 递归锁
+    1、std::recursive_mutex：如果调用n次加锁，就得n次解锁
+    2、不建议使用，这么用说明设计有问题
+
+#include <condition_variable>
+
+# 同步
+    1、std::this_thread::sleep_for();   线程沉睡
+    2、std::condition_variable  仅能与std::mutex一起使用
+    3、std::conodition_variable_any 任何具有互斥能力的类型  性能差一些
+    4、wait(lock, func);    func返回true，取锁向下执行；返回false，继续阻塞
+        lock必须具有加解锁的能力，guard不行，unique可以
+    5、notify_one()、notify_all();
+    6、#include <future>
+        6.1 std::future<>、std::shared_future<>;
+        6.2 #include <experimental/future>命名空间experimental下的future有更多成员函数
+        6.3 只要目标事件发生，与shared关联的所有实例会同时就绪，都可以访问与该事件关联的任何数据
+        6.4 可以用于线程间通信，但是不提供同步操作
+        6.5 get()是移动操作
+        6.6 future向shared_future的传递会移交前者的归属权
+        6.7 shared_future::share()可以移交归属权
+    7、std::async()
+        7.1 返回future对象，异步方式启动任务；future对象调用get()，当前线程阻塞，获取该值后解除阻塞
+        7.2 若运行的是类成员函数，则async第一个参数是函数指针，第二个参数是对应对象(指针，引用或变量)，剩下参数是成员函数参数
+        7.3 若运行的是普通函数，则async第一个参数是可调用对象，余下参数作为可调用对象参数
+        7.4 也可以在最前面加上一个参数std::launch::deferred或std::launch::async，指定采用哪种方式运行
+            7.4.1 前者指定在当前线程上延后调用任务函数，等future调用了wait()或get()后才会执行
+            7.4.2 后者指定必须另外开启专属的线程，在其上运行任务函数
+            7.4.3 默认参数为：std::launch::deferred | std::launch::async表示async自由选择
+    8、future与任务关联方法：
+        8.1 std::packaged_task<>
+            8.1.1 此对象调用关联的函数，其返回值保存为future内部数据，并令future就绪
+            8.1.2 模板参数为函数签名，不必匹配严格，能隐式转换即可
+            8.1.3 get_future()返回future对象
+            8.1.4 void operator()();    参数与函数签名一致
+        8.2 std::promise<>
+            8.2.1 get_future();
+            8.2.2 set_value();设置好，future就绪；未设置，抛异常
+        8.3 std::experimental::future.then(func(future))    返回future
+            then中的任务在其他线程中运行
+        8.4 std::experimental::when_all();所有future都就绪后返回一个总领future，避免休眠和唤醒的上下文频繁切换
+        8.5 std::experimental::when_any();有一个future就绪，总领future即就绪，参数为future范围的移动赋值
+
+# 时钟类 #include <chrono>
+
+# 线程闩、线程卡
+    1、线程闩：同步对象，内含计数器，一旦减到0就会进入就绪状态，用于等待一系列事件的发生；
+        对线程加闩，并保持封禁状态(只要就绪，就一直保持该状态不变，除非对象被销毁)
+    2、线程卡：可重复使用的同步构件，每个同步周期内只准许每个线程唯一一次运行到其所在之处；
+        线程运行到线程卡后会阻塞，一直等到同组的线程全都抵达，在那个瞬间它们会被全部释放，然后这个
+        线程卡可以被重新使用
+
+    1、std::experimental::latch         #include <experimental/latch>
+        1.1 构造函数接受唯一一个参数，设置其计数器的初值；每当等待的目标事件发生时，就在线程闩对象上调用count_down()
+        1.2 若要等待线程闩变为就绪状态，则在其上调用wait()
+        1.3 若要检查其是否就绪，则调用is_ready()
+        1.4 如果要计数器减持，同时等待它减到0，则调用count_down_and_wait()
+        1.5 可以代替when_all()
+    2、std::experimental::barrier       #include <experimental/barrier>
+        2.1 调用arrive_and_wait()等待同步组其他线程
+        2.2 调用arrive_and_drop()令线程显式脱离同步组
+    3、std::experimental::flex_barrier
+        3.1 具备构造函数，接受线程数目和补全函数，线程全部到达时，该函数会在其中一个线程上运行
+        3.2 不但提供了可以设定后续代码，令其必须按串行方式运行，还给出了方法，用于改变下一同步周期须到达该处的线程数目
+        3.3 线程卡的计数器可以调整为任意数目
+
+# 原子操作  #include <atomic>
+    1、std::atomic<T>，无法拷贝或赋值
+    2、内存次序
+        2.1 从枚举类std::memory_order取值，用于设定所需的内存次序语义
+        2.2 std::memory_order_relaxed(存储、载入、"读写改")
+            std::memory_order_acquire(载入、"读写改")
+            std::memory_order_consume(载入、"读写改")
+            std::memory_order_acq_rel("读写改")
+            std::memory_order_release(存储、"读写改")
+            std::memory_order_seq_cst(存储、载入、"读写改")
+    3、std::atomic_flag：标准原子类型，表示一个bool标志，只有两个状态：成立或置零
+        3.1 通过宏ATOMIC_FLAG_INIT初始化，置零
+        3.2 唯一保证无锁的原子类型
+        3.3 可执行操作：销毁(析构)、置零(clear())、读取原有的值并设置标志成立(test_and_set())
+        3.4 不支持单纯无修改查值操作，无法用作普通的bool标志
+    4、std::atomic<bool>
+        4.1 能依据非原子bool量创建其对象，初值是true或false皆可，实例也接受非原子bool量的赋值
+        4.2 所支持的赋值操作符不返回引用而是按值返回
+        4.3 调用store()也能设定内存次序语义
+        4.4 成员函数exchange()代替test_and_set()，获取原有的值还能设定新值作为替换
+        4.5 支持单纯的读取，隐式：将实例转换为普通bool值；显式：调用load()
+        4.6 "比较-交换"操作：期望值跟原子变量atomic比较，如果和atomic值相同，atomic就存入自己指定的值；
+                            否则，atomic赋予expected
+            4.6.1 compare_exchange_weak(expected, target)
+                可能会操作失败，循环内执行较好
+            4.6.2 compare_exchange_strong(expected, target)
+                只有当原子变量的值不符合预期才会返回false，内部自带有循环
+            4.6.3 接受两个内存次序参数
+                1、失败操作设定的内存次序不能比成功操作更严格
+                2、如果没有指定失败操作的内存次序，则默认与成功一样
+                3、如果成功失败均未指定，则默认std::memory_order_seq_cst
+    5、std::atomic<T*>
+        5.1 支持算术运算，服从std::memory_order_seq_cst
+        5.2 具名函数按原子化方式执行操作，并返回原子对象的旧值
+        5.3 复合函数运算符则返回新值
+    6、泛化std::atomic<>类模板 -> 内部有锁保护所有操作
+        6.1 自定义类必须满足一定条件才能具现化出原子类型
+            6.1.1 必须具备平实拷贝赋值操作符
+            6.1.2 不得含有任何虚函数，也不可以从虚基类派生得出
+            6.1.3 必须由编译器代其隐式生成拷贝赋值操作符
+            6.1.4 若自定义类型具有基类或非静态数据成员，则它们同样必须具备平实拷贝赋值操作符
+    7、非成员函数
+        7.1 C++标准库还提供了非成员函数，按原子化形式访问std::shared_ptr<>
+            操作：载入、存储、交换和比较-交换
+            函数：atomic_...(std::shraed_ptr<>*)
+        7.2 #include <experimental/atomic>  std::experimental::atomic_shared_ptr<T>
+            其有机会通过无锁方式实现，对于普通智能指针没有额外开销
+    8、内存次序同步
+        8.1 std::memory_order_seq_cst   先后一致次序
+        8.2 std::memory_order_relaxed   宽松次序
+        8.3 std::memory_order_release与std::memory_order_acquire    一对构成同步
+        8.4 std:memory_order_acq_rel前与release同步，后与acquire同步
+        8.5 std::memory_order_consume   前序依赖
+        8.6 栅栏：
+                std::atomic_thread_fence(std::memory_order_release)
+                std::atomic_thread_fence(std::memory_order_acquire)

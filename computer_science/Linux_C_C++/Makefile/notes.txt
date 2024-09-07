@@ -1,0 +1,33 @@
+debug:
+	@command	加@隐藏shell中显示的命令
+.PHONY : debug伪命令
+这样make debug才会生效
+依赖于(target) : 被依赖(prerequisties)
+
+变量定义：cpp := src/main.cpp，赋值的是字符串
+变量引用：$(cpp)或${cpp}
+
+$@target名称
+$<第一个prerequisties文件名称
+$^所有prerequisties文件，空格分隔，无重复
+
+运算符：
+=后续=可以更改
+:=后续=不能更改，+=可以续上
+?=未定义，赋值；定义，不变
+续行符\
+
+函数：
+$(func, args)或${func, args}
+
+	1、shell
+		1.1 $(shell command args)
+	2、foreach
+		2.1 $(foreach item, $(path), -I(item))
+		2.2 flag := $(path : % = -I%)
+	3、subst
+		3.1 $(subst ori rep target)
+	4、patsubst
+		4.1 $(patsubst pattern rep target) %表示通配符
+	5、dir获取目录
+		5.1 $(dir name)

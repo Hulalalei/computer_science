@@ -1,0 +1,65 @@
+==================饼图&&3D饼图
+
+pie(data(向量), labels = names(向量), col = clos(向量), family = 'GB1', main = title, radius = )
+绘图后调用legend("topright", names, cex = 0.8, fill = clos)制作标注
+png(file = "./map.png")生成图片
+
+install.packages("plotrix")
+pie3D(data, labels = names, explode = 0.1, main = 'title', family = "STHeitiTC-Light")
+
+
+==================条形图
+
+barplot(data(向量或矩阵), xlab = x轴标签, ylab = , main = "title", names.org = "矩形条名字", col = , family = , legend = 是否显示标注, 
+	beside = TRUE(堆叠格式，t水平或f竖直))
+
+
+==================散点图&&散点图矩阵
+
+plot(x = 集合, y = 集合, type = "p/l/o/b/c/h/s/S/n", main = , xlab = name, ylab = , xlim = , ylim = , axes = TRUE)
+
+pairs(formula = “变量系列”, data = "变量的数据集")
+
+
+==================函数曲线图
+
+curve(expr, from = NULL, to = NULL, n = 100, add = FALSE, type = "l", xname = , xlab = , ylab = , log = , xlim = ...)
+
+==================读取excel表中数据
+
+install.packages("xlsx")
+library("xlsx")
+data <- read.xlsx("name.xlsx", sheetIndex = 1)
+
+
+==================ggplot2基本公式：ggplot() + geom_*() + 分面公式 + 修饰函数
+
+ggplot(data, mapping = aes(x = , y = , ...))
+
+geom_point(color = , size = , fill = , alpha = 0.6透明度, position = "jitter"不会对点进行取舍，精确)：用于绘制点图
+
+geom_jitter(color = , size = , width = , alpha = )：添加散点
+
+geom_line(color = , linetype = , size = )：绘制线图
+
+geom_bar(fill = , alpha = , color = , width = , weight = , stat = "identity"根据y轴数目进行绘制, position = , fun = mean)：绘制条状图，只需指定横轴坐标，因子类型或字符串类型
+
+geom_col(fill = "red"或aes(fill = data))
+
+geom_errorbar(df1, aes, size = , position = , stat = , )：误差线
+
+library("ggsignif")：显著性检验
+geom_signif(comparisons = list(c("A", "C"), c("B", "D")), map_signif_level = F, tip_length = c(0, 0, 0, 0), y_position = c(90, 100), size = 1, textsize = 7, test = "t.test")
+
+主成分分析PCA图
+library("tidyverse")
+library("factoextra")
+data("mtcars")	# 加载数据集
+data_num = mtcars %>% mutate(vs = ifelse(vs == 0, 'V-shaped', 'straight'), am = ifelse(am == 0, 'automatic', 'manual')) %>% select_if(is.numeric)
+PCA = prcomp(data_num, center = T, scale. = T)	# 主成分分子
+screeplot(PCA, type = 'line')	# 各个PC解释的方差的占比
+fviz_pca_ind(PCA)		# 可视化PCA
+fviz_pca_var(PCA)
+fviz_pca_biplot(PCA)
+
+

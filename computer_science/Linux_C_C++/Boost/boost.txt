@@ -1,0 +1,43 @@
+使用boost库的静态或动态库时，需要先输入命令：ldconfig刷新缓存
+使用头文件时，也需要加入相应的链接命令 -l boost_*
+
+
+链接库：ldconfig
+        g++ -DBOOST_LOG_DYN_LINK -g main.cpp -std=c++17 -l boost_thread -l boost_system -l boost_log -l boost_log_setup -l boost_serialization -l pthread -o main
+asio库：
+	boost::asio::deadline_timer	async_wait(func)
+	boost::asio::io_service	run()、cancel()
+log库：
+	#include <iostream>
+	#include <boost/log/core.hpp>
+	#include <boost/log/trivial.hpp>
+	#include <boost/log/expressions.hpp>
+	#include <boost/log/utility/setup/file.hpp>
+	#include <boost/log/utility/setup/common_attributes.hpp>
+	#include <boost/log/sinks/text_file_backend.hpp>
+	#include <boost/log/sources/severity_logger.hpp>
+	#include <boost/log/sources/record_ostream.hpp>
+
+
+
+
+	void init() {
+    	boost::log::add_file_log (
+        	boost::log::keywords::file_name = "../res/web_server.log",
+        	boost::log::keywords::format = "[%TimeStamp%]: %Message%"
+   	 );
+
+    	// boost::log::add_file_log("../res/web_server.log");
+
+    	boost::log::core::get()->set_filter (
+        	boost::log::trivial::severity >= boost::log::trivial::info
+    	);
+
+    	boost::log::add_common_attributes();
+	}
+
+	int main(int argc, char **argv) {
+    		init();
+    		BOOST_LOG_TRIVIAL(info) << "redirect to: " << "./";
+    		return 0;
+	}

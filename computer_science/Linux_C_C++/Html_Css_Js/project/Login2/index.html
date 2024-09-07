@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="wrapper">
+            <div class="form-wrapper">
+                <div class="login-form">
+                    <div class="tips">
+                        <h1>Login in this platform.</h1>
+                        <span>No account?</span>
+                        <span class="signup-into">Create</span>
+                    </div>
+                    <div class="form-wrapper">
+                        <div class="input-wrapper user">
+                            <input type="text" class="inputs">
+                        </div>
+                        <div class="input-wrapper pwd">
+                            <input type="password" class="inputs">
+                        </div>
+                        <div class="input-wrapper veri-code">
+                            <input type="text" class="inputs veri-code-input">
+                            <span class="veri-code-tips">Click To Get</span>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button class="form-btn other-login-btn">VeriCode Login</button>
+                            <button class="form-btn login-btn">Login</button>
+                        </div>
+                        <div class="other-login">
+                            <div class="divider">
+                                <span class="line"></span>
+                                <span class="divider-text">or</span>
+                                <span class="line"></span>
+                            </div>
+                            <div class="other-login-wrapper">
+                                <div class="other-login-item">
+                                    <img src="./asset/QQ.png" alt="QQ">
+                                </div>
+                                <div class="other-login-item">
+                                    <img src="./asset/WeChat.png" alt="WeChat">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="signup-form">
+                    <div class="tips">
+                        <h1>Create new account.</h1>
+                        <span>Already A Member?</span>
+                        <span class="login-into">Log in</span>
+                    </div>
+                    <div class="form-wrapper">
+                        <div class="input-wrapper user">
+                            <input type="text" class="inputs">
+                        </div>
+                        <div class="input-wrapper pwd">
+                            <input type="password" class="inputs">
+                        </div>
+                        <button class="form-btn">Create account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let veriCodeTips = document.querySelector('.veri-code-tips');
+    let veriCode = document.querySelector('.veri-code');
+    let signupInto = document.querySelector('.signup-into');
+    let otherLoginBtn = document.querySelector('.other-login-btn');
+    let signupForm = document.querySelector('.signup-form');
+    let loginForm = document.querySelector('.login-form');
+    let loginInto = document.querySelector('.login-into');
+    let pwdBtn = document.querySelector('.pwd');
+    let reckonTimeFlag = 5; //倒计时
+    let reckonTime; //定时器
+    let otherLoginFlag = false;
+    //定时器
+    function countDown() {
+        veriCodeTips.innerHTML = `RESEND(${reckonTimeFlag})`
+        reckonTimeFlag--;
+        if (reckonTimeFlag < 0) {
+            clearInterval(reckonTime);
+            reckonTimeFlag = 5;
+            veriCodeTips.innerHTML = `Click To Get`;
+            veriCodeTips.style.color = "rgb(39, 150, 247)";
+            veriCodeTips.onclick = veriCodeTipsClick;
+        }
+    }
+    //点击事件触发的方法
+    function veriCodeTipsClick() {
+        veriCodeTips.onclick = null;
+        veriCodeTips.style.color = "rgb(153, 151, 151)";
+        reckonTime = setInterval(countDown, 1000);
+        countDown();
+    }
+    //验证码登录设置点击事件
+    veriCodeTips.onclick = function () {
+        veriCodeTipsClick();
+    }
+    loginInto.onclick = function () {
+        signupForm.style.zIndex = '0';
+        signupForm.style.opacity = '0';
+        signupForm.style.transform = 'translate(0, 0px)';
+        setTimeout(function () {
+            loginForm.style.opacity = '1';
+            loginForm.style.zIndex = '1';
+        }, 500)
+    }
+    signupInto.onclick = function () {
+        loginForm.style.opacity = '0';
+        loginForm.style.zIndex = '0';
+        setTimeout(function () {
+            signupForm.style.zIndex = '1';
+            signupForm.style.opacity = '1';
+            signupForm.style.transform = 'translate(0, 50px)';
+        }, 500)
+    }
+    otherLoginBtn.onclick = function() {
+        if(otherLoginFlag) {
+            veriCode.style.opacity = '0';
+            veriCode.style.zIndex = '0';
+            veriCode.style.transform = 'translate(0, 0px)';
+            pwdBtn.style.opacity = '1'
+            otherLoginBtn.innerHTML = 'VeriCode Login';
+            otherLoginFlag = false;
+        } else {
+            veriCode.style.opacity = '1';
+            veriCode.style.zIndex = '1';
+            veriCode.style.transform = 'translate(0, -90px)';
+            pwdBtn.style.opacity = '0'
+            otherLoginBtn.innerHTML = 'Password Login';
+            otherLoginFlag = true;
+        }
+    }
+</script>
+
+</html>

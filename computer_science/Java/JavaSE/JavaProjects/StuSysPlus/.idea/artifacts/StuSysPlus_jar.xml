@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact name="StuSysPlus:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/StuSysPlus_jar</output-path>
+    <root id="root">
+      <element id="archive" name="StuSysPlus.jar">
+        <element id="module-output" name="StuSysPlus" />
+      </element>
+    </root>
+  </artifact>
+</component>

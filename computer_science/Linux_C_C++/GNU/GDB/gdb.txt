@@ -1,0 +1,65 @@
+shell中输入 gdb test 进入调试模式，q退出
+
+gcc test.cpp -g -o test（加-g进行gdb调试）
+
+gdb下：   break/b 10表示断点打在第10行
+	run/r 表示启动程序，在b处停止
+	next表示跳步，还是大步
+	step表示跳步，小步，第三方库和库函数无法进入
+	continue表示继续运行下一个程序，直到下一个断点	
+	set args表示设置主程序参数
+	print name表示显示变量name的值
+	set var name = value设置变量name的值
+	quit表示退出调试
+	info b表示查看断点
+
+core dumped
+	1. ulimit -a		查看系统参数
+	2. ulimit -c unlimited	把core文件的大小设置为无限制
+	3. 运行程序，生成core文件
+	4. gdb 程序名 core文件
+	bt查看函数调用栈
+
+调试运行中的程序
+	ps -ef|grep test查看进程编号
+	gdb test -p 进程编号	
+
+调试多进程服务程序
+	调试父进程：set follow-fork-mode parent	默认先调试父进程
+	调试子进程：set follow-fork-mode child
+	设置调试模式：set detach-on-fork [on|off]	默认on
+		调试当前进程时，其他进程是否继续运行，on运行，off挂起
+	查看调试的进程：info inferiors
+	切换当前调试的进程：inferior 进程id
+	
+调试多线程服务程序
+	shell中：
+	查看当前运行的进程：ps aux|grep test
+	查看当前运行的轻量级进程：ps -aL|grep test
+	查看主线程和新线程的关系：pstree -p 主线程id
+
+
+	gdb中：
+	查看线程：info threads
+	切换线程：thread 线程id
+	只运行当前线程：set scheduler-locking on
+	运行全部的线程：set scheduler-locking off
+	指定某线程执行某gdb指令：thread apply 线程id cmd
+	全部的线程执行某gdb指令：thread apply all cmd
+
+服务程序运行日志
+	freeplus框架，Linux下的c/c++开源框架，源码在www.freecplus.net下载
+	#include "_freecplus.h"
+	CLogFile logfile;
+	logfile.Open("path", "mode");
+	logfile.Write("content");类似printf
+
+	需要包含三个文件：_cmpublic.h、_freecplus.cpp、_freecplus.h
+
+	追踪日志文件：
+		tail -f path
+
+
+
+
+

@@ -1,0 +1,18 @@
+一键格式化代码：ctrl + alt + L
+多行注释：ctrl + shift + /
+数组循环遍历：数组名.fori + tab
+输出：sout + tab
+主函数：psvm + tab
+一键生成类变量的set&get函数(单体)：alt + Insert( + Fn)
+一键生成类变量的set&get函数(整体)：下载ptg插件，空白处右键->ptg to javabean
+显示函数或对象参数：ctrl + p
+查看源码：ctrl + b
+用函数包裹代码体：ctrl + alt + t
+for循环：n.fori：(int i = 0; i < n; i++)
+批量修改变量：shift + F6
+查找java包：ctrl + n
+找包内对应的方法：ctrl + F12
+寻找之前函数/之后函数：ctrl + alt + 左/右
+快速创建方法：alt + enter
+右箭头表示重写的是哪个父类的方法
+上箭头表示方法来自于哪个接口

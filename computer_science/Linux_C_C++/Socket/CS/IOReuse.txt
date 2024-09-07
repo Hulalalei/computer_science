@@ -1,0 +1,72 @@
+#include <sys/select.h>
+
+struct timeval {
+	time_t tv_sec;
+	suseconds_t tv_usec;
+};
+
+int select (int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);
+//nfds: the max of fd plus 1.
+//readfds, writefds, exceptfds: store the according fds.
+//timeout: as you see.
+//when the core receive the r、w、e, it will check which fd is ready and then modify the r、w、e return to select();
+
+void FD_CLR (int fd, fd_set *set);
+int FD_ISSET (int fd, fd_set *set);
+void FD_SET (int fd, fd_set *set);
+void FD_ZERO (fd_set *set);
+
+#include <poll.h>
+
+struct pollfd {
+	int fd;
+	short events;
+	short revents;
+};
+
+struct pollfd myfd[100];
+int poll (struct pollfd *fds, nfds_t nfds, int timeout);
+//fds: execute the accordance event.
+//nfds: the max of the fd plus 1.
+//timeout: put -1 is unblocked.
+//events:
+	POLLIN、POLLRDNORM、POLLRDBAND、POLLPRI.
+	POLLOUT、POLLWRNORM、POLLWRBAND.
+	POLLERR、POLLHUP、POLLNVAL.
+
+
+#include <sys/epoll.h>
+
+
+int epoll_create (int size);
+//size: any number is greater than the 0 is just ok.
+
+typedef union epoll_data {
+	void *ptr;
+	int fd;
+	uint32_t u32;
+	uint64_t u64;
+} epoll_data_t;
+
+
+struct epoll_event {
+	uint32_t events;	/* Epoll events */
+	epoll_data_t data;	/* User data variable */
+};
+
+
+int epoll_ctl (int epfd, int op, int fd, struct epoll_event *event);
+//epfd: a red-black tree
+//op: an operator.
+//fd: target fd need to push on the tree.
+
+int epoll_wait (int epfd, struct epoll_event *event, int maxevents, int timeout);
+//epfd: a red-black tree.
+//maxevents: the maxsize of the event.
+//timeout: as you see.
+
+//op: EPOLL_CTL_ADD、EPOLL_CTL_MOD、EPOLL_CTL_DEL
+
+//event: EPOLLIN、EPOLLOUT、EPOLLRDHUP、EPOLLPRI、EPOLLERR、EPOLLHUP、EPOLLET、EPOLLONESHOT
+
+//ET demo: struct epoll_event ev;	ev.events = EPOLLIN | EPOLLET;

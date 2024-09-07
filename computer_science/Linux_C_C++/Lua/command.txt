@@ -1,0 +1,39 @@
+-l(L) lua -l(L) m -l dl 
+
+#include <lua.hpp>
+#include <LuaBridge/LuaBridge.h>
+
+c++ 与 lua嵌入
+	bool reloadLuaScript(lua_State *L, const std::string &luafile) {
+		int state = luaL_dofile(L, luafile.c_str());
+		if (state != LUA_OK) {
+			return false;
+		}
+		return true;
+	}
+
+	void registerClassAndFunctions(lua_State *L) {
+		using namespace luabridge;
+		getGlobalNamespace(L).addFunction("funcname", func);
+		getGlobalNamespace(L)
+			.beginClass<Base>("Base")
+			.addFunction("mem_func", &Base::mem_func)
+			.endClass()
+			.deriveClass<Derive, Base>("Derive")
+			.endClass();
+	}
+
+	void testCallLua(lua_State *L) {
+		Base b;
+		lua_getglobal(L, "lua's func");
+		luabridge::push(L, &b);
+		lua_pcall(L, 形参个数, 返回值个数(0), 处理错误个数(0));
+	}
+
+	lua_State *L = luaL_newstate();
+	luaL_openlib(L);
+	auto ok = reloadLuaScript(L, argv[1]);
+	registerClassAndFunctions(L);
+	testCallLua(L);
+	lua_close(L);
+	L = nullptr;

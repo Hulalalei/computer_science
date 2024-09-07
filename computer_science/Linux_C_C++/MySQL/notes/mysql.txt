@@ -1,0 +1,304 @@
+mysql中：source test.sql可以执行脚本文件
+cd /usr/local/mysql/support-files
+./mysql.server start
+
+
+单行注释：-- (要加空格)或#(不用加空格)
+多行注释：/*注释*/
+
+net start mysql			//启动数据库
+net stop mysql			//关闭数据库
+mysql -u root -p 			//登录
+mysqld -remove mysql		//删库跑路
+
+
+
+
+				第一章、数据库基本操作
+# 创建的数据库是在系统磁盘上划分一块区域用于数据的存储和管理
+
+# mysql8.0系统表全为InnoDB表(事务型表)
+
+select distinct(engine) from information_schema.tables;		查看系统表类型
+show create databse db_name\G;					查看创建的数据库
+drop database db_name;						删除数据库
+use db_name;							选择指定数据库使用
+
+
+				第二章、数据表的基本操作
+show tables;							查看数据库中的表
+create table t_name() engine=myisam;				创建表并指定存储引擎
+id int(11) primary key						字段设置主键01
+primary key(id, ...)						字段设置主键02
+
+# 外键：在两表数据之间建立连接，可以是多列；单个表可以有多个外键
+# 定义外键后，不允许删除具有关联关系的行
+# 主键所在的表是主表；外键所在的表是从表
+# 外键定义：t1中定义主键，t2中: constraint fore_key_name foreign key(t2:id) references t1(t1:id)
+
+name varchar(10) not null					非空约束
+id int unique/constraint 约束名 unique(name)			唯一约束
+id int default 2107						默认约束
+id int auto_increment						属性自动增加
+describe/desc t_name						查看表
+show create table t_name\G;					详细查看表，\G格式化
+alter table old_tname rename new_tname;				修改表名
+alter table t_name modify id int;				修改数据类型
+alter table t_name change old_id new_id int;			修改字段名
+alter table t_name add new_id int;				添加字段
+alter table t_name add id int not null first/after;		添加字段
+alter table t_name drop id;					删除字段
+alter table t_name modify id int first/after m_name		修改字段位置
+
+# 存储引擎：mysql中的数据存储在文件或者内存中时采用的不同技术实现
+# 主要的存储引擎：MyISAM、InnoDB、MEMORY(HEAP)、BDB、FEDERATED
+
+show engines;							查看系统支持的存储引擎
+alter table t_name engine = e_name;				修改表的存储引擎
+alter table t_name drop foreign	key fore_key			删除外键约束，从表的外键
+drop table (if exists) t_name;					删除表
+show variables like "character_set_database";			查看数据库默认编码
+
+
+
+				第三章、数据类型和运算符
+==============运算
+select id, id + 10 from hsf.admin;				
+==============比较运算符
+is (not) null：select null is null;
+between and：select 4 between 2 and 5;
+least：select least(2, 3, 1, 0);
+greatest：select greatest(2, 3, 1, 0)
+(not) in：select 2 in (1, 2, null, 'a');
+like："_"：只匹配一个字符；"%"匹配任意个字符，0也可；select "stud" like "%d";
+regexp：select "ssky" regexp "^s";
+==============函数
+语法：select func(para);
+函数：
+===数学函数：
+	abs()						绝对值
+	pi()						圆周率
+	sqrt()						开根号
+	mod(x, y)					---x > y取模
+	ceil、ceiling					上取整
+	floor						下取整
+	rand()/rand(x)					---x为随机数种子
+	round(x)					离x最近的整数
+	round(x, y)					保留y位小数
+	truncate(x, y)					截去多余y位数
+	sign(x)						符号函数
+	pow(x, y)/power(x, y)				幂函数
+	exp(x)						e^x
+	log(x)/log10(x)
+	radians(x)					角度转弧度
+	degrees(x)					弧度转角度
+	sin(x)/asin(x)
+	cos(x)/acos(x)
+	tan(x)/atan(x)/cot(x)
+	
+===字符串函数：
+	char_length(str)				求字符串字符个数
+	length(str)					求字符串长度
+	concat(...)					连接字符串
+	concat_ws(...)					带分隔符的连接
+	select insert(des, index, len, res) as id;	替换字符串
+	lower(str)/lcase(str)				字母转小写
+	upper(str)/ucase(str)				字母转大写
+	left(str, len)/right(str, lrn)			获取子串
+	lpad/rpad(str, len, res)			填充字符串
+	ltrim/rtrim/trim				删除字符串空格
+	trim(str from res)				删除指定字符串str
+	repeat(str, time)				生成重复字符串
+	space(n)					生成n个空格
+	replace(res, x, y)				y替换res中所有x
+	strcmp(s1, s2)					比较字符串
+	mid/substring(s, n, len)			n开始截取长度为len的字串
+	locate(str1, str)				找出字串位置
+	position(str1 in str)
+	instr(str, str1)
+	reverse(str)					字符串逆序
+	elt(2, str1, str2, str3)			返回str2
+	field(str1, str, str, ...)			返回第几个str
+	find_in_set(s1, s2)				返回s1在s2中的位置
+	make_set(bin, str1, str2, ...)
+
+===逻辑函数：
+	if(expr, v1, v2);				true返回v1，false返回v2
+	ifnull(v1, v2);					v1不为null，返回v1
+	case expr when 1 then 2...else "err" end;
+
+===系统信息函数：
+	version()
+	connection_id()
+	show (full) processlist;			只显示前100条
+	database()
+	schema()
+	user()
+	current_user()
+	system_user()
+	charset(str)					获取字符集类型
+	collation(str)					获取字符排列方式
+	last_insert_id()				返回最后生成的auto_increment值
+
+===加密函数：
+	md5(str)
+	sha(str)					比md5更安全
+	sha2(str, hash_length)				hash_length: 224, 256, 384, 512, 0
+
+===其他函数：
+	format(x, n)					格式化函数，保留小数点n位
+	conv(num, form_base, to_base)
+	inet_aton(expr)/inet_ntoa(expr)			expr: "192.168.88.130"
+
+
+
+				第四章、查询数据
+select * from table;
+select id from table where ...;
+where id (not) in (1, 100) order by id desc/asc;
+where id (not) between 1 and 100;
+where name like "b%"
+where name is null and/or expr;
+select distinct id from table;
+select id count(*) as total from table group by id;
+select id group_concat(name) as names from table group by id having count(names) > 1;
+with rollup;						统计查询的数量
+select * from table limit (begin,) end;
+select id from fruits inner join suppliers on fruits.s_id = supplier.s_id;	内连接
+====where子句在某些情况下会影响查询性能
+left/right outter join
+select * from table where all/some/any/exists(select name from supplier where id = 107);
+unoin (all) id, name, ...;
+====group by不再隐式排序
+
+
+
+				第五章、更新数据
+insert into table (rownames, ...) values(...), (...) ...			插入数据
+insert into t1 (list) select (list2) from t2 where condition			将一个表数据插入到另一个表中
+update t_name set id = .., ...;
+delete from t_name where condition
+c int generated always as ((a + b)) virtaul;					增加计算列
+
+
+
+				第六章、索引
+======创建索引
+create table t_name (id int, 
+			name char,
+			index(id));						普通索引
+unique index uniqidx(id)							唯一索引
+index singleidx(id)								单列索引
+index multiidx(id, name, ...)							多列索引
+fulltext index fulltxtidx(info)							全文索引
+spatial index spatidx(id)							空间索引
+alter table t_name add index idx_name(id(20))					20为索引长度
+create index idx_name on t_name(id);
+======删除索引
+alter table t_name drop index idx_name;
+drop index idx_name on t_name;
+
+
+
+
+				第七章、存储过程和函数
+======创建存储过程
+create procedure pro_name(out prar int) begin ... end;
+delimiter //									将结束符设置为//
+======创建存储函数
+create function func_name() 
+returns char(50);
+return (select name from t_name where id = "10086");
+======声明变量
+declare my_para int default 100;
+======变量赋值
+set my_para = 10;
+======捕获异常
+declare command_not_allowd condition for sqlstate "42000";
+declare command_not_allowed condition for 1148;
+======处理异常
+找课本
+======光标的使用
+===创建光标
+declare cursor_name cursor for select_stat;
+===打开光标
+open cursor_name;
+===使用光标
+fetch cursor_name into id, ...;
+===关闭光标
+close cursor_name;
+===流程控制函数的使用
+===调用存储过程
+call procedure(para, @num);							结果存储在num中
+===调用函数
+select func(para);
+===查看存储过程和函数
+show procedure/function status like "pro_name";
+show create function func_name;
+===从information_schema.Routines表中查看存储过程和函数的信息
+select * from information_schema.Rountines where routine_name = "func_name" and routine_type = "function";
+===修改存储过程和函数
+alter procedure pro_name ...
+===删除存储过程和函数
+drop function func_name;
+===设置全局变量
+set global id = 10;								数据库重启后会清空
+set persist id = 10;								数据库重启后不会清空
+show variables like "...";
+
+
+
+
+				第八章、视图
+===创建视图
+create view view_t as select id, name from t_name;
+mysql.user表中保存有视图查看的权限
+===查看视图
+describe view_name;
+show table status like "view_name";
+show create view view_t;
+select * from information_schema.views;
+===修改视图
+create or replace view view_t as select * from t_name;
+alter view view_t as select id from t_name;
+===更新视图
+update view_t set id = 10;
+insert into t1 value(1, "hsf", 3);
+delete from view_t where id = 10;
+===删除视图
+drop view if exists view_name;
+
+
+
+
+				第九章、触发器
+===触发器：是由事件来触发某个操作，事件包括：insert、delete、update
+===创建触发器
+create trigger tri_name tri_time(before/after) tri_event(del/ins/upd) on t_name for each row tri_stat;
+===执行多条语句的触发器
+create trigger tri_name tri_time(before/after) tri_event(del/ins/upd) on t_name for each row begin stat end;
+===查看触发器
+show triggers;
+select * from information_schema.triggers where condition;
+===删除触发器
+drop trigger db_name.tri_name;
+
+
+
+
+				第十章、权限与安全管理
+===mysql库中的权限信息表：user、db、host、tables_priv、columns_priv、procs_priv
+user表：记录允许连接到服务器的账号信息，全局级
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,93 @@
+命令行解释器执行：Rscript file.r
+命令行编程：1、添加R.exe的环境变量 2、cmd中输入R即可进入R编程环境 3、q()退出
+
+
+赋值：name <- 10或name = 10
+打印：print()
+拼接或操作IO：cat("content", "path", append = TRUE)
+控制台输入，输入到文件中：sink("path", split = TRUE)，true保留内容
+文件读取：readlines("path")
+获取当前工作目录：getwd()
+设置当前工作目录：setwd()
+注释：#或""建议不用第二种，容易和字符串混淆
+
+
+关系运算符：>、<、==、!=、>=、<=
+逻辑运算符：&、|、！、&&、||
+其他运算符：:冒号运算符，用于创建一系列数字的向量
+	     %in%用于判断元素是否在向量里，返回布尔值，有的话返回true，反之false
+
+
+数学函数：sqrt(n)，exp(n)，log(m, n)n为底m的对数，log10(m)
+取整函数：round(n)四舍五入、ceiling(n)对n向上取整、floor(n)对n向下取整
+三角函数：sin(pi/6)、cos、tan、asin、acos、atan
+向量统计：sum、mean、var方差、sd标准差、min、max、range取值范围，
+	which(condition)、all(vector)全为true、any(vector)存在true
+	paste()字符串拼接，length()、str()显示对象摘要
+数据类型：整型(一般型或科学计数法)、布尔(R中区分大小写，true与TRUE不同)、字符串、NA、NULL
+
+
+6大对象：
+	向量：a = c(1, 2, 3)，向量加法，a[1]取出元素，不代表偏移量，而是元素在第几位
+		seq(min, max, gap)间断向量，seq(min, max, length.out = num)
+		rep(num, times)
+	列表：list()
+		# 添加元素
+		list_data[4] <- "新元素"
+		print(list_data[4])
+
+		# 删除元素
+		list_data[4] <- NULL
+		#列表转换为向量
+		unlist()
+	矩阵：vector=c(1, 2, 3, 4, 5, 6)、 m = matrix(vector, 2, 3)，m[1, 2]
+		colnames(m1) = c("x", "y", "z")设置向量名字
+		rownames(m1) = c("a", "b")
+		matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,dimnames = NULL)
+		t()转置
+	数组：array(data = src, dim = length(data), dimnames = NULL)，索引从1开始
+		filtered_elements <- my_array[my_array > 5]  # 选择大于5的元素
+	因子：factor(x = character(), levels, labels = levels,
+       exclude = NA, ordered = is.ordered(x), nmax = NA)
+	数据框：data.frame(…, row.names = NULL, check.rows = FALSE,
+          		 check.names = TRUE, fix.empty.names = TRUE,
+           		stringsAsFactors = default.stringsAsFactors())
+逻辑函数：
+	switch：x <- switch(
+   		3,
+   		"google",
+  		 "runoob",
+  		 "taobao",
+  		 "weibo"
+		)
+		print(x) //"taobao"
+
+		you.like<-"runoob"
+		switch(you.like, google="www.google.com", runoob = "www.runoob.com", taobao = "www.taobao.com")
+
+	if：
+	repeat：repeat { 
+    			// 相关代码 
+    			if(condition) {
+       				break
+    			}
+		}
+
+	while：
+	for(value in vector)：
+	break、next(continue)
+
+自定义函数：
+	add_numbers <- function(x, y) {
+  		result <- x + y
+  		return(result)
+	}
+
+
+
+
+
+
+
+
+

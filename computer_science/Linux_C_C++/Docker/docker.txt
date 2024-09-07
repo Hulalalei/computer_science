@@ -1,0 +1,16 @@
+docker rm -f 编号				删除指定docker os
+docker ps					查看所有docker os
+docker run -itd --name 名字 centos:7/update	创建纯净os
+docker exec -it 编号 /bin/bash		进入docker
+docker cp root中的路径 cpp:docker中的路径
+docker exec cpp rm file_name
+docker restart cpp
+
+docker-cpp中已下载：vim，gcc，wget，boost
+
+docker inspect id | grep IPAddress				查看docker容器的ip地址
+docker run -itd -p 12000:12000 --name cpp centos:update		端口映射
+
+docker commit cpp centos:update				打包docker
+docker save -o /path/to/save/my_image.tar my_image		导出打包文件
+docker load						导入镜像

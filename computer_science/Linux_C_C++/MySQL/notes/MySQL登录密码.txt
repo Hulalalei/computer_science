@@ -1,0 +1,2 @@
+账号：mysql -u hsf -p
+密码：20040618HSF、20040618(centos)

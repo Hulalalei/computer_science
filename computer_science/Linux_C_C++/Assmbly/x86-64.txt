@@ -1,0 +1,314 @@
+优化程序性能
+	1、消除不必要的函数调用、条件测试和内存引用
+	2、内联展开、循环展开
+	3、指令级并行 + 并发
+	4、GCC编译器偏保守，优化不激进
+	5、超标量 + 乱序执行
+	6、局部性原理
+
+
+cpu基本知识
+	1、寄存器用来存储整数数据、指针、局部变量
+	2、以"."开头的行为都是指导汇编器和链接器工作的伪指令，作为辅助
+	3、当x86-64过程需要的存储空间超出寄存器能够存放的大小时，就会在栈上分配空间
+	4、栈帧中可以保存寄存器的值，分配局部变量空间，为其调用的过程设置参数
+	5、选取的寄存器的名字 取决于 要传递的数据类型的大小%rax、%eax、%ax
+	6、传递参数的寄存器：%rdi、%rsi、%rdx、%rcx、%r8、%r9；多出的参数用栈传递，通过栈传递参数时，所有的数据大小都向8的倍数对齐
+	7、寄存器%rbx、%rbp、%r12~%r15被划分为被调用者保存寄存器，防止过程调用覆盖掉
+	8、剩下的寄存器除了%rsp外，调用的过程可以任意修改，所以调用者必须提前保存好
+	9、媒体寄存器：%ymm0~%ymm15，每个256位；低128位是%xmm0~%xmm15
+	10、不允许从一个内存地址直接传送到另一个内存地址，也不允许将立即数传送到内存
+	11、cpu每个时钟周期的上升沿，进行更新寄存器的值
+
+链接器：
+	链接器会链接多个同名变量中的任意一个，所以所有变量最好显式初始化变为强符号，链接器只调用这个强符号
+加载器：
+	./main时，会调用execve函数来调用加载器来执行，加载时，创建内存映像(那个程序栈图)
+	
+gdb调试：
+    1、gdb main
+    2、b label
+    3、p $rax
+    4、x/16w $rbx
+gdb下，objdump产生反汇编代码
+readelf查看目标文件内容
+gprof分析数据吞吐量
+
+%rbp：帧指针寄存器
+%rsp：栈顶指针寄存器
+%rip：PC指针寄存器
+
+寻址：
+立即数：$0x1F
+寄存器：ra: R[ra]
+内存寻址方式：Imm(rb, ri, s) = M[Imm + R[rb] + R[ri] . s]
+
+整数寄存器组：
+64位：%rax、%rbx、%rcx、%rdx、%rsi、%rdi、%rbp、%rsp、%r8 --- %r15
+32位：%eax、%ebx、%ecx、%edx、%esi、%edi、%ebp、%esp、%r8d --- %r15d
+16位(8086)：%ax、%bx、%cx、%dx、%ci、%di、%bp、%sp、%r8w --- %r15w
+
+条件码寄存器组：
+CF：进位标志，检测无符号操作的溢出
+ZF：零标志，最近的操作得出的结果为0
+SF：符号标志，最近的操作得到的结果为负数
+OF：溢出标志，最近操作导致一个补码溢出---正/负溢出
+
+ELF头/伪指令：
+	.section	定义一个节
+	.text：		已编译程序的机器代码
+	.rodata：	只读数据
+	.data：		已初始化的全局和静态c变量，局部c变量开辟在栈中，既不在.data节也不在.bss节中
+	.bss：		未初始化的全局和静态c变量，以及所有被初始化为0的全局或静态变量，这个节不占据实际空间，仅仅是一个占位符；
+				运行时，在内存中分配这些变量，初始值为0
+	.symtab：	符号表，存放 在程序中定义和引用的函数和全局变量的信息，不包含局部变量条目
+	.rel .text：	通常忽略，调用外部函数时需改变这个位置，代码的重定位条目
+	.rel .data：	被模块引用或定义的所有全局变量的重定位信息，已初始化数据的重定位条目
+	.debug：	调试符号表，其条目是：程序中定义的局部变量和类型定义，程序中定义和引用的全局变量，原始的c源文件
+	.line：		原始c源程序中的行号和.text节中机器指令之间的映射
+	.strtab：	字符串表，包括.symtab和.debug中的符号表，以及节头部中的节名字；是以null结尾的字符串序列
+	.comm：		通用缓存区域
+	.lcomm：	本地缓存区域
+
+
+数据类型：
+	1、.ascii	字符串
+	2、.asciz	以\0结尾的字符串
+	3、.byte	字节
+	4、.double	双精度浮点
+	5、.float	单精度浮点
+	6、.int		32位整数
+	7、.long	32位整数
+	8、.octa	16字节整数
+	9、.quad	8字节整数
+	9、.short	16位整数
+	10、.single	单精度浮点
+    11、.equ    定义常量
+    12、.skip   预留一定空间，里面是空指令
+
+数据的定义：
+	Label: 
+		.long 32
+	Label_end:
+	movq $(Label_end - Label), %rcx # length
+	movq $Label, %rcx		# store Label
+	movb $'A', Label		# Label[0]
+	movb $'B', Label(%ecx)		# Label[1]
+
+
+
+
+系统调用：	
+1、所有的系统调用的参数都是通过通用寄存器而不是栈传递的
+2、==%eax==包含系统调用号；%rdi、%rsi、%rdx、%r10、%r8、%r9最多传递6个函数参数，参数顺序与寄存器顺序一致
+3、从系统调用返回时，%rcx和%r11都会被破坏，%rax包含返回值
+4、-4095 - -1之间都表明发生了错误，对应于负的errno
+
+Linux x86-64系统中常用系统调用：
+数字表示系统调用号
+0	read	读文件
+1	write	写文件
+2	open	打开文件
+3	close	关闭文件
+4	stat	获得文件信息
+9	mmap	将内存页映射到文件
+12	brk	    重置堆顶
+32	dup2	复制文件描述符
+34	pause	挂起进程直到信号到达
+37	alarm	调度告警信号的传送
+39	getpid	获得进程ID
+57	fork	创建进程
+59  execve  执行一个程序 
+60  _exit   终止程序
+61  wait4   等待一个进程终止
+62  kill    发送信号到一个进程
+
+
+##########################################################################
+指令：
+b w l q：传送1字节、传送2字节、传送4字节、传送8字节
+
+无条件传送指令：
+	mov src, dest：
+	mov指令的两个操作数不能同时指向内存位置
+	movl以寄存器作为dest时，高4位置0
+	movq只能以表示为32位补码数字的立即数作为源操作数，然后把这个值符号扩展得到64位的值，放到目的位置
+	movabsq能够以任意64位立即数作为源操作数，并且只能以寄存器作为目的
+	movz类指令，把目的中剩余字节填充为0；
+	movs类指令，通过符号扩展来填充
+		零扩展mov，以寄存器或内存地址作为源，寄存器作为目的
+		符号扩展mov，以寄存器或内存地址作为源，寄存器作为目的
+		movzbw、movzwl...
+		movsbw、movswl、cltq(%eax扩展到%rax)...
+
+push %rbp、pop %rax：
+	x86中，栈向低地址增长
+
+加载有效地址：
+	leaq没有bwlq变种：取内存地址 写入寄存器
+		leaq Imm(rb, ri, s), %rax == movq Imm + rb + ri * s, %rax
+
+一元操作：
+	inc addr、dec addr、neg addr、not addr
+	只有一个操作数，既是源又是目的，可以是寄存器也可以是内存位置
+
+二元操作：
+	add src, dest、sub、xor、or、and、imul(与下面的imul不同)
+	第一个操作数：src，第二个操作数dest，既是源又是目的
+	src可以是立即数、寄存器、内存位置，dest可以是寄存器或内存位置
+
+移位操作：
+	sal k($0xff/%cl), 、shl、sar、shr
+	移位量k可以是立即数或单字节寄存器%cl；位数为，%cl的低log2 w位，w为操作数位数
+	dest可以是寄存器或内存位置
+特殊的算术操作：
+	imul num、mul num	有/无符号全128位乘法
+	idiv num、div num	有/无符号全128位除法
+	cqto			转换为8字，%rax扩展到%rdx:%rax
+	一对寄存器%rdx和%rax组成一个128位的八字，高64位在%rdx，低64位在%rax
+	其中一个参数必须在寄存器%rax中，而另一个作为指令的源操作数给出
+
+条件码指令：
+	cmp s1, s2	s2 - s1		与sub指令一样，只不过不改变寄存器值，只改变标志位
+	test s1, s2	s1 & s2		与and指令一样，只不过不改变寄存器值，只改变标志位，src为操作数，dest为掩码/一样的操作数
+
+    59	execve	执行一个程序
+    60	_exit	终止进程
+    61	wait4	等待一个进程终止
+    62	kill	发送信号到一个进程
+
+
+    Linux安全信号处理原则：
+    1、处理程序要尽可能简单
+    2、在处理程序中只调用异步信号安全的函数
+    3、保存和回复errno
+    4、阻塞所有信号，保护对共享全局数据结构的访问
+
+
+    Linux虚存：
+    1、共享的区域，映射到同一物理地址
+    2、私有的区域，写时复制
+    3、虚存页会有多种保护位，只读，读写，内核态才能访问；如果访问的页标志不对应，则会发生段错误
+4、malloc、new等，均是申请虚存(会进行内存对齐)
+
+    volatile关键字：
+    访问变量时，优先访问cache中的值；volatile关键字会告诉编译器不要对某些变量进行优化
+set指令：
+	检查各个标志位，再置结果于1字节寄存器
+	dest是低位单字节寄存器元素之一，或一个字节的内存位置，指令会将这个字节设置为0或1
+	指令后缀表示不同的条件而不是操作数大小：setb(set below)
+
+	sete/setz %cl			相等/0
+	setne/setnz %cl			不相等/非0
+	sets %cl			负数
+	setns %cl			非负数
+基于SF、OF、ZF
+	setg/setnle %cl			有符号>
+	setge/setnl			有符号>=
+	setl/setnge %cl			有符号<
+	setle/setng %cl			有符号<=
+基于CF、ZF
+	seta/setnbe %cl			无符号>
+	setae/setnb %cl			无符号>=
+	setb/setnae %cl			无符号<
+	setbe/setna %cl			无符号<=
+
+跳转指令：	
+无条件跳转：
+	jmp直接跳转：jmp Lable
+	jmp间接跳转：jmp *%rax/*(%rax)
+有条件跳转，只能直接跳转，不能间接跳转：
+	je/jz Lable			相等/0
+	jne/jnz Lable			不相等/非0
+	js Lable			负数
+	jns Lable			非负数
+
+	jg/jnle Lable			有符号>
+	jge/jnl	Lable			有符号>=
+	jl/jnge Lable			有符号<
+	jle/jng Lable			有符号<=
+
+	ja/jnbe Lable			无符号>
+	jae/jnb Lable			无符号>=
+	jb/jnae Lable			无符号<
+	jbe/jna Lable			无符号<=
+跳转方法：
+	1、将目标指令的地址与紧跟在跳转指令后面那条指令的地址之间的差作为编码
+	2、给出绝对地址，用4个字节直接指定目标
+
+条件传送指令：基于条件数据传送的代码会比基于条件控制转移的代码性能要好；
+	检测标志位，与cmp一起使用
+	src可以是寄存器或内存地址，dest可以是寄存器；条件满足时，从src读取的值才会复制到dest中
+	src和dest的值可以是16位、32位、64位，但不支持单字节
+	
+	cmove/cmovz %rdx, %rax		相等/0
+	cmovne/cmovnz %rdx, %rax	不相等/非0
+	cmovs %rdx, %rax		负数
+	cmovns %rdx, %rax		非负数
+
+	cmovg/cmovnle %rdx, %rax	有符号>
+	cmovge/cmovnl %rdx, %rax	有符号>=
+	cmovl/cmovnge %rdx, %rax	有符号<
+	cmovle/cmovng %rdx, %rax	有符号<=
+
+	cmova/cmovnbe %rdx, %rax	无符号>
+	cmovae/cmovnb %rdx, %rax	无符号>=
+	cmovb/cmovnae %rdx, %rax	无符号<
+	cmovbe/cmovna %rdx, %rax	无符号<=
+
+函数：
+	call Label：指明被调用过程起始的指令地址
+	call *%rax
+	ret：从栈中弹出地址A，并把PC设置为A
+函数指针：值是该函数机器代码表示中的第一条指令的地址
+
+数组：
+	可以将起始地址和偏移量放在寄存器中，如：%rdx、%rcx
+
+结构struct：
+	结构的所有组成部分都存放在内存中一段连续的区域内，而指向结构的指针就是结构的第一个字节的地址
+
+联合union：
+	使用不同的字段来引用相同的内存块，所有的偏移均指向0，内存大小为数据类型的最大值
+
+对齐原则：
+	1、任何K字节的基本对象的地址必须是K的倍数；
+	2、任何struct *类型的指针都满足4字节对齐，即xp是4的倍数；
+	3、对齐是为了简化cpu与内存接口之间的硬件设计，提高内存系统的性能
+
+栈%rsp：%rsp - 32后，是一个很大的无符号数，就是从最大地址处，开辟的栈，逐渐向下增加
+
+浮点数：基于AVX2高级向量扩展(媒体指令，支持图形和图像处理)
+	vmovss M32, %xmm0		传送单精度数
+	vmovss %xmm0, M32		传送单精度数
+	vmovsd M64, %xmm0		传送双精度数
+	vmovsd %xmm0, M64		传送双精度数
+	vmovaps %xmm0, %xmm1		传送对齐的封装好的单精度数
+	vmovapd %xmm0, %xmm1		传送对齐的封装好的双精度数
+
+	vcvttss2si %xmm0/M32, R32	用截断的方法把单精度数转换成整数
+	vcvttsd2si %xmm0/M64, R32	用截断的方法把双精度数转换成整数
+	vcvttss2siq %xmm0/M32, R64	用截断的方法把单精度数转换成四字整数
+	vcvttss2siq %xmm0/M64, R64	用截断的方法把双精度数转换成四字整数
+第二个src可以忽略，写为与dest一样即可
+	vcvtsi2ss M32/R32, %xmm0, %xmm0	把整数转换成单精度数
+	vcvtsi2sd M32/R32, %xmm0, %xmm0	把整数转换成双精度数
+	vcvtsi2ssq M64/R64 %xmm0, %xmm0	把四字整数转换成单精度数
+	vcvtsi2sdq M64/R64 %xmm0, %xmm0	把四字整数转换成双精度数
+%xmm0~%xmm7可以传递8个浮点参数，通过栈传递额外参数
+%xmm0返回浮点值
+所有的%xmm寄存器均是调用者保存的，被调用者可以任意修改覆盖
+	vaddss/vaddsd %xmm0/M, %xmm0, %xmm0	浮点数加
+	vsubss/vsubsd %xmm0/M, %xmm0, %xmm0	浮点数减
+	vmulss/vmulsd %xmm0/M, %xmm0, %xmm0	浮点数乘
+	vdivss/vdivsd %xmm0/M, %xmm0, %xmm0	浮点数除
+	vmaxss/vmaxsd %xmm0/M, %xmm0, %xmm0	浮点数二者取最大值
+	vminss/vminsd %xmm0/M, %xmm0, %xmm0	浮点数二者取最小值
+	sqrtss/sqrtsd %xmm0/M, %xmm0, %xmm0	浮点数平方根
+AVX浮点数操作不能以立即数值作为操作数
+	vxorps/vxorpd %xmm0, %xmm1, %xmm1	异或
+	vandps/vandpd %xmm0, %xmm1, %xmm1	与
+
+	vucomiss %xmm0/M, %xmm1			比较单精度值
+	vucomisd %xmm0/M, %xmm1			比较双精度值
+	jp					基于奇偶校验的跳转

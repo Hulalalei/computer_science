@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="549c14d4-b289-436b-9b91-d8b8b26283a8" name="默认更改列表" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="2Xf3Ve3jAGS4ofuvvuACh08XiWI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RunManager" selected="Application.myClient">
+    <configuration name="myClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="myClient" />
+      <module name="MultiChatroom" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="myServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="myServer" />
+      <module name="MultiChatroom" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="testClient" />
+      <module name="MultiChatroom" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="testServer" />
+      <module name="MultiChatroom" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.myClient" />
+      <item itemvalue="Application.myServer" />
+      <item itemvalue="Application.testServer" />
+      <item itemvalue="Application.testClient" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.myClient" />
+        <item itemvalue="Application.myServer" />
+        <item itemvalue="Application.testClient" />
+        <item itemvalue="Application.testServer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="549c14d4-b289-436b-9b91-d8b8b26283a8" name="默认更改列表" comment="" />
+      <created>1699006331966</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699006331966</updated>
+      <workItem from="1699006333573" duration="8278000" />
+      <workItem from="1699019613276" duration="7219000" />
+      <workItem from="1699065991242" duration="11521000" />
+      <workItem from="1699089792491" duration="39000" />
+      <workItem from="1699089847760" duration="919000" />
+      <workItem from="1699091471735" duration="980000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1699023274291">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1699023274291" />
+    <state width="1237" height="345" key="GridCell.Tab.0.bottom" timestamp="1699092458337">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="345" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1699092458337" />
+    <state width="1237" height="345" key="GridCell.Tab.0.center" timestamp="1699092458337">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="345" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1699092458337" />
+    <state width="1237" height="345" key="GridCell.Tab.0.left" timestamp="1699092458337">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="345" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1699092458337" />
+    <state width="1237" height="345" key="GridCell.Tab.0.right" timestamp="1699092458337">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="345" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1699092458337" />
+    <state width="1237" height="293" key="GridCell.Tab.1.bottom" timestamp="1699089492710">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="293" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1699089492710" />
+    <state width="1237" height="293" key="GridCell.Tab.1.center" timestamp="1699089492710">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="293" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1699089492710" />
+    <state width="1237" height="293" key="GridCell.Tab.1.left" timestamp="1699089492710">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="293" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1699089492710" />
+    <state width="1237" height="293" key="GridCell.Tab.1.right" timestamp="1699089492710">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="293" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1699089492710" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1699083830647">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1699083830647" />
+  </component>
+</project>

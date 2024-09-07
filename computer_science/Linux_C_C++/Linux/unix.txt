@@ -1,0 +1,73 @@
+						命令
+ls -l file_name			查看文件映射						
+od -c file_name			获取文件内容
+wc -c file_name			计算文件字符数
+df /home			查看磁盘可用空间
+echo $?				打印main()退出状态
+size file_name			查看.text、.bss、.data大小
+						
+						UNIX系统概述
+# 内核的接口被称为系统调用
+# 公共函数库是在系统调用的基础上进行的封装
+# shell是一种特殊的应用程序，为运行其他应用程序提供接口
+# 广义上讲，os由内核和其他软件组成(函数库、shell等)
+# 系统会在其口令文件/etc/passwd中查找用户名，目前已经移到另一个文件中
+# shell是一个命令行的解释器，可以通过终端或脚本进行输入命令
+# cc是C编译器，具有GNU C编译系统的系统中，C编译器是gcc，cc被链接至gcc
+# 文件描述符：内核用其标志某个进程访问的文件
+# 每当运行新程序时，shell会打开三个fd，0-cin、1-cout、2-cerr；使用">"符号进行重定向
+# 大部分系统函数出现错误时，都返回-1，并设置errno的常量值
+	char *strerror(int errno)
+	void perror(const char *msg)
+# 不带缓冲的IO函数：open、read、write、lseek、close
+# 标准IO为不带缓冲的IO提供了带缓冲的接口
+# 一个进程中的所有线程共享同一地址空间、文件描述符、堆栈，以及与进程相关的属性
+# 用户ID为0的用户被称为超级用户
+# 组ID，组文件在/etc/group，getuid();
+# 对于磁盘上每个文件，文件系统都会保存文件所有者的用户ID和组ID，getgid(); 一个用户可以在多个组中
+# ls -l 使用口令文件将数值的用户ID映射为对应的登录名
+# 有些通用库函数，可能调用一个或多个内核的系统调用，它们并不是内核的入口点(有些函数会系统调用，而有些不会)
+# POSIX代表可移植的os接口
+# 实现了文件同步、线程堆栈地址和长度属性、线程进程共享同步和XOPEN_UNIX符号常量后，才能被称为UNIX系统
+
+
+						文件IO
+# int open(const char *path, int oflag, .../* mode_t mode */);
+  int openat(int fd, const char *path, int oflag, .../* mode_t mode */);
+  打开文件
+# int creat(const char *path, mode_t mode);创建文件
+# int close(int fd);关闭文件
+# 文本和二进制文件均可
+	1、ssize_t read(int fd, void *buf, size_t nbytes);
+	2、ssize_t write(int fd, const void *buf, size_t nbytes);
+# 内核使用三种数据结构表示打开的文件：
+	1、进程表：每个进程的进程表都有一个记录项，其中包含一张打开文件描述符的表
+	2、文件表：管理所有打开的文件，有很多目录项FCB
+	3、每个打开的文件都有一个v节点结构体，其中包含文件类型和对此文件进行各种操作的函数的指针
+# 原子操作：
+	1、ssize_t pread(int fd, void *buf, size_t nbytes, off_t offset);
+	2、ssize_t pwrite(int fd, const void *buf, size_t nbytes, off_t offset);
+# 复制文件描述符
+	1、int dup(int fd);
+	2、int dup2(int fd, int fd2);
+# 保证磁盘与缓冲区一致
+	1、int fsync(int fd);
+	2、int fdatasync(int fd);
+	3、void sync(void);
+# 改变已经打开的文件的属性
+	int fcntl(int fd, int cmd, .../* int arg */);
+# 通用IO操作
+	1、int ioctl(int fd, int request, ...);
+# 打开/dev/fd/n等价于复制描述符n：fd = open("/dev/fd/0", mode);
+
+						进程环境
+# 内核执行一个程序的唯一方法就是调用exec函数
+
+
+						信号
+# 编号为0的信号为空信号
+# core dump
+	1、早期计算机的主存是用铁氧体磁芯做的，这也是core dump的由来
+	2、程序终止后，该进程的内存映像会被复制到当前工作目录中名为core的文件中，可以被UNIX调试器用来检查进程终止时的状态
+	3、Linux上可以通过/proc/sys/kernel/core_pattern进行配置core文件名
+# 

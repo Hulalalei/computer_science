@@ -1,0 +1,5 @@
+from ascript.android.screen import FindColors
+
+f = FindColors.find("2277,996,#FFBC0F|2277,931,#6F1405|2224,1002,#560808|2360,1002,#4B0B08|2289,1050,#BC1808")
+
+print(f.x, f.y)

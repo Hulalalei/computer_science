@@ -1,0 +1,16 @@
+2024-04-06 03:41:18 begin
+2024-04-06 03:41:21 connect request 192.168.43.248:51199
+2024-04-06 03:41:21 connect request 192.168.43.248:51200
+2024-04-06 03:41:21 req_line = GET / HTTP/1.1
+method = GET
+file = /
+2024-04-06 03:41:21 ct = text.html; charset=utf-8
+2024-04-06 03:41:21 req_line = GET /Pikachu.png HTTP/1.1
+method = GET
+file = /Pikachu.png
+2024-04-06 03:41:21 ct = image/png
+2024-04-06 03:41:28 connect request 192.168.43.248:51202
+2024-04-06 03:41:28 req_line = GET /style.css? HTTP/1.1
+method = GET
+file = /style.css
+2024-04-06 03:41:28 ct = text/css

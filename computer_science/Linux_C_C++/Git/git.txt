@@ -1,0 +1,40 @@
+git常用命令：
+    git config --global user.name 名字                      设置用户签名
+    git config --global user.eamil 邮箱                     设置用户签名
+        不设置会无法提交代码
+        与账号无关，本地的一个名字        
+
+    git init                                                初始化本地库
+        在当前目录下生成.git目录，不要修改，生成的.git/存储的是各种文件指针
+    git add <file>                                          添加到暂存区
+    git rm --cached <file>...                               删除暂存区中内容
+    git commit -m "label" <file>                            上交到本地库
+    
+    git reflog                                              查看当前文件版本号
+    git log                                                 查看详细日志版本号
+    git reset --hard <version-Id>                           回到之前的版本，本地文件也会更改，本地有多个副本
+
+    git branch <name>                                       创建分支
+    git branch -v                                           查看分支
+    git checkout <name>                                     切换分支
+    git merge <name>                                        把指定的分支合并到当前分支上，在master处合并branches
+    代码冲突： 分支均修改，合并时，人为选择合并分支，只会修改master，branches不会修改
+        删除里面多余内容，再提交到暂存区和本地库，注意上交时，commit不能加<file>
+
+    远程库即为github；同时上传的本地库最好和远程库名字一样
+    git remote -v                                           查看远程仓库别名
+    git remote add <nickname> <url>                         取库别名，最好和库名一致
+    git push <nickname/ssh> <branch_name>                   将本地库上传到github，非本人push时，必须先加入团队
+    git pull <nickname/ssh> <branch_name>                   将github上的库更改，更新到本地库
+    git clone <url/ssh>                                     clone远程库的代码，别名也会clone
+    在本人仓库settings中，设置邀请团队成员，邀请函是url；而其他人则在浏览器粘贴上url，即可加入团队
+    在其他人仓库点击fork后，自己会拷贝一份一样的库，自己更改后，pull request
+
+    ssh-keygen -t rsa (-C 1537259139@qq.com)                .ssh/下生成公钥
+    ssh免密登陆：在本地生成ssh公钥，并在个人账号处登记ssh公钥；；
+
+
+    流程：
+        1、git add computer_science/                                        暂存区
+        2、git commit -m "1st" computer_science/                            本地库
+        3、git push git@github.com:hulalalei/computer_science.git master    github
