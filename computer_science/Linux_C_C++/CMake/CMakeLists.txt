@@ -43,6 +43,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -no-pie")
 
 ### 链接动态库 libweb.so
 # target_link_libraries(main PUBLIC/PRIVATE/INTERFACE web)
+# target_link_libraries(main PRIVATE atomic)
 # target: 源文件、动态库文件、可执行文件
 # PUBLIC 具有传递性；
 # PRIVATE 只能传递到target

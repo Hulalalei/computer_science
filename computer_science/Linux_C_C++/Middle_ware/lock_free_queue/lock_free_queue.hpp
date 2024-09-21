@@ -1,152 +1,207 @@
-#ifndef LOCK_FREE_QUEUE
-#define LOCK_FREE_QUEUE
-
-
 #include <iostream>
-#include <type_traits>
 #include <optional>
 #include <memory>
 #include <atomic>
-#include <unistd.h>
+#include <cassert>
+
 
 
 
 namespace lockfree {
-    std::atomic<int> new_cnt;
-    std::atomic<int> data_cnt;
-    std::atomic<int> node_cnt;
-    std::atomic<int> dlt_cnt;
-    std::atomic<int> pop_cnt;
-    // true 为release; false 为debug
-    template <class T, bool flag>
+    std::atomic<int> construct_cnt(0);
+    std::atomic<int> destruct_cnt(0);
+    // true 为release，false 为dubug
+    template <class T, bool mod>
     class lock_free_queue {
     private:
+        struct node;
+        // 外部计数器
+        struct counted_node_ptr {
+            int external_count;
+            node *ptr;
+        };
+        // 内部计数器，存储在一个机器字32bits中，原子操作更有机会以无锁方式实现
+        struct node_counter {
+            unsigned internal_count : 30;
+            unsigned external_counters : 2;
+        };
+        // 数据节点
         struct node {
             std::atomic<T*> data;
-            std::atomic<node*> next;
-            std::atomic<int> node_counts;        
-            
-            node(): data(nullptr), next(nullptr), node_counts(2) {}
-            ~node() { node_counts.store(0); }
+            std::atomic<node_counter> count;
+            std::atomic<counted_node_ptr> next;
+
+            node();
+            void release_ref();
         };
-        int counts = 3;
-        std::atomic<node*> head, tail;
+    private:
+        std::atomic<counted_node_ptr> head, tail;
+    private:
+        // 计数器和tail同时改变应该是一个原子操作
+        // 增加外部计数器
+        static void increase_external_count(std::atomic<counted_node_ptr> &counter, counted_node_ptr &old_counter);
+        // 减少内部external_counters
+        static void free_external_counter(counted_node_ptr &old_node_ptr);
+        // 设置新的队尾
+        void set_new_tail(counted_node_ptr &old_tail, counted_node_ptr const& new_tail);
     public:
         lock_free_queue();
-        ~lock_free_queue();
         void push(T data);
         std::optional<T> pop();
-    };
+        ~lock_free_queue();
+    }; 
 
+ 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//  此处next为{0}，可以用作compare_exchange
+    template <class T, bool mod>
+    lock_free_queue<T, mod>::node::node(): data(nullptr), count({0, 2}), next({0, nullptr}) {}
+    
 
-
-    template <class T, bool flag>
-    lock_free_queue<T, flag>::lock_free_queue() {
-        if constexpr (!flag) std::cout << "construct\n";
-        node *ptr = new node{};
-        ++ new_cnt;
-        head.store(ptr, std::memory_order_relaxed);
-        tail.store(ptr, std::memory_order_relaxed);
+    template <class T, bool mod>
+    lock_free_queue<T, mod>::lock_free_queue() {
+        // 外部计数器是两份拷贝，用于push&push或pop&pop计数 
+        // 内部计数器是对于push&pop竞争的node计数
+        counted_node_ptr vir_node{1, new node{}};
+        ++ construct_cnt;
+        head.store(vir_node, std::memory_order_relaxed);
+        tail.store(vir_node, std::memory_order_relaxed);
     }
 
 
-    template <class T, bool flag>
-    void lock_free_queue<T, flag>::push(T data) {
-        if constexpr (!flag) std::cout << "push\n";
-
-        T *data_ptr = new T(data);
-        ++ new_cnt;
-        node *vir_own = new node{};
-        ++ new_cnt;
+    template <class T, bool mod>
+    void lock_free_queue<T, mod>::push(T data) {
+        auto new_data = std::make_unique<T>(data);
+        counted_node_ptr vir_node{1, new node{}};
+        ++ construct_cnt;
+        auto old_tail = tail.load(std::memory_order_relaxed);
 
         while (true) {
-            node *old_tail = tail.load();
-            ++ old_tail->node_counts;
+            // tail.acquire
+            increase_external_count(tail, old_tail);
             T *old_data = nullptr;
-            node *old_next = nullptr;
-            
-            // 先对vir节点中存入的data进行同步
-            if (old_tail->data.compare_exchange_strong(old_data, data_ptr)) [[likely]] {
-                // 再对更新tail指针进行同步，同时接受另一个线程的协助
-                if (!old_tail->next.compare_exchange_strong(old_next, vir_own)) [[unlikely]] {
-                    delete vir_own;
-                    ++ dlt_cnt;
-                    ++ node_cnt;
+            if (old_tail.ptr->data.compare_exchange_strong(old_data, new_data.get(), 
+                                                           std::memory_order_acq_rel, std::memory_order_relaxed)) {
+                counted_node_ptr vir_assist = { 0 };
+                if (!old_tail.ptr->next.compare_exchange_strong(vir_assist, vir_node, 
+                                                                std::memory_order_acq_rel, std::memory_order_relaxed)) {
+                    delete vir_node.ptr;
+                    ++ destruct_cnt;
+                    vir_node = vir_assist;
                 }
-                else tail.store(vir_own);
-                -- old_tail->node_counts;
+                // tail.release
+                set_new_tail(old_tail, vir_node);
+                new_data.release();
                 break;
             }
             else {
-                // 协助其他线程
-                node *vir_assist = new node{};
-                ++ new_cnt;
-                if (old_tail->next.compare_exchange_strong(old_next, vir_assist)) [[likely]] {
-                    tail.store(vir_assist);
+                counted_node_ptr vir_assist = { 0 };
+                if (old_tail.ptr->next.compare_exchange_strong(vir_assist, vir_node, 
+                                                               std::memory_order_acq_rel, std::memory_order_relaxed)) {
+                    vir_assist = vir_node;
+                    // vir_node管理的node已经交给vir_assist，为了新一轮自己的push，所以自己再开辟一份node
+                    vir_node.ptr = new node{};
+                    ++ construct_cnt;
                 }
-                else {
-                    delete vir_assist;
-                    ++ dlt_cnt;
-                    ++ node_cnt;
-                }
-                -- old_tail->node_counts;
+                // tail.release
+                set_new_tail(old_tail, vir_assist);
             }
         }
     }
 
-    template <class T, bool flag>
-    std::optional<T> lock_free_queue<T, flag>::pop() {
-        if constexpr (!flag) std::cout << "pop\n";
-    
+
+    template <class T, bool mod>
+    std::optional<T> lock_free_queue<T, mod>::pop() {
+        auto old_head = head.load(std::memory_order_relaxed);
         while (true) {
-            node *old_head = head.load();
-            auto temp_head = old_head;
-            ++ old_head->node_counts;
-
-            // 与push中的tail同步
-            if (old_head == tail.load()) [[unlikely]] {
-                -- old_head->node_counts;
-                return { std::nullopt };
+            // head.acquire
+            increase_external_count(head, old_head);
+            auto *const ptr = old_head.ptr;
+            if (ptr == tail.load(std::memory_order_acquire).ptr) {
+                ptr->release_ref();
+                return std::nullopt;
             }
-
-            // 弹出数据
-            node *next = old_head->next.load();
-            if (!head.compare_exchange_strong(old_head, next)) [[likely]] {
-                // core dumped
-                -- temp_head->node_counts;
+            
+            auto next = ptr->next.load(std::memory_order_relaxed);
+            // head.release
+            if (head.compare_exchange_strong(old_head, next, std::memory_order_release, std::memory_order_relaxed)) {
+                T *const res = ptr->data.exchange(nullptr, std::memory_order_relaxed);
+                free_external_counter(old_head);
+                return { *res };
             }
-            else {
-                ++ pop_cnt;
-                T *data = old_head->data.exchange(nullptr);
-                auto opt = *data;
-                delete data;
-                ++ dlt_cnt;
-                ++ data_cnt;
-                if (counts == old_head->node_counts.load()) {
-                    // core dumped
-                    delete old_head;
-                    ++ dlt_cnt;
-                    ++ node_cnt;
-                }
-                else -- old_head->node_counts;
-                return { opt };
-            }
+            ptr->release_ref();
         }
     }
 
-    template <class T, bool flag>
-    lock_free_queue<T, flag>::~lock_free_queue() {
-        if constexpr (!flag) std::cout << "deconstruct\n";
-        std::optional<T> opt = pop();
-        while (opt.has_value()) {
-            opt = pop();
+
+    template <class T, bool mod>
+    void lock_free_queue<T, mod>::increase_external_count(std::atomic<counted_node_ptr> &counter, counted_node_ptr &old_counter) {
+        counted_node_ptr new_counter;
+        do {
+            new_counter = old_counter;
+            ++ new_counter.external_count;
         }
-        delete head.load();
-        ++ dlt_cnt;
-        ++ node_cnt;
-        std::cout << new_cnt << " " << dlt_cnt << " " << data_cnt << " " << node_cnt << " " << pop_cnt << "\n";
+        while (!counter.compare_exchange_strong(old_counter, new_counter, std::memory_order_acquire, std::memory_order_relaxed));
+        old_counter.external_count = new_counter.external_count;
+    }
+
+
+    // 执行成功线程调用此函数：减少push&pop计数器，获取push&push or pop&pop计数器
+    // 判断当前 操作相同线程有多少
+    template <class T, bool mod>
+    void lock_free_queue<T, mod>::free_external_counter(counted_node_ptr &old_node_ptr) {
+        node *const ptr = old_node_ptr.ptr;
+        // 当前除自己外，还有多少push线程指涉这个节点
+        const int increase_count = old_node_ptr.external_count - 2;
+
+        auto old_counter = ptr->count.load(std::memory_order_relaxed);
+        node_counter new_counter;
+        do {
+            new_counter = old_counter;
+            -- new_counter.external_counters;
+            new_counter.internal_count += increase_count;
+        }
+        while (!ptr->count.compare_exchange_strong(old_counter, new_counter, std::memory_order_acq_rel, std::memory_order_relaxed));
+        if (!new_counter.external_counters && !new_counter.internal_count) { delete ptr; ++ destruct_cnt; }
+    }
+
+
+    // 执行失败线程调用此函数：减少 相同操作线程个数
+    template <class T, bool mod>
+    void lock_free_queue<T, mod>::node::release_ref() {
+        auto old_counter = count.load(std::memory_order_relaxed);
+        node_counter new_counter;
+        do {
+            new_counter = old_counter;
+            -- new_counter.internal_count;
+        }
+        while (!count.compare_exchange_strong(old_counter, new_counter, std::memory_order_acq_rel, std::memory_order_relaxed));
+        if (!new_counter.external_counters && !new_counter.internal_count) { delete this; ++ destruct_cnt; }
+    }
+
+
+    template <class T, bool mod>
+    void lock_free_queue<T, mod>::set_new_tail(counted_node_ptr &old_tail, counted_node_ptr const& new_tail) {
+        // 比较指针效率高
+        node *const current_tail_ptr = old_tail.ptr;
+        // 第一个线程tail.compare_exchange_weak(old_tail, new_tail), 成功后
+        // 第二个线程判断old_tail.ptr == current_tail_ptr, 直接退出while
+        while (!tail.compare_exchange_weak(old_tail, new_tail, 
+                                           std::memory_order_release, std::memory_order_relaxed) && old_tail.ptr == current_tail_ptr);
+        if (old_tail.ptr == current_tail_ptr)
+            free_external_counter(old_tail);
+        else
+            current_tail_ptr->release_ref();
+    }
+
+
+    template <class T, bool mod>
+    lock_free_queue<T, mod>::~lock_free_queue() {
+        while (pop().has_value()) {}
+        auto cur_head = head.load(std::memory_order_relaxed);
+        delete cur_head.ptr;
+        ++ destruct_cnt;
+        if constexpr(!mod) std::cout << "construct_cnt: " << construct_cnt << " destruct_cnt: " << destruct_cnt << "\n";
+        assert(construct_cnt == destruct_cnt); 
     }
 }
-
-
-#endif // LOCK_FREE_QUEUE

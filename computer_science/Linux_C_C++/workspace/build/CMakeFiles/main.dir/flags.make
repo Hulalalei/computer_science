@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace
 
-CXX_FLAGS =   -no-pie -l atomic -std=gnu++20
+CXX_FLAGS =  -g -no-pie -std=gnu++20
 
