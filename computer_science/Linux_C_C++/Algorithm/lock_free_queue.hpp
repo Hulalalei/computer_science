@@ -1,7 +1,7 @@
-#include<boost/atomic/atomic.hpp>
+#include <atomic>
 #include <iostream>
 #include <atomic>
-#include<memory>
+#include <memory>
 #include <cassert>
 
 template<typename T>
@@ -26,9 +26,9 @@ private:
 
     struct node
     {
-        boost::atomic<T*> data;
-        boost::atomic<node_counter> count;
-        boost::atomic<counted_node_ptr> next;
+        std::atomic<T*> data;
+        std::atomic<node_counter> count;
+        std::atomic<counted_node_ptr> next;
 
         node(int external_count = 2)
         {
@@ -47,9 +47,8 @@ private:
 
         void release_ref()
         {
-            std::cout << "call release ref " << std::endl;
             node_counter old_counter =
-                count.load(boost::memory_order_relaxed);
+                count.load(std::memory_order_relaxed);
             node_counter new_counter;
             do
             {
@@ -58,18 +57,17 @@ private:
             }
             while (!count.compare_exchange_strong(
                 old_counter, new_counter,
-                boost::memory_order_acquire, boost::memory_order_relaxed));
+                std::memory_order_acquire, std::memory_order_relaxed));
             if (!new_counter.internal_count &&
                 !new_counter.external_counters)
             {
                 delete this;
-                std::cout << "release_ref delete success" << std::endl;
             }
         }
     };
 
-    boost::atomic<counted_node_ptr> head;
-    boost::atomic<counted_node_ptr> tail;
+    std::atomic<counted_node_ptr> head;
+    std::atomic<counted_node_ptr> tail;
     void set_new_tail(counted_node_ptr& old_tail,
         counted_node_ptr const& new_tail)
     {
@@ -84,11 +82,10 @@ private:
 
     static void free_external_counter(counted_node_ptr& old_node_ptr)
     {
-        std::cout << "call  free_external_counter " << std::endl;
         node* const ptr = old_node_ptr.ptr;
         int const count_increase = old_node_ptr.external_count - 2;
         node_counter old_counter =
-            ptr->count.load(boost::memory_order_relaxed);
+            ptr->count.load(std::memory_order_relaxed);
         node_counter new_counter;
         do
         {
@@ -98,11 +95,10 @@ private:
         }
         while (!ptr->count.compare_exchange_strong(
             old_counter, new_counter,
-            boost::memory_order_acquire, boost::memory_order_relaxed));
+            std::memory_order_acquire, std::memory_order_relaxed));
         if (!new_counter.internal_count &&
             !new_counter.external_counters)
         {
-            std::cout << "free_external_counter delete success" << std::endl;
             delete ptr;
         }
 
@@ -110,7 +106,7 @@ private:
 
 
     static void increase_external_count(
-        boost::atomic<counted_node_ptr>& counter,
+        std::atomic<counted_node_ptr>& counter,
         counted_node_ptr& old_counter)
     {
         counted_node_ptr new_counter;
@@ -120,7 +116,7 @@ private:
             ++new_counter.external_count;
         } while (!counter.compare_exchange_strong(
             old_counter, new_counter,
-            boost::memory_order_acquire, boost::memory_order_relaxed));
+            std::memory_order_acquire, std::memory_order_relaxed));
         old_counter.external_count = new_counter.external_count;
     }
 
@@ -131,7 +127,6 @@ public:
 		new_next.external_count = 1;
 		tail.store(new_next);
 		head.store(new_next);
-        std::cout << "new_next.ptr is " << new_next.ptr << std::endl;
     }
 
     ~lock_free_queue() {
@@ -189,7 +184,7 @@ void lock_free_queue<T>::push(T new_value) {
 
 template <typename T>
 std::unique_ptr<T> lock_free_queue<T>::pop() {
-            counted_node_ptr old_head = head.load(boost::memory_order_relaxed);
+            counted_node_ptr old_head = head.load(std::memory_order_relaxed);
             for (;;)
             {
                 increase_external_count(head, old_head);

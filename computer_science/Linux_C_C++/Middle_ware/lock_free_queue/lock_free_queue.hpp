@@ -1,3 +1,6 @@
+#ifndef LOCK_FREE_QUEUE
+#define LOCK_FREE_QUEUE
+
 #include <iostream>
 #include <optional>
 #include <memory>
@@ -10,6 +13,7 @@
 namespace lockfree {
     std::atomic<int> construct_cnt(0);
     std::atomic<int> destruct_cnt(0);
+    std::atomic<int> task_cnt(0);
     // true 为release，false 为dubug
     template <class T, bool mod>
     class lock_free_queue {
@@ -126,6 +130,7 @@ namespace lockfree {
             // head.release
             if (head.compare_exchange_strong(old_head, next, std::memory_order_release, std::memory_order_relaxed)) {
                 T *const res = ptr->data.exchange(nullptr, std::memory_order_relaxed);
+                ++ task_cnt;
                 free_external_counter(old_head);
                 return { *res };
             }
@@ -201,7 +206,8 @@ namespace lockfree {
         auto cur_head = head.load(std::memory_order_relaxed);
         delete cur_head.ptr;
         ++ destruct_cnt;
-        if constexpr(!mod) std::cout << "construct_cnt: " << construct_cnt << " destruct_cnt: " << destruct_cnt << "\n";
+        if constexpr(!mod) std::cout << "construct_cnt: " << construct_cnt << ", destruct_cnt: " << destruct_cnt << ", task_cnt: " << task_cnt << "\n";
         assert(construct_cnt == destruct_cnt); 
     }
 }
+#endif

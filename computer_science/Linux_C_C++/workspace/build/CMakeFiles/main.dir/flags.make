@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace
+CXX_INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/../Middle_ware/lock_free_queue -I/home/hsf/computer_science/Linux_C_C++/workspace/../Middle_ware/thread_pool -I/home/hsf/computer_science/Linux_C_C++/workspace/../Middle_ware/connection_pool -I/home/hsf/computer_science/Linux_C_C++/workspace/../Middle_ware/memory_pool -I/home/hsf/computer_science/Linux_C_C++/workspace/../Middle_ware/log -I/home/hsf/computer_science/Linux_C_C++/workspace/../Middle_ware/timer
 
 CXX_FLAGS =  -g -no-pie -std=gnu++20
 
