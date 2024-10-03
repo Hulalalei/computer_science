@@ -36,9 +36,9 @@ add_library(lib_name SHARED t1.cpp t2.cpp)
 
 
 # link_directories(so_path)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -no-pie")
 add_executable(main ${src})
 set(CMAKE_ASM_FLAGS "${CMAKE_ASM_FLAGS} -masm=att -no-pie")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -no-pie")
 
 
 ### 链接动态库 libweb.so
@@ -48,3 +48,5 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -no-pie")
 # PUBLIC 具有传递性；
 # PRIVATE 只能传递到target
 # INTERFACE 只能传递符号，不知道函数所有者
+
+

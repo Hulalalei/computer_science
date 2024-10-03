@@ -1,5 +1,5 @@
-#ifndef TIMER_HPP
-#define TIMER_HPP
+#ifndef TIMER
+#define TIMER
 
 
 #include <iostream>
@@ -29,8 +29,9 @@
 #include <sys/uio.h>
 
 #include <http_conn.hpp>
+#include <minilog.hpp>
 
-namespace time {
+namespace timeouts {
     struct client_data;
     struct timer_node_base {
         // 过期时间
@@ -60,13 +61,13 @@ namespace time {
         int get_id() { return ++ gid; }
     private:
         static int gid;
-        std::set<timer_node, std::less<>> timer_map;
+        std::set<timer_node, std::less<> > timer_map;
     };
 
     struct client_data {
         sockaddr_in address;
         int sockfd;
-        timer_node *_timer;
+        timer_node *client_timer;
     };
 
     class utils {
@@ -88,7 +89,7 @@ namespace time {
         static int *u_pipefd;
         timer util_timer;
         static int u_epfd;
-        int _TIMESLOT;
+        int u_TIMESLOT;
     };
 
     void cb_func(const timer_node& user_node);
@@ -97,6 +98,7 @@ namespace time {
     int timer::gid = 0;
 
     time_t timer::get_tick() {
+        minilog::log_debug("get_tick");
         return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
     }
 
@@ -117,6 +119,7 @@ namespace time {
     }
 
     bool timer::check_timer() {
+        minilog::log_debug("check timer");
         auto iter = timer_map.begin();
         if (iter != timer_map.end() && iter->expire <= get_tick()) {
             iter->func(*iter);
@@ -134,7 +137,7 @@ namespace time {
     }
 
     void utils::init(int timeslot) {
-        _TIMESLOT = timeslot;
+        u_TIMESLOT = timeslot;
     }
 
     int utils::set_nonblocking(int fd) {
@@ -156,6 +159,7 @@ namespace time {
     }
 
     void utils::sig_handler(int sig) {
+        minilog::log_debug("sig handler");
         int save_errno = errno;
         int msg = sig;
         // 发送signal
@@ -176,12 +180,15 @@ namespace time {
     }
 
     void utils::timer_handler() {
-    // 任务全部执行完毕或超时，alarm一次
-        while (util_timer.check_timer()) alarm(_TIMESLOT);
+        minilog::log_debug("timer handler");
+        // 任务全部执行完毕或超时，alarm一次
+        // 无限alarm
+        while (util_timer.check_timer());
+        alarm(u_TIMESLOT);
     }
 
     void utils::show_error(int connfd, const std::string info) {
-        send(connfd, const_cast<char*>(info.c_str()), info.size(), 0);
+        send(connfd, &info[0], info.size(), 0);
         close(connfd);
     }
 
@@ -190,11 +197,11 @@ namespace time {
 
 
     void cb_func(const timer_node& user_node) {
+        minilog::log_debug("callback");
         epoll_ctl(utils::u_epfd, EPOLL_CTL_DEL, user_node.user_data->sockfd, 0);
         assert(user_node.user_data);
         close(user_node.user_data->sockfd);
-        http_conn::_users_count --;
+        http::http_conn::users_count --;
     }
-
 }
 #endif

@@ -216,6 +216,15 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
+client_BINARY_DIR:STATIC=/home/hsf/computer_science/Linux_C_C++/workspace/build
+
+//Value Computed by CMake
+client_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+client_SOURCE_DIR:STATIC=/home/hsf/computer_science/Linux_C_C++/workspace
+
+//Value Computed by CMake
 main_BINARY_DIR:STATIC=/home/hsf/computer_science/Linux_C_C++/workspace/build
 
 //Value Computed by CMake

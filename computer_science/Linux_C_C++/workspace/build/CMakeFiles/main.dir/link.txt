@@ -1,1 +1,1 @@
-/usr/bin/c++  -g -no-pie CMakeFiles/main.dir/main.cpp.o -o main   -L/usr/local/lib  -Wl,-rpath,/usr/local/lib -ljsoncpp -lmysqlclient -lmysqlclient -latomic 
+/usr/bin/c++  -no-pie -l uring CMakeFiles/main.dir/coro03.cpp.o -o main   -L/home/hsf/computer_science/Linux_C_C++/workspace/.  -Wl,-rpath,/home/hsf/computer_science/Linux_C_C++/workspace/. -ljsoncpp -lmysqlclient -lmysqlclient -latomic 

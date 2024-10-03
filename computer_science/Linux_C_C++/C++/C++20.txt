@@ -3,7 +3,13 @@
     1.2：co_yield   -- 用于暂停执行并返回一个值
     1.2：co_return  -- 用于完成执行并返回一个值
 
-std::declval<T>()                       编译期返回右值
+template_meta
+    std::declval<T>()                       编译期返回右值，便于decltype推断
+    concept & requires                      优化模板元
+    if constexpr (requires (int i) { t.dismantle(i); }) 判断是否有对应的函数签名
+    std::decay_t<T>                         移除修饰符，保留T: using decay_t = typename decay<T>::type
+    decltype
+
 std::optional<T>                        一个类型安全，类似于pair的多功能模板，栈区开辟，性能高
 std::any
 std::variant<TS ...ts>                  union安全
@@ -13,8 +19,6 @@ std::source_location::current()         获取当前文件的信息
     .column()
     .file_name()
     .function_name()
-concept & requires                      优化模板元
-std::decay_t<T>                         移除修饰符，保留T: using decay_t = typename decay<T>::type
 auto &&[first, second, third] = tuple;  结构化绑定，结构体、元组均可解包
 lambda如果捕获变量，则作为参数传递时，会有额外开销(std::functional<>), 所以形参使用Func const& func
 

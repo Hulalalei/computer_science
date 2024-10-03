@@ -19,15 +19,19 @@ GCC常见软件：ar、as、gdb、gprof、ld、libtool、make
 2、gcc -shared [.o] -o lib.so
 3、链接：gcc [.cc] -o name -l lib -L libpath -Wl, -rpath=libpath
 
--g				加gdb调试
--l(L) mysqlclient -l(L) dl		连接数据库
--l pthread			链接线程库函数
--l(L) jsoncpp			json库
--std=c++20			c++标准
--O1/2/3				开优化
--m64				使用处理64bit的字的计算机
--masm=intel			x86-64汇编格式(att / intel)
+-g				                    加gdb调试
+-l(L) mysqlclient -l(L) dl		    连接数据库
+-l pthread			                链接线程库函数
+-l(L) jsoncpp			            json库
+-std=c++20			                c++标准
+-O1/2/3				                开优化
+-m64				                使用处理64bit的字的计算机
+-masm=intel			                x86-64汇编格式(att / intel)
 -o main
+-fmodules-ts -c m_md.cpp            编译模块
+-fmodules-ts main.o m_md.o -o main  链接模块
+-l jemalloc -DJEMALLOC_NO_DEMANGLE  使用jemalloc
+-l uring #include <liburing.h>    使用io_uring
 
 objdump -d -M intel/att main	反汇编
 

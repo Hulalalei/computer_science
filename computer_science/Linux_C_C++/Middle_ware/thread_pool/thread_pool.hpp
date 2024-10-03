@@ -1,10 +1,11 @@
 #ifndef THREAD_POOL
 #define THREAD_POOL
 
-#include <lock_free_queue.hpp>
 #include <thread>
 #include <vector>
 
+#include <lock_free_queue.hpp>
+#include <minilog.hpp>
 
 
 // usage:
@@ -21,7 +22,7 @@ namespace thread {
         ~thread_pool();
     private:
         std::atomic<bool> done;
-        lockfree::lock_free_queue<T, false> task_queue;
+        lockfree::lock_free_queue<T> task_queue;
         std::vector<std::thread> worker;
     };
 
@@ -37,6 +38,7 @@ namespace thread {
         }
         catch(...) {
             done = true;
+            minilog::log_fatal("unexpected error!"); 
             throw;
         }
     }
@@ -47,6 +49,7 @@ namespace thread {
         while (!done) {
             auto opt = task_queue.pop();
             if (opt.has_value()) {
+                minilog::log_trace("take away a task");
                 opt.value()();
             }
             else std::this_thread::yield();
