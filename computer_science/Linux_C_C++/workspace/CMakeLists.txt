@@ -26,7 +26,7 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build)
 # add_library(sub SHARED sub.cpp)
 
 
-add_executable(main coro03.cpp)
+add_executable(main main.cpp)
 
 target_link_libraries(main PUBLIC mysqlclient)
 target_link_libraries(main PRIVATE atomic)

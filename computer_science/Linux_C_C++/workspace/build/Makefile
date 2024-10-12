@@ -129,29 +129,29 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-coro03.o: coro03.cpp.o
-.PHONY : coro03.o
+main.o: main.cpp.o
+.PHONY : main.o
 
 # target to build an object file
-coro03.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/coro03.cpp.o
-.PHONY : coro03.cpp.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-coro03.i: coro03.cpp.i
-.PHONY : coro03.i
+main.i: main.cpp.i
+.PHONY : main.i
 
 # target to preprocess a source file
-coro03.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/coro03.cpp.i
-.PHONY : coro03.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-coro03.s: coro03.cpp.s
-.PHONY : coro03.s
+main.s: main.cpp.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-coro03.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/coro03.cpp.s
-.PHONY : coro03.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
-	@echo "... coro03.o"
-	@echo "... coro03.i"
-	@echo "... coro03.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

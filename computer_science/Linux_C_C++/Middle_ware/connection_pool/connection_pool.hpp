@@ -102,7 +102,7 @@ namespace connsql {
         auto opt = conn_queue.pop();
         while (opt.has_value()) {
             mysql_close(opt.value());
-            minilog::log_trace("close a connsql");
+            minilog::log_info("close a connsql");
             opt = conn_queue.pop();
         }
     }

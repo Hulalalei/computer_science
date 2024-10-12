@@ -1,12 +1,12 @@
 {
-    "title": "Auroraの主页",
+    "title": "Lebesgueの主页",
     "description": "一个默默无闻的主页",
-    "keywords": "Aurora,个人主页",
-    "author": "Aurora",
+    "keywords": "Lebesgue,个人主页",
+    "author": "Lebesgue",
     "logo_img": "./img/icon/avatar.jpg",
-    "logo_text_1": "wuhobin",
+    "logo_text_1": "halalalei",
     "logo_text_2": "top",
-    "github": "wuhobin",
+    "github": "hulalalei",
     "qq": "1289066006",
     "email": "1289066006@qq.com",
     "bilibili": "495003013",
@@ -41,6 +41,6 @@
         "fa-solid fa-flask",
         "敬请期待..."
     ],
-    "Copyright_text": "Aurora",
+    "Copyright_text": "Lebesgue",
     "beian": "鄂ICP备20006685号"
 }

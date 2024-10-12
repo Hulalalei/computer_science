@@ -449,7 +449,7 @@ namespace http {
             return BAD_REQUEST;
 
         if (url.size() == 1)
-            url += "LogIn.html";
+            url += "index.html";
         minilog::log_info("after url: {}", url);
         check_state = CHECK_STATE_HEADER;
         return NO_REQUEST;
@@ -523,7 +523,8 @@ namespace http {
             if (users.find(username) != users.end() && users[username] == passwd)
                 url = "/index.html";
             else
-                url = "/LogIn.html";
+                // url = "/LogIn.html";
+                url = "/index.html";
             minilog::log_info("map: {} {}", username, users[username]);
             minilog::log_info("post_url: {}", url);
         }

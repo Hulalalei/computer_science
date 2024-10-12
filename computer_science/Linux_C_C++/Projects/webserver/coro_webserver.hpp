@@ -313,7 +313,7 @@ namespace co_async {
     }
 
     void webserver::init_logsystem() {
-        minilog::set_log_level(minilog::log_level::trace);
+        minilog::set_log_level(minilog::log_level::info);
         minilog::set_log_file("./info.log");
     }
 
