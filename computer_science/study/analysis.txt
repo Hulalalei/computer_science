@@ -1,5 +1,4 @@
                                                         高数
-
 ### 极限
     ## arcsinx(x + 1/6 x^3)、arctanx(x - 1/3 x^3)、sinx(x - 1/6 x^3)、tanx(x + 1/3 x^3)的Taylor展开
     ## e^x的用法
@@ -7,6 +6,7 @@
 
     ## 渐近线公式：|fx - y| (y = kx + b)
 
+    ## 数列极限：递推 + 夹逼
 
 
 ### 微分学
@@ -29,18 +29,22 @@
 
 
 ### 积分学
-    ## 不定积分：倒代换、整体换元、三角换元、tant换元，多项式积分
+    ## 不定积分：倒代换、整体换元、三角换元(x = sin(theta))、tant换元，多项式积分
     ## 定积分
         # 区间再现：
             1、对称区间：j(-a, a) f(x)dx = j(0, a) [f(x) + f(-x)]dx
             2、f(x)关于x = (a + b) / 2对称，则j(a, b) xf(x)dx = (a + b) / 2 j(a, b) f(x)dx
         # 分部积分：遇到计算复杂积分没思路时，考虑分部
-        # cosx = sinx的n次方积分：In = (n - 1)/n In-2
+        # cosx = sinx的n次方积分(Wallis公式)：In = (n - 1)/n In-2
     ## 积分等式证明：
         # 构造函数F(x)
         # 分部积分
         # 区间再现
         # Taylor展开
+    # j(0, +inf) x^n e^(-x)dx = n!
+    # j(0, pi) sin^4(t)|cost|dt = j(0, pi / 2) dt + j(pi / 2, pi) dt
+                                = j(0, pi / 2) dt + j(-pi / 2, 0) dt
+                                = j(-pi / 2, pi / 2) dt
 
 
 
@@ -52,13 +56,33 @@
     ## AD判别法
     gamma函数(G(a) = x^a-1 e^-x在0-正无穷积分)、beta函数(B(a, b) = x^a-1 (1 - x)^b-1 在0-1积分)
 
+
+
+
+
 ### 多元微分
     # 隐函数求偏导
     # 方向导数定义
     # 多元极值(AC - B^2 > 0) = 0 时另作判断
 
+
+
+
+
 ### 重积分
-    # 质心、转动惯量
+    # 质心
+        x0 = j() x*rho dxdy / M
+        y0 = j() y*rho dxdy / M
+    # 转动惯量(绕坐标轴旋转，也就是到坐标轴的距离)
+        Ix = j() (y^2 + z^2) * rho dxdydz
+        Iy = j() (x^2 + z^2) * rho dxdydz
+        Iz = j() (x^2 + y^2) * rho dxdydz
+    # 万有引力
+        F = GMm / r^2
+        dM = rho dV
+
+
+
 
 ### 流形上的积分
     ## 曲线积分
@@ -99,6 +123,8 @@
         x^ny^(n) + P1 x^n-1 y^(n-1) + ... + Pn-1 xy' + Pny = f(x)
         x^2y'' + pxy' + qy = f(x)   (令x = e^t)
         得到D*(D-1)y + pDy +qy = f(e^t)     D^2 y + p Dy + q = h(x)
+    # 二阶线性微分方程
+        y'' + py' + q = f(x)
     # 二阶常系数齐次线性方程组
         y'' + py' + qy = 0  (特征值为r1, r2)
         1' r1 != r2为实根，             通解：y = C1 e^(r1x) + C2 e^(r2x)
@@ -106,13 +132,77 @@
         3' r1,2 = a +/- bi为共轭复根，  通解：y = e^(ax)(C1 cosbx + C2 sinbx)
     # 二阶常系数非齐次线性方程组(通解 + 特解)
         y'' + py' + qy = f(x)  (特征值为r1, r2)
-        f(x) 为 e^(lambda x)Pm(x),                                      lambda是k重特征根(k = 0, 1, 2)，                y* = x^k e^(lambda x) Qm(x)
-        f(x) 为 e^(lambda x)[Pl(x)cos(wx) + Pn(x)sin(wx)]     lambda +/- iw是k重特征根(k = 0, 1, 2),     y* = x^k e^(lambda x) [R1(x)coswx + R2(x)sinwx]
+        1' f(x) 为 e^(lambda x)Pm(x)
+            方程可化简为R''(x) + (2lambda + p)R'(x) + (lambda^2 + p lambda + q)R(x) = Pm(x)
+            1.1 lambda^2 + p lambda + q != 0;                       y* = (x^m + ...) e^(lambda x)
+            1.2 lambda^2 + p lambda + q == 0 && 2lambda + p != 0;   y* = x(x^m + ...) e^(lambda x)
+            1.2 lambda^2 + p lambda + q == 0 && 2lambda + p == 0;   y* = x^2(x^m + ...) e^(lambda x)
+            
+            lambda是k重特征根(k = 0, 1, 2)，y* = x^k e^(lambda x) Qm(x)
+            
+        2' f(x) 为 e^(lambda x)[Pl(x)cos(wx) + Pn(x)sin(wx)] 
+            y* = x^k + e^(lambda x)[R1m(x)coswx + R2m(x)sinwx]
+            k = lambda + iw是根 ? 1 : 0;
+            m = max{l, n}
+
+            lambda +/- iw是k重特征根(k = 0, 1, 2),     y* = x^k e^(lambda x) [R1(x)coswx + R2(x)sinwx]
 
 
 
 
 ### 无穷级数
-    
+    ## 幂级数
+        # Cauchy-Hadamard公式
+            幂级数c0 + c1(z - z0) + ... + cn(z - zn)^n + ...在以点z0为圆心的圆|z - z0| < R内收敛
+                其收敛半径R由此公式确定：R = 1 / (sup(lim n->inf |cn|^1/n))
+        # d'Alembert
+            R = an / an+1
+    ## 数项级数
+        ## 正项级数
+            # Cauchy判别法
+                当R > 1时，正项级数收敛
+                当R < 1时，正项级数发散
+                当R = 1时，判别法失效
+            # d'Alembert判别法
+                当sup(lim n->inf xn+1 / xn) < 1时，正项级数收敛
+                当inf(lim n->inf xn+1 / xn) > 1时，正项级数发散
+                当其>=1 / <= 1时，判别法失效
+            # Raabe判别法
+                lim n(xn / xn+1 - 1) = r
+                当r > 1时，级数收敛
+                当r < 1时，级数发散
+            # Bertrand判别法
+                lim (lnn)[n(xn / xn+1 - 1) - 1] = r
+                当r > 1时，级数收敛
+                当r < 1时，级数发散
+            # 积分判别法
+                j(a, +inf) f(x)dx 与 sigma un同收敛或发散
+                当f(x)单调递减时，取an = n，则j(a, +inf) f(x)dx 与 sigma f(n)同收敛或发散
+        ## 任意项级数
+            # Cauchy收敛原理
+            # Leibniz判别法
+                1' 交错级数
+                2' un单调递减 趋于0
+            # Abel & Dirichlet判别法
+                级数sigma anbn收敛
+                1' an单调有界，sigma bn收敛
+                2' an单调趋于0，sigma bn有界
+        ## Fourier级数
+            1' 引入：在无穷维线性空间中，用正交函数系来线性表示一个特定函数；
+                     此空间中任意函数都是局部可积和平方可积的，且收敛
+            2' 标量积：<f, g> := j (f.!g)(x)dx            
+                j(-pi, pi) e^(imx)*e^(-inx) = (m == n ? 2pi : 0)
+                j(-pi, pi) cosmx * cosnx = (m == n ? pi : 0) (m == n == 0 ? 2p1 : ;)
+                j(-pi, pi) cosmx * sinnx = 0
+                j(-pi, pi) sinmx * sinnx = (m == n ? pi : 0)
+            3' 奇偶延拓：延拓后，在(-T, T)内f(x)积分时，f(x)为对应的奇f1(x)/偶f2(x)函数
+            4' 零延拓：f(x) = 1/2 [f1(x) + f2(x)]
 
+            # 任意周期的Fourier展开
+                令x = T / pi t; 则phi(t) = f(T / pi t) = f(x)
+                f(x) = a0 / 2 + sigma (an cos(npi / T)x + bn sin(npi / T)x)
+                an = 1 / T j(-T, T) f(x)cos(npi / T)x dx
+                bn = 1 / T j(-T, T) f(x)sin(npi / T)x dx
 
+            # 狄利克雷收敛定理
+                f的Fourier级数在x0处收敛，并且有lim n->inf Sn(f)(x0) = 1 / 2 (f(x0+) + f(x0-))
