@@ -30,6 +30,7 @@
     # 正态分布
         E(X) = mu
         D(X) = sigma^2
+        f(x) = 
 
     # 复合函数求导
         fY(y) = fX(g^-1(y)) * |g^-1'(y)|
@@ -54,6 +55,13 @@
     cov(X, Y) = cov(Y, X)
     cov(kX, lY) = klcov(X, Y)
     cov(X1 + X2, Y) = cov(X1, Y) + cov(X2, Y)
+    
+    f(x, y)的关于X的协方差：j() f(x, y(x)) dx
+    f(x, y)的关于Y的协方差：j() f(x(y), y) dy
+    f(x, y)的关于XY的协方差：j() xyf(x, y) dxdy
+    
+### 相互独立性
+    f(x, y) = fX * fY
 
     # 相关系数
         rho = cov(X, Y) / (D(X)D(Y))^1/2
