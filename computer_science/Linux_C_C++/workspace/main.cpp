@@ -1,34 +1,41 @@
 #include <iostream>
 #include <format>
+#include <cstring>
+#include <algorithm>
 
 
+int n = 0, m = 0;
+constexpr int N = 1000;
+int g[N][N], dist[N];
+bool st[N];
 
-int son[1024][2] = { 0 };
+int dijkstra() {
+    dist[1] = 0;
 
-int solve(int sub) {
-    int height = 0;
-    int total = 0;
-    while (true) {
-        if (son[sub][0] != -1) {
-            height ++;
-            solve(son[sub][0]);
-            height --;
-        }
-        if (son[sub][1] != -1) {
-            height ++;
-            solve(son[sub][1]);
-            height --;
-        }
-        if (son[sub][0] == -1 && son[sub][1] == -1) {
-            total += height * son[sub].weight;
-        }
+    for (int i = 0; i < n; i ++) {
+        int t = -1;
+        for (int j = 1; j <= n; j ++) 
+            if (!st[j] && (t == -1 || dist[t] > dist[j]))
+                t = j;
+        st[t] = true;
+        for (int j = 1; j <= n; j ++) 
+            dist[j] = std::min(dist[j], dist[t] + g[t][j]);
     }
-    return total;
+
+    if (dist[n] == 0x3f3f3f3f) return -1;
+    return dist[n];
 }
 
-
 int main(int argc, char **argv) {
-    std::cout << solve(0) << "\n";
+    memset(g, 0x3f, sizeof g);
+    memset(dist, 0x3f, sizeof dist);
 
+    std::cin >> n >> m;
+    while (m --) {
+        int x = 0, y = 0, z = 0;
+        std::cin >> x >> y >> z;
+        g[x][y] = std::min(g[x][y], z);
+    }
+    std::cout << dijkstra() << "\n";
     return 0;
 }
