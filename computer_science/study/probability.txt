@@ -26,6 +26,11 @@
         F(x) = 1 - e^(-lambda x)
         E(X) = 1 / lambda
         D(X) = 1 / lambda^2
+
+    # 几何分布
+        进行k次二项分布，只有第k次成功；
+        E(x) = 1 / p
+        D(x) = (1 - p) / p^2
     
     # 正态分布
         E(X) = mu
