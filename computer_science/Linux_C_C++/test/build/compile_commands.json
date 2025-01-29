@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/test/build",
+  "command": "/usr/bin/g++-14 -g -std=gnu++23 -o CMakeFiles/main.dir/t.cpp.o -c /home/hsf/computer_science/Linux_C_C++/test/t.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/test/t.cpp",
+  "output": "CMakeFiles/main.dir/t.cpp.o"
+}
+]

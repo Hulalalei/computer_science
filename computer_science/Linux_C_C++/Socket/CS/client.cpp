@@ -1,7 +1,6 @@
 #include <iostream>
 #include <arpa/inet.h>
 #include <unistd.h>
-#include <string>
 #include <pthread.h>
 
 pthread_mutex_t mutexComm;
@@ -23,6 +22,7 @@ void *getCast (void *arg) {
 			std::cout << buffs << "\n";
 		}
 	}
+    return nullptr;
 }
 
 int main (void) {

@@ -1,11 +1,12 @@
-#include <iostream>
 #include <format>
+#include <print>
 #include <json/json.h>
 #include <mysql/mysql.h>
 #include <coro_webserver.hpp>
 // #include <webserver.hpp>
 
 int main(int argc, char **argv) {
+    std::println("hello server, {}", 42);
     co_async::webserver server;
 
     // 日志系统

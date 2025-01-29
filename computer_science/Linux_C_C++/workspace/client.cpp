@@ -23,7 +23,9 @@ void *getCast (void *arg) {
 			std::cout << buffs << "\n";
 		}
 	}
+    return nullptr;
 }
+
 
 int main (void) {
 	int cfd = socket (AF_INET, SOCK_STREAM, 0);

@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC  -g -O2 -no-pie -fmodules-ts -shared -Wl,-soname,libsub.so -o libsub.so CMakeFiles/sub.dir/sub.cpp.o   -L/home/hsf/computer_science/Linux_C_C++/workspace/.  -Wl,-rpath,/home/hsf/computer_science/Linux_C_C++/workspace/. -ljsoncpp -lmysqlclient 

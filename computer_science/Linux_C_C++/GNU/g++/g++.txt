@@ -28,6 +28,10 @@ GCC常见软件：ar、as、gdb、gprof、ld、libtool、make
 -m64				                使用处理64bit的字的计算机
 -masm=intel			                x86-64汇编格式(att / intel)
 -o main
+
+g++-14 -std=c++20 -fmodules-ts -x c++-system-header format      标准库模块化
+g++-14 -std=c++20 -fmodules-ts main.cpp -o main                 高版本不兼容
+
 -fmodules-ts -c m_md.cpp            编译模块
 -fmodules-ts main.o m_md.o -o main  链接模块
 -l jemalloc -DJEMALLOC_NO_DEMANGLE  使用jemalloc

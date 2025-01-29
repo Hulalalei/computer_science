@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 
 
 // #if 与 #else的使用，静态多态

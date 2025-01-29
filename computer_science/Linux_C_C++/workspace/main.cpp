@@ -1,41 +1,90 @@
-#include <iostream>
-#include <format>
-#include <cstring>
-#include <algorithm>
+#include <asm-generic/socket.h>
+#include <cerrno>
+#include <csignal>
+#include <netdb.h>
+#include <sys/socket.h>
+#include <sys/epoll.h>
+#include <unistd.h>
+
+#include <print>
+#include <array>
+
+#include <expected.hpp>
+#include <io_context.hpp>
+#include <callback.hpp>
+#include <timer_context.hpp>
 
 
-int n = 0, m = 0;
-constexpr int N = 1000;
-int g[N][N], dist[N];
-bool st[N];
 
-int dijkstra() {
-    dist[1] = 0;
-
-    for (int i = 0; i < n; i ++) {
-        int t = -1;
-        for (int j = 1; j <= n; j ++) 
-            if (!st[j] && (t == -1 || dist[t] > dist[j]))
-                t = j;
-        st[t] = true;
-        for (int j = 1; j <= n; j ++) 
-            dist[j] = std::min(dist[j], dist[t] + g[t][j]);
-    }
-
-    if (dist[n] == 0x3f3f3f3f) return -1;
-    return dist[n];
+void handle_ctrl(int sig) {
+    std::println("catch the ctrl + C signal");
+    throw;
 }
 
-int main(int argc, char **argv) {
-    memset(g, 0x3f, sizeof g);
-    memset(dist, 0x3f, sizeof dist);
+// void handle_pipe(int sig) {
+//     std::println("catch the pipe");
+//     throw;
+// }
 
-    std::cin >> n >> m;
-    while (m --) {
-        int x = 0, y = 0, z = 0;
-        std::cin >> x >> y >> z;
-        g[x][y] = std::min(g[x][y], z);
+
+int main(int argc, char **argv) {
+    callback<> cb;
+    signal(SIGINT, handle_ctrl);
+    // signal(SIGPIPE, handle_pipe);
+
+    address_resolver resolver;
+    auto adrinfo = resolver.resolve("127.0.0.1", "8080");
+    int sockfd = adrinfo.create_socket();
+    auto serv_addr = adrinfo.get_address();
+
+    int on = 1;
+    setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof on);
+    setsockopt(sockfd, SOL_SOCKET, SO_REUSEPORT, &on, sizeof on);
+    convert_error(bind(sockfd, serv_addr.m_addr, serv_addr.m_addrlen)).expect("bind");
+    convert_error(listen(sockfd, SOMAXCONN)).expect("listen");
+
+
+    int epfd = convert_error(epoll_create(1)).expect("epoll_create");
+    std::array<struct epoll_event, 128> events;
+    struct epoll_event ev;
+    ev.events = EPOLLIN;
+    ev.data.fd = sockfd;
+    epoll_ctl(epfd, EPOLL_CTL_ADD, sockfd, &ev);
+
+
+
+
+    std::println("start the server now");
+    while (true) {
+        int ret = convert_error(epoll_wait(epfd, events.data(), events.size(), -1))
+            .expect("pwait2");
+        for (int i = 0; i < ret; i ++) {
+            int fd = events[i].data.fd;
+            if (fd == sockfd) {
+                int connfd = convert_error(accept(sockfd, nullptr, nullptr)).expect("accept");
+                struct epoll_event ev;
+                ev.events = EPOLLIN;
+                ev.data.fd = connfd;
+                epoll_ctl(epfd, EPOLL_CTL_ADD, connfd, &ev);
+            } else {
+                char buf[1024];
+                auto exp_read = convert_error(read(fd, buf, sizeof buf));
+                if (exp_read.is_error(ECONNRESET)) continue;
+                ssize_t rn = exp_read.expect("read");
+                
+                auto req = std::string(buf, rn);
+                // std::println("receive the requset:\n{}", req);
+                std::string response = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nContent-Length: 12\r\nConnection: keep-alive\r\n\r\nhello, world";
+                // std::println("\nmy resonse is: {}", response);
+                auto exp_write = convert_error<size_t>(write(fd, response.data(), response.size()));
+                if (exp_write.is_error(EPIPE)) continue;
+                ssize_t wn = exp_write.expect("write");
+
+                epoll_ctl(epfd, EPOLL_CTL_DEL, fd, nullptr);
+                close(fd);
+            }
+        }
     }
-    std::cout << dijkstra() << "\n";
+    close(sockfd);
     return 0;
 }

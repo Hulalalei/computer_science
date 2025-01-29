@@ -1,12 +1,13 @@
 Dear Manager / Professor,
 To Who It May Concern,
-    I am Li Ming, a student at collage, and I am writing with regard to the party(sth.) that ......
+    I hope this email finds you well. As a college student at PeKing University majoring in computer science, 
+        I am writing with regard to the party(sth.) that ......
         题目互动, so I am writing to present you this letter
     What follows are a few aspects concerning my (purpose)
     For one thing, ...
     For another
     It is my sincere hope that you could ...(需求)
-    I hope that my request dose not cause you any inconvenience
+****I hope that my request does not cause you any inconvenience
                                                                     Yours sincerely,
                                                                     Li Ming
 
@@ -33,3 +34,56 @@ Dear Friend,
 
 formal: I am
 informal: I'm
+
+
+
+功能句：
+1、自我介绍
+    As a senior student from Peking University who is quite interested in cultural communication, I ......
+2、寒暄
+    It is so glad to hear that you, international students, have arrived at our university.
+    I am very quite pleased to hear that you have signed up for a speech contest on Chinese culture.
+    I am deeply sorry to hear that you did not do well in your recent maths midterm exam.
+3、写信、通知
+    This notice is for the purpose of inviting you to attend a welcome party.
+    I am writing to suggest a topic.
+    I am writing for the purpose of making an apology since I am afraid I can't go.
+4、建议
+    It is advisable for you to (participate in this welcome party.)
+    We are supposed to take immediate actions to (prevent food waste in daily life.)
+    I suggest that you prepare in advance.
+    It is exceedingly for you to lower the price.
+5、原因
+    It was your tremendous help that enabled me to (enjoy a comfortable and fruitful trip of learning.)
+6、积极意义
+    Participating in relevant activities can bring you opportunities to enjoy diverse traditional food, arouse your 
+        passion for Chinese culture, and help you enjoy a unique experience.
+7、举例
+    China is characterized by its time-honored history and a variety of traditional festivals, such as the Spring Festival,
+        the Mid-Autumn Day and the Dragon Boat Festival.
+8、表达感谢或不满
+    I am deeply grateful to you for your help.
+    We are rather disappointed with the cafeteria staff.
+9、表达期待
+    We are looking forward to your participation.
+    Hope that they will improve their customer service attitude.
+10、个人观点
+    I am convinced that with the above measuers, the cafeteria service will be greatly improved.
+    I deem that it is advisable for you to visit in person the Great Wall, the Summer Palace, the Frobidden City and
+        so on in your spare time.
+11、对比
+    Commpared with others, I possess richer experience in communicating with foreigners.
+12、典型特征
+    In addition, this welcome party is characterized by a variety of interesting activities, including singing, dancing,
+        Chinese culture introduction, and fun competitions.
+13、事件背景
+    The welcome party is scheduled to start at 19:00 on June 20 in the Center of Students' Activities and last for 
+        approximately two hours.
+14、功能句
+    These traditional Chinese snacks are particularly worth trying.
+    All classmates agreed that this phenomenon is particularly worth attention.
+15、说明自己忙碌
+    You know that during the past half year, I have been exceedingly busy since I allocated nearly all my time and energy
+        to preparing for the national entrance exams for postgraduate students.
+16、展望未来
+    I will do my utmost to fulfill my duties.

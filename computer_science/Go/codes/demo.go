@@ -1,5 +1,4 @@
 package main
-
 import "fmt"
 import "time"
 
@@ -10,8 +9,6 @@ func speak(text string) {
     }
 }
 
-func main() {
-    go speak("hello")
-    speak("world!")
+func main()  {
+    fmt.Println("hello");
 }
-

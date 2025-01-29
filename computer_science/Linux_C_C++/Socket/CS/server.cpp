@@ -11,11 +11,11 @@ int main (void) {
 	struct sockaddr_in saddr;
 	saddr.sin_family = AF_INET;
 	saddr.sin_port = htons (10003);
-	saddr.sin_addr.s_addr = INADDR_ANY;		//client's ip
+	saddr.sin_addr.s_addr = INADDR_ANY;		// os会自动选择服务器ip
 	int ret = bind(fd, (struct sockaddr*)&saddr, sizeof (saddr));
 	if (ret == -1) std::cerr << "bind err" << std::endl;
 
-	ret = listen (fd, 128);
+	ret = listen (fd, 128); // TCP三握手中，服务器设置为LISTEN状态
 	if (ret == -1) std::cerr << "listen err" << std::endl;
 
 	struct sockaddr_in caddr;

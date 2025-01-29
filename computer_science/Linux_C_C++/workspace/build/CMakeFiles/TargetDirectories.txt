@@ -1,3 +1,4 @@
 /home/hsf/computer_science/Linux_C_C++/workspace/build/CMakeFiles/main.dir
+/home/hsf/computer_science/Linux_C_C++/workspace/build/CMakeFiles/tmp.dir
 /home/hsf/computer_science/Linux_C_C++/workspace/build/CMakeFiles/edit_cache.dir
 /home/hsf/computer_science/Linux_C_C++/workspace/build/CMakeFiles/rebuild_cache.dir
