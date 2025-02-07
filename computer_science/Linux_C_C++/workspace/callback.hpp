@@ -56,11 +56,11 @@ struct callback {
         m_base->__call(std::forward<Args>(args)...);
     }
 
-    void *getaddress() const noexcept {
+    void *get_address() const noexcept {
         return static_cast<void *>(m_base.get());
     }
 
-    void *leak_address() const {
+    void *leak_address() noexcept {
         return static_cast<void *>(m_base.release());
     }
 

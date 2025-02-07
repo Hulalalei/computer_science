@@ -18,8 +18,6 @@ bug:
 #include <string>
 #include <functional>
 #include <coroutine>
-#include <concepts>
-#include <type_traits>
 
 #include <cstdio>
 #include <cstdlib>
@@ -31,7 +29,6 @@ bug:
 #include <netinet/in.h>
 #include <netinet/tcp.h>
 #include <unistd.h>
-#include <errno.h>
 #include <fcntl.h>
 #include <sys/epoll.h>
 
@@ -50,12 +47,12 @@ bug:
 namespace co_asyncweb {
     std::source_location loc;
 
-    std::string get_filename(std::string pathname) {
+    inline std::string get_filename(std::string pathname) {
         auto pos = pathname.rfind("/");
         return pathname.substr(pos + 1);
     }
 
-    void check_error(int err, std::string express, std::string pathname, int line) {
+    inline void check_error(int err, std::string express, std::string pathname, int line) {
         if (-1 == err) {
             auto filename = get_filename(pathname);
             std::cout << std::format("{} : {} ", filename, line);
@@ -159,13 +156,13 @@ namespace co_asyncweb {
         int lfd, datafd;
     };
 
-    webserver::webserver() {
+    inline webserver::webserver() {
         http_users = new http::http_conn[MAX_FD];
         fileroot = std::string("../res");
         users_timer = new timeouts::client_data[MAX_FD];
     }
 
-    webserver::~webserver() {
+    inline webserver::~webserver() {
         close(web_epfd);
         close(serv_sock);
         close(web_pipefd[1]);
@@ -174,7 +171,7 @@ namespace co_asyncweb {
         delete[] users_timer;
     }
 
-    void webserver::init() {
+    inline void webserver::init() {
         std::ifstream ifsJson("./webconfig.json", std::ifstream::in);
         Json::Reader rd;
         Json::Value jroot;
@@ -186,22 +183,22 @@ namespace co_asyncweb {
         sql_db = jroot["db"].asString();
     }
 
-    void webserver::thread_pool() {
+    inline void webserver::thread_pool() {
     }
 
-    void webserver::sql_pool() {
+    inline void webserver::sql_pool() {
         connpool = connsql::connection_pool::get_instance();
         connpool->init_conn(sql_host, sql_user, sql_passwd, sql_db);
         http_users->init_mysql_result(connpool);
     }
 
     // 日志相关
-    void webserver::log_system() {
+    inline void webserver::log_system() {
         minilog::set_log_level(minilog::log_level::trace);
         minilog::set_log_file("./info.log");
     }
 
-    void webserver::event_listen() {
+    inline void webserver::event_listen() {
         serv_sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
 
         // 端口复用 以及 优雅断开连接
@@ -253,7 +250,7 @@ namespace co_asyncweb {
         timeouts::utils::u_epfd = web_epfd;
     }
 
-    task webserver::event_loop() {
+    inline task webserver::event_loop() {
         bool timeout = false;
         bool stop_server = false;
 
@@ -319,7 +316,7 @@ namespace co_asyncweb {
     //     return true;
     // }
 
-    bool webserver::deal_signal(bool &timeout, bool &stop_server) {
+    inline bool webserver::deal_signal(bool &timeout, bool &stop_server) {
         int ret = 0;
         int sig;
         char signals[1024];
@@ -363,7 +360,7 @@ namespace co_asyncweb {
         return true;
     }
 
-    void webserver::deal_read(int sockfd) {
+    inline void webserver::deal_read(int sockfd) {
         timeouts::timer_node *timer = users_timer[sockfd].client_timer;
         // proactor
         if (http_users[sockfd].read_once()) {
@@ -379,16 +376,15 @@ namespace co_asyncweb {
         else deal_timer(timer, sockfd);
     }
 
-    void webserver::deal_write(int sockfd) {
+    inline void webserver::deal_write(int sockfd) {
         timeouts::timer_node *timer = users_timer[sockfd].client_timer;
         // proactor
-        if (http_users[sockfd].write())
+        if (http_users[sockfd].write()) {
             if (timer) adjust_timer(timer);
-
-        else deal_timer(timer, sockfd);
+        } else deal_timer(timer, sockfd);
     }
 
-    void webserver::timer(int connfd, struct sockaddr_in client_address) {
+    inline void webserver::timer(int connfd, struct sockaddr_in client_address) {
         http_users[connfd].init(connfd, client_address, fileroot);
 
         // 初始化client_data数据

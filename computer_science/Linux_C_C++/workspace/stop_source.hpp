@@ -2,7 +2,6 @@
 
 
 #include <callback.hpp>
-#include <iostream>
 #include <memory>
 
 
@@ -15,7 +14,7 @@ struct stop_source {
     std::shared_ptr<__control_block> m_control;
 
     stop_source() = default;
-    explicit stop_source(std::in_place_t): m_control(std::make_shared<__control_block>()) { std::cout << "in_place\n"; }
+    explicit stop_source(std::in_place_t): m_control(std::make_shared<__control_block>()) {}
     
     static stop_source make() {
         return stop_source(std::in_place);
@@ -29,6 +28,7 @@ struct stop_source {
         return m_control != nullptr;
     }
 
+    // 执行、设置、清除 回调
     void request_stop() const {
         if (!m_control) return;
         m_control->m_stop = true;

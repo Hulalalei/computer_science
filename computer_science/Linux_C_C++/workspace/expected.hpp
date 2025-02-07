@@ -14,9 +14,29 @@ struct [[nodiscard]] expected {
 
     expected(std::make_signed_t<T> res): m_res(res) {}
 
+    int error() const noexcept {
+        if (m_res < 0) return m_res;
+        return 0;
+    }
+
     bool is_error(int res) {
         // std::println("catch error: {}", strerror(errno));
         return m_res == -res;
+    }
+
+    std::error_code error_code() const noexcept {
+        if (m_res < 0) {
+            return std::error_code(-m_res, std::system_category());
+        }
+        return std::error_code();
+    }
+
+    T value() const {
+        if (m_res < 0) {
+            auto ec = error_code();
+            throw std::system_error(ec);
+        }
+        return m_res;
     }
 
     int expect(std::string_view what) {

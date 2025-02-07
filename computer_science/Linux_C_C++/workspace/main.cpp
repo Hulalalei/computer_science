@@ -7,84 +7,94 @@
 #include <unistd.h>
 
 #include <print>
-#include <array>
 
 #include <expected.hpp>
 #include <io_context.hpp>
 #include <callback.hpp>
+#include <stop_source.hpp>
 #include <timer_context.hpp>
 
 
+async_file m_conn;
+void do_read();
 
 void handle_ctrl(int sig) {
     std::println("catch the ctrl + C signal");
     throw;
 }
 
-// void handle_pipe(int sig) {
-//     std::println("catch the pipe");
-//     throw;
-// }
+char buffer01[] = "HTTP/1.1 200 OK\r\nServer: co_http\r\nContent-type: text/html;charset=utf-8\r\nConnection: keep-alive\r\nContent-length: 5\r\n\r\nhello";
+std::span<char> buf_write{buffer01};
+void do_write() {
+    // std::println("my response: \n{}", std::string_view{buf_write.data(), buf_write.size()});
+
+    return m_conn.async_write(buf_write, [](expected<size_t> ret) {
+        if (ret.error()) {
+            // std::println("read error");
+            return;
+        }
+        auto n = ret. value();
+        if (n == buf_write.size()) {
+            // std::println("write done!");
+            return do_read();
+        }
+        return do_write();
+    });
+}
+
+
+char buffer02[1024];
+std::span<char> buf_read{buffer02};
+void do_read() {
+    stop_source stop_io(std::in_place);
+    stop_source stop_timer(std::in_place);
+    // 超时后执行io stop
+    io_context::get().set_timeout(std::chrono::seconds(10), [stop_io] {
+        stop_io.request_stop();
+    }, stop_timer);
+
+    return m_conn.async_read(buf_read, [stop_timer] (expected<size_t> ret) {
+        // read失败后执行此回调
+        // 如果io_stop停止了，就执行timer_stop回调
+        stop_timer.request_stop();
+        if (ret.error()) {
+            // std::println("read error, give up the connection: {}", strerror(-ret.error()));
+            return;
+        }
+
+        size_t n = ret.value();
+        if (n == 0) {
+            // std::println("client side has cut the connect");
+            return;
+        }
+        // std::println("has read the info: \n{}", std::string_view{buf_read.data(), 200});
+        do_write();
+
+    }, stop_io);
+}
+
+address_resolver::address t{};
+void do_accept(async_file &web) {
+    return web.async_accept(t, [&web](expected<int> ret) {
+        auto connfd = ret.expect("accept");
+        m_conn = async_file{connfd};
+        do_read();
+        return do_accept(web);
+    });
+}
 
 
 int main(int argc, char **argv) {
-    callback<> cb;
     signal(SIGINT, handle_ctrl);
-    // signal(SIGPIPE, handle_pipe);
 
+    io_context icx{};
     address_resolver resolver;
     auto adrinfo = resolver.resolve("127.0.0.1", "8080");
-    int sockfd = adrinfo.create_socket();
-    auto serv_addr = adrinfo.get_address();
-
-    int on = 1;
-    setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof on);
-    setsockopt(sockfd, SOL_SOCKET, SO_REUSEPORT, &on, sizeof on);
-    convert_error(bind(sockfd, serv_addr.m_addr, serv_addr.m_addrlen)).expect("bind");
-    convert_error(listen(sockfd, SOMAXCONN)).expect("listen");
-
-
-    int epfd = convert_error(epoll_create(1)).expect("epoll_create");
-    std::array<struct epoll_event, 128> events;
-    struct epoll_event ev;
-    ev.events = EPOLLIN;
-    ev.data.fd = sockfd;
-    epoll_ctl(epfd, EPOLL_CTL_ADD, sockfd, &ev);
-
-
-
+    auto async_web = async_file::async_bind(adrinfo);
+    do_accept(async_web);
 
     std::println("start the server now");
-    while (true) {
-        int ret = convert_error(epoll_wait(epfd, events.data(), events.size(), -1))
-            .expect("pwait2");
-        for (int i = 0; i < ret; i ++) {
-            int fd = events[i].data.fd;
-            if (fd == sockfd) {
-                int connfd = convert_error(accept(sockfd, nullptr, nullptr)).expect("accept");
-                struct epoll_event ev;
-                ev.events = EPOLLIN;
-                ev.data.fd = connfd;
-                epoll_ctl(epfd, EPOLL_CTL_ADD, connfd, &ev);
-            } else {
-                char buf[1024];
-                auto exp_read = convert_error(read(fd, buf, sizeof buf));
-                if (exp_read.is_error(ECONNRESET)) continue;
-                ssize_t rn = exp_read.expect("read");
-                
-                auto req = std::string(buf, rn);
-                // std::println("receive the requset:\n{}", req);
-                std::string response = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nContent-Length: 12\r\nConnection: keep-alive\r\n\r\nhello, world";
-                // std::println("\nmy resonse is: {}", response);
-                auto exp_write = convert_error<size_t>(write(fd, response.data(), response.size()));
-                if (exp_write.is_error(EPIPE)) continue;
-                ssize_t wn = exp_write.expect("write");
+    icx.join();
 
-                epoll_ctl(epfd, EPOLL_CTL_DEL, fd, nullptr);
-                close(fd);
-            }
-        }
-    }
-    close(sockfd);
     return 0;
 }

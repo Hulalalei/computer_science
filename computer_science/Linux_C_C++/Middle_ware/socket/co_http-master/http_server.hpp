@@ -15,6 +15,7 @@ struct http_server : std::enable_shared_from_this<http_server> {
         return std::make_shared<pointer::element_type>();
     }
 
+    // 写响应
     struct http_request {
         std::string url;
         http_method method; // GET, POST, PUT, ...
@@ -34,10 +35,12 @@ struct http_server : std::enable_shared_from_this<http_server> {
                                        std::to_string(content.size()));
             m_res_writer->end_header();
             m_res_writer->write_body(content);
+            // 写入write的buffer中
             m_resume();
         }
     };
 
+    // 回调write()
     struct http_router {
         std::map<std::string, callback<http_request &>> m_routes;
 
@@ -50,9 +53,11 @@ struct http_server : std::enable_shared_from_this<http_server> {
             // 寻找匹配的路径
             auto it = m_routes.find(request.url);
             if (it != m_routes.end()) {
+                // callback
                 return it->second(multishot_call, request);
             }
             // fmt::println("找不到路径: {}", request.url);
+            // write_response中也有回调
             return request.write_response(404, "404 Not Found");
         }
     };
@@ -145,6 +150,8 @@ struct http_server : std::enable_shared_from_this<http_server> {
                 }
                 auto n = ret.value();
 
+                // 判断是否全部写完
+                // write需要多次写入
                 if (buffer.size() == n) {
                     self->m_res_writer.reset_state();
                     return self->do_read();

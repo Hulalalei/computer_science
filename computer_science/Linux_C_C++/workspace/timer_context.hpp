@@ -24,7 +24,7 @@ struct timer_context {
     void set_timeout(DURATION dt, callback<> cb, stop_source stop = {}) {
         auto expired_time = std::chrono::steady_clock::now() + dt;
         auto it = m_timer_heap.insert({expired_time, __timer_entry{std::move(cb), stop}});
-        // 回调：执行定时器里的回调
+        // 回调：设置定时器里的回调
         stop.set_stop_callback([this, it] {
             auto cb = std::move(it->second.m_cb);
             m_timer_heap.erase(it);

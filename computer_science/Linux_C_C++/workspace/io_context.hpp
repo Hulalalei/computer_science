@@ -1,13 +1,20 @@
 #pragma once
+#include "stop_source.hpp"
+#include <asm-generic/socket.h>
 #include <chrono>
+#include <cmath>
+#include <print>
+#include <span>
 #include <netdb.h>
 #include <string>
 #include <sys/epoll.h>
 #include <sys/socket.h>
+#include <fcntl.h>
 #include <system_error>
 
 #include <expected.hpp>
 #include <timer_context.hpp>
+#include <bytes_buffer.hpp>
 #include <unistd.h>
 
 
@@ -22,6 +29,7 @@ struct io_context : timer_context {
     void join() {
         std::array<struct epoll_event, 128> events;
         while (!is_empty()) {
+            // 计时器 计时
             std::chrono::nanoseconds dt = duration_to_next_timer();
             struct timespec timeout, *timeoutp = nullptr;
             if (dt.count() >= 0) {
@@ -134,5 +142,142 @@ struct address_resolver {
             throw std::system_error(ec, ip_name + ":" + net_service);
         }
         return { m_head };
+    }
+};
+
+struct async_file : file_descriptor {
+    async_file() = default;
+
+    explicit async_file(int fd): file_descriptor(fd) {
+        int flags = convert_error(fcntl(m_fd, F_GETFL)).expect("F_GETFL");
+        flags |= O_NONBLOCK;
+        convert_error(fcntl(m_fd, F_SETFL, flags)).expect("F_SETFL");
+
+        struct epoll_event event;
+        event.events = EPOLLET;
+        event.data.ptr = nullptr;
+        // 在其他地方会创建一个io_context对象
+        convert_error(epoll_ctl(io_context::get().m_epfd, EPOLL_CTL_ADD, m_fd, &event))
+            .expect("EPOLL_CTL_ADD");
+    }
+
+    void __epoll_callback(callback<> &&resume, uint32_t events, stop_source stop) {
+        // epoll_ctl
+        struct epoll_event event;
+        event.events = events;
+        event.data.ptr = resume.get_address();
+        convert_error(epoll_ctl(io_context::get().m_epfd, EPOLL_CTL_MOD, m_fd, &event))
+            .expect("EPOLL_CTL_MOD");
+        ++ io_context::get().m_epcount;
+        stop.set_stop_callback([resume_ptr = resume.leak_address()] {
+            callback<>::from_address(resume_ptr)();
+        });
+    }
+
+    void async_read(std::span<char> buf, callback<expected<size_t> > cb, stop_source stop = {}) {
+#if USE_LEVEL_TRIGGER
+#else
+        if (stop.stop_requested()) {
+            stop.clear_stop_callback();
+            return cb(-ECANCELED);
+        }
+        auto ret = convert_error<size_t>(read(m_fd, buf.data(), buf.size()));
+        if (!ret.is_error(EAGAIN)) {
+            stop.clear_stop_callback();
+            return cb(ret);
+        }
+
+        return __epoll_callback([this, buf, cb = std::move(cb), stop]() mutable {
+            return async_read(buf, std::move(cb), stop);
+        }, EPOLLIN | EPOLLERR | EPOLLET | EPOLLONESHOT, stop);
+#endif
+    }
+
+    void async_write(std::span<char> buf, callback<expected<size_t> > cb, stop_source stop = {}) {
+#if USE_LEVEL_TRIGGER
+#else
+        if (stop.stop_requested()) {
+            stop.clear_stop_callback();
+            return cb(-ECANCELED);
+        }
+        auto ret = convert_error<size_t>(write(m_fd, buf.data(), buf.size()));
+        if (!ret.is_error(EAGAIN)) {
+            stop.clear_stop_callback();
+            return cb(ret);
+        }
+
+        return __epoll_callback([this, buf, cb = std::move(cb), stop]() mutable {
+            return async_write(buf, std::move(cb), stop);
+        }, EPOLLOUT | EPOLLERR | EPOLLET | EPOLLONESHOT, stop);
+#endif
+    }
+
+    // 先accept，再加入到epoll中
+    void async_accept(address_resolver::address &addr, callback<expected<int> > cb, stop_source stop = {}) {
+#if USE_LEVEL_TRIGGER
+#else
+        if (stop.stop_requested()) {
+            stop.clear_stop_callback();
+            return cb(-ECANCELED);
+        }
+        auto ret = convert_error<int>(accept(m_fd, &addr.m_addr, &addr.m_addrlen));
+        if (!ret.is_error(EAGAIN)) {
+            stop.clear_stop_callback();
+            return cb(ret);
+        }
+
+        return __epoll_callback([this, &addr, cb = std::move(cb), stop]() mutable {
+            return async_accept(addr, std::move(cb), stop);
+        }, EPOLLIN | EPOLLERR | EPOLLET | EPOLLONESHOT, stop);
+#endif
+    }
+
+    void async_connect(address_resolver::address_info const &addr, callback<expected<int> > cb, stop_source stop = {}) {
+        if (stop.stop_requested()) {
+            stop.clear_stop_callback();
+            return cb(-ECANCELED);
+        }
+        auto addr_ptr = addr.get_address();
+        auto ret = convert_error(connect(m_fd, addr_ptr.m_addr, addr_ptr.m_addrlen));
+        if (!ret.is_error(EINPROGRESS)) {
+            stop.clear_stop_callback();
+            return cb(ret);
+        }
+
+        return __epoll_callback([this, cb = std::move(cb), stop]() mutable {
+            if (stop.stop_requested()) { 
+                stop.clear_stop_callback();
+                return cb(-ECANCELED);
+            }
+            int ret = 0;
+            socklen_t ret_len = sizeof(ret);
+            convert_error(getsockopt(m_fd, SOL_SOCKET, SO_ERROR, &ret, &ret_len))
+                .expect("getsockopt");
+
+            if (ret > 0) { ret = -ret; }
+            stop.clear_stop_callback();
+            return cb(ret);
+        }, EPOLLOUT | EPOLLERR | EPOLLONESHOT, stop);
+    }
+
+    static async_file async_bind(address_resolver::address_info const &addr) {
+        auto sock = async_file{addr.create_socket()};
+        auto serv_addr = addr.get_address();
+        int on = 1;
+        setsockopt(sock.m_fd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof on);
+        setsockopt(sock.m_fd, SOL_SOCKET, SO_REUSEPORT, &on, sizeof on);
+        convert_error(bind(sock.m_fd, serv_addr.m_addr, serv_addr.m_addrlen)).expect("bind");
+        convert_error(listen(sock.m_fd, SOMAXCONN)).expect("listen");
+        return sock;
+    }
+
+    async_file(async_file &&) = default;
+    async_file &operator=(async_file &&) = default;
+    ~async_file() {
+        if (m_fd == -1) return;
+        epoll_ctl(io_context::get().m_epfd, EPOLL_CTL_DEL, m_fd, nullptr);
+    }
+    explicit operator bool() const noexcept {
+        return m_fd != -1;
     }
 };

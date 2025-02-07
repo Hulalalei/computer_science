@@ -6,7 +6,6 @@
 // #include <webserver.hpp>
 
 int main(int argc, char **argv) {
-    std::println("hello server, {}", 42);
     co_async::webserver server;
 
     // 日志系统

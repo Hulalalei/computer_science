@@ -7,7 +7,11 @@ void server() {
     server->get_router().route("/", [](http_server::http_request &request) {
         std::string response;
         if (request.body.empty()) {
-            response = "你好，你的请求正文为空哦";
+            // GET
+            // response = "你好，你的请求正文为空哦";
+            // POST
+            // username = a & passwd = b;
+            response = "hello world";
         } else {
             response = "你好，你的请求是: [" + request.body
                 + "]，共 " + std::to_string(request.body.size())
