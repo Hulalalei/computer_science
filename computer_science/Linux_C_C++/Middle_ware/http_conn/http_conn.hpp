@@ -521,10 +521,10 @@ namespace http {
             if (users[username] != passwd) minilog::log_error("passwd error");
             if (passwd.find("\r\n")) minilog::log_error("passwd error02");
             if (users.find(username) != users.end() && users[username] == passwd)
-                url = "/index.html";
+                url = "/LogIn.html";
             else
                 // url = "/LogIn.html";
-                url = "/index.html";
+                url = "/LogIn.html";
             minilog::log_info("map: {} {}", username, users[username]);
             minilog::log_info("post_url: {}", url);
         }

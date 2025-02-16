@@ -1,5 +1,6 @@
 #pragma once
 
+#include <print>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/epoll.h>
@@ -18,6 +19,7 @@ struct io_context : timer_context {
     int m_epfd;
     size_t m_epcount = 0;
 
+    // 每个线程的g_instance都不同，没有初始化的g_instance都是nullptr
     static inline thread_local io_context *g_instance = nullptr;
 
     io_context()

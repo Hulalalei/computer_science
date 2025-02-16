@@ -1,0 +1,1 @@
+/usr/bin/g++-14  -g -O2 -no-pie -l jemalloc -DJEMALLOC_NO_DEMANGLE CMakeFiles/main.dir/main.cpp.o -o main  -ljsoncpp -lmysqlclient -lmysqlclient -ljsoncpp -latomic 

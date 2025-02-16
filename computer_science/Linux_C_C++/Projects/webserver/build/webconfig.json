@@ -1,7 +1,0 @@
-{
-    "server_port" : 12000,
-    "host" : "127.0.0.1",
-    "user" : "root",
-    "passwd" : "20040618HSF",
-    "db" : "web_user"
-}

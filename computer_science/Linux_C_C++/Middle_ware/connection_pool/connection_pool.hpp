@@ -1,19 +1,11 @@
 #ifndef CONNECTION_POOL
 #define CONNECTION_POOL
 
-#include <iostream>
 #include <thread>
-#include <memory>
-#include <fstream>
 #include <chrono>
-#include <source_location>
-#include <stdexcept>
-#include <concepts>
-#include <type_traits>
 
 #include <mysql/mysql.h>
 #include <lock_free_queue.hpp>
-#include <memory_pool.hpp>
 #include <minilog.hpp>
 
 

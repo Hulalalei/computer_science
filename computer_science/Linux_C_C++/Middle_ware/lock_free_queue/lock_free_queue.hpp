@@ -1,9 +1,7 @@
 #ifndef LOCK_FREE_QUEUE
 #define LOCK_FREE_QUEUE
 
-#include <iostream>
 #include <optional>
-#include <memory>
 #include <atomic>
 #include <cassert>
 #include <minilog.hpp>
@@ -58,7 +56,7 @@ namespace lockfree {
         ~lock_free_queue();
     }; 
 
- 
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //  此处next为{0}，可以用作compare_exchange
     template <class T, bool Mod, class Allocater>
@@ -96,7 +94,7 @@ namespace lockfree {
                 counted_node_ptr vir_assist = { 0 };
                 if (!old_tail.ptr->next.compare_exchange_strong(vir_assist, vir_node, 
                                     std::memory_order_acq_rel, std::memory_order_relaxed)) {
-                    alloc.template delete_obj(vir_node.ptr);
+                    alloc.template delete_obj<>(vir_node.ptr);
                     // delete vir_node.ptr;
                     vir_node = vir_assist;
                     ++ destruct_cnt;
@@ -139,7 +137,7 @@ namespace lockfree {
             if (head.compare_exchange_strong(old_head, next, std::memory_order_release, std::memory_order_relaxed)) {
                 T *const res = ptr->data.exchange(nullptr, std::memory_order_relaxed);
                 auto opt = *res;
-                alloc.template delete_obj(res);
+                alloc.template delete_obj<>(res);
                 // delete res;
                 free_external_counter(old_head);
                 ++ task_cnt;
@@ -178,7 +176,7 @@ namespace lockfree {
             new_counter.internal_count += increase_count;
         }
         while (!ptr->count.compare_exchange_strong(old_counter, new_counter, std::memory_order_acq_rel, std::memory_order_relaxed));
-        if (!new_counter.external_counters && !new_counter.internal_count) { alloc.template delete_obj(ptr); ++ destruct_cnt; }
+        if (!new_counter.external_counters && !new_counter.internal_count) { alloc.template delete_obj<>(ptr); ++ destruct_cnt; }
         // if (!new_counter.external_counters && !new_counter.internal_count) { delete ptr; ++ destruct_cnt; }
     }
 
@@ -193,7 +191,7 @@ namespace lockfree {
             -- new_counter.internal_count;
         }
         while (!count.compare_exchange_strong(old_counter, new_counter, std::memory_order_acq_rel, std::memory_order_relaxed));
-        if (!new_counter.external_counters && !new_counter.internal_count) { alloc.template delete_obj(this); ++ destruct_cnt; }
+        if (!new_counter.external_counters && !new_counter.internal_count) { alloc.template delete_obj<>(this); ++ destruct_cnt; }
         // if (!new_counter.external_counters && !new_counter.internal_count) { delete this; ++ destruct_cnt; }
     }
 
@@ -217,7 +215,7 @@ namespace lockfree {
     lock_free_queue<T, Mod, Allocater>::~lock_free_queue() {
         while (pop().has_value()) {}
         auto cur_head = head.load(std::memory_order_relaxed);
-        alloc.template delete_obj(cur_head.ptr);
+        alloc.template delete_obj<>(cur_head.ptr);
         // delete cur_head.ptr;
         ++ destruct_cnt;
         // 开O3优化，乱序执行，所以task个数会不够

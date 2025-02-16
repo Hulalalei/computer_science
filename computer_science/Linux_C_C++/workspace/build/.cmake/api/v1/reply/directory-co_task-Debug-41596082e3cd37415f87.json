@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "co_task",
+		"source" : "co_task"
+	}
+}

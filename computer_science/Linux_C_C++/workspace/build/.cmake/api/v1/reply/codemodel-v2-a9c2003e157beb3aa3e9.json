@@ -1,0 +1,174 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "mymain",
+					"jsonFile" : "directory-mymain-Debug-3c11eb4bbe51b2783f41.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "mymain",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "co_task",
+					"jsonFile" : "directory-co_task-Debug-41596082e3cd37415f87.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "co_task",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "co_async",
+					"jsonFile" : "directory-co_async-Debug-583af9f6510e933163fd.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "co_async",
+					"targetIndexes" : 
+					[
+						0,
+						3
+					]
+				},
+				{
+					"build" : "enum_magic",
+					"jsonFile" : "directory-enum_magic-Debug-04e6edd24fb69b4bd8ec.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "enum_magic",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						4
+					],
+					"name" : "main",
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "co_async",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "co_async::@6d28f8709925a9344b1e",
+					"jsonFile" : "target-co_async-Debug-12ad599c32f75d3130ad.json",
+					"name" : "co_async",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "co_task::@f76b1c6e5b6850628a84",
+					"jsonFile" : "target-co_task-Debug-6715faa06260739d5170.json",
+					"name" : "co_task",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "enum_magic::@da547b2891531b984a70",
+					"jsonFile" : "target-enum_magic-Debug-8b2c7c880e09b93d4624.json",
+					"name" : "enum_magic",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "format::@6d28f8709925a9344b1e",
+					"jsonFile" : "target-format-Debug-a605d58ac53a3d737b08.json",
+					"name" : "format",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "mymain::@89c080161298a35faa22",
+					"jsonFile" : "target-mymain-Debug-1c5fdab6f18e6310dda8.json",
+					"name" : "mymain",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+		"source" : "/home/hsf/computer_science/Linux_C_C++/workspace"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

@@ -1,0 +1,374 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/generic/allocator.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/generic/generic_io.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/generic/io_context.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/generic/io_context_mt.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/generic/thread_pool.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/iostream/directory_stream.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/iostream/file_stream.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/iostream/pipe_stream.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/iostream/ssl_socket_stream.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/iostream/stdio_stream.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/iostream/zlib_stream.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/net/http_protocol.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/net/http_server.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/net/http_server_utils.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/net/http_string_utils.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/net/socket_proxy.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/net/uri.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/platform/platform_io.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./co_async/platform/socket.cpp.o"
+		},
+		{
+			"path" : "co_async/CMakeFiles/co_async.dir/./3rd/liburing/liburing.cpp.o"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_compile_definitions",
+			"target_link_libraries",
+			"target_include_directories",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"co_async/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 161,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 170,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 252,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 164,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 226,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 229,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 245,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 165,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 225,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -std=c++20"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 2,
+					"define" : "CO_ASYNC_DEBUG"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "TBB_USE_DEBUG"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 4,
+					"path" : "/home/hsf/computer_science/Linux_C_C++/workspace/co_async/."
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "20"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19
+			]
+		}
+	],
+	"id" : "co_async::@6d28f8709925a9344b1e",
+	"name" : "co_async",
+	"paths" : 
+	{
+		"build" : "co_async",
+		"source" : "co_async"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/generic/allocator.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/generic/generic_io.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/generic/io_context.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/generic/io_context_mt.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/generic/thread_pool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/iostream/directory_stream.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/iostream/file_stream.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/iostream/pipe_stream.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/iostream/ssl_socket_stream.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/iostream/stdio_stream.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/iostream/zlib_stream.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/net/http_protocol.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/net/http_server.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/net/http_server_utils.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/net/http_string_utils.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/net/socket_proxy.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/net/uri.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/platform/platform_io.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/co_async/platform/socket.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 9,
+			"compileGroupIndex" : 0,
+			"path" : "co_async/3rd/liburing/liburing.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "OBJECT_LIBRARY"
+}

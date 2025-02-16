@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstring>
+#include <functional>
 #include <map>
 #include <memory>
 #include <string>
@@ -8,6 +10,11 @@
 #include "io_context.hpp"
 #include "stop_source.hpp"
 #include "http_codec.hpp"
+#include "thread_pool.hpp"
+#include "connection_pool.hpp"
+#include "file_utils.hpp"
+#include "minilog.hpp"
+
 
 struct http_server : std::enable_shared_from_this<http_server> {
     using pointer = std::shared_ptr<http_server>;
@@ -51,8 +58,11 @@ struct http_server : std::enable_shared_from_this<http_server> {
         }
 
         void do_handle(http_request &request) {
+            // 先判断是路由还是文件
+            // 如果该文件属于该路由内的，则执行该路由的回调
+            auto url = file_get_route(request.url);
             // 寻找匹配的路径
-            auto it = m_routes.find(request.url);
+            auto it = m_routes.find(url);
             if (it != m_routes.end()) {
                 // callback
                 return it->second(multishot_call, request);
@@ -98,19 +108,20 @@ struct http_server : std::enable_shared_from_this<http_server> {
                 },
                 stop_timer);
             // 开始读取
+            // 拷贝了http_connection_handler指针
             return m_conn.async_read(
                 m_readbuf,
                 [self = shared_from_this(),
                  stop_timer](expected<size_t> ret) {
                     stop_timer.request_stop(); // 读取先完成时，取消定时器
                     if (ret.error()) {
-                        // fmt::println("读取出错 {}，放弃连接", strerror(-ret.error()));
+                        // std::println("读取出错 {}，放弃连接", strerror(-ret.error()));
                         return;
                     }
                     size_t n = ret.value();
                     // 如果读到 EOF，说明对面，关闭了连接
                     if (n == 0) {
-                        std::println("对面关闭了连接");
+                        // std::println("对面关闭了连接");
                         return;
                     }
                     // fmt::println("读取到了 {} 个字节: {}", n, std::string_view{self->m_readbuf.data(), n});
@@ -136,6 +147,7 @@ struct http_server : std::enable_shared_from_this<http_server> {
             };
             m_req_parser.reset_state();
 
+            minilog::log_info("request file: {}", m_request.url);
             // fmt::println("我的响应头: {}", buffer);
             // fmt::println("我的响应正文: {}", body);
             // fmt::println("正在响应");
@@ -146,7 +158,7 @@ struct http_server : std::enable_shared_from_this<http_server> {
             return m_conn.async_write(buffer, [self = shared_from_this(),
                                                buffer](expected<size_t> ret) {
                 if (ret.error()) {
-                    // fmt::println("写入错误，放弃连接");
+                    // std::println("写入错误，放弃连接");
                     return;
                 }
                 auto n = ret.value();
@@ -177,14 +189,21 @@ struct http_server : std::enable_shared_from_this<http_server> {
         return do_accept();
     }
 
+    thread::thread_pool<std::function<void ()> > m_t_pool;
+
     void do_accept() {
         return m_listening.async_accept(m_addr, [self = shared_from_this()](
                                                     expected<int> ret) {
             auto connfd = ret.expect("accept");
 
-            // fmt::println("接受了一个连接: {}", connfd);
-            // 可以借助多线程处理
-            http_connection_handler::make()->do_start(&self->m_router, connfd);
+            // std::println("接受了一个连接: {}", connfd);
+            // 可以借助多线程处理，多反应堆模型
+            self->m_t_pool.submit([connfd, self]() {
+                io_context sub_ctx;
+                http_connection_handler::make()->do_start(&self->m_router, connfd);
+                sub_ctx.join();
+            });
+            // http_connection_handler::make()->do_start(&self->m_router, connfd);
             return self->do_accept();
         });
     }
