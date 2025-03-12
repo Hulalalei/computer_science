@@ -1,5 +1,8 @@
 #pragma once
 
+#include <iostream>
+#include <iterator>
+#include <ostream>
 #include <utility>
 #include <memory>
 #include "non_void_helper.hpp"
@@ -16,7 +19,7 @@ struct Uninitialized {
 
     Uninitialized(Uninitialized &&) = delete;
 
-    ~Uninitialized() noexcept {}
+    ~Uninitialized() noexcept { std::cout << "Uninitialized destruct" << std::endl; }
 
     T moveValue() {
         T ret(std::move(mValue));

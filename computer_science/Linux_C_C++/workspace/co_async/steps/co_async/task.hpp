@@ -3,6 +3,7 @@
 #include "debug.hpp"
 #include <exception>
 #include <coroutine>
+#include <iostream>
 #include <utility>
 #include "uninitialized.hpp"
 #include "previous_awaiter.hpp"
@@ -128,7 +129,6 @@ struct [[nodiscard]] Task {
         return mCoroutine;
     }
 
-private:
     std::coroutine_handle<promise_type> mCoroutine;
 };
 

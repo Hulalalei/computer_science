@@ -1,0 +1,13 @@
+# ninja log v5
+0	7	1739873725171675136	/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/build/CMakeFiles/cmake.verify_globs	8801c20fc3269594
+23	30	1739858356925824916	co_context/libco_context.a	be286e855e283303
+8	799	1739858357693826319	main/CMakeFiles/main.dir/src/main.cpp.o	86226b03f0fd2cb8
+8	15	1739858356910824888	utils/CMakeFiles/utils.dir/src/t.cpp.o	f6b94e8b20e28c26
+8	16	1739858356910824888	co_server/CMakeFiles/co_server.dir/src/t.cpp.o	9672ed066cb085ee
+6	80	1739873725186675065	build.ninja	733ab0cbc946773b
+8	17	1739858356911824890	co_context/CMakeFiles/co_context.dir/src/t.cpp.o	1aa5c8b46696f9c8
+799	838	1739858357732826391	main/main	60e760b27fde2462
+15	23	1739858356918824903	utils/libutils.a	aa914109498cb
+16	24	1739858356919824905	co_server/libco_server.a	4445ea035570efd5
+7	26	1739873725186675065	build.ninja	733ab0cbc946773b
+0	7	0	/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/build/CMakeFiles/cmake.verify_globs	8801c20fc3269594

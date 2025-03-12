@@ -1,15 +1,93 @@
 [
 {
   "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
-  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/mymain/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/mymain.dir/src/main.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/main.cpp",
-  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/main.cpp",
-  "output": "mymain/CMakeFiles/mymain.dir/src/main.cpp.o"
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/a1.dir/src/a1.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a1.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a1.cpp",
+  "output": "mymain/CMakeFiles/a1.dir/src/a1.cpp.o"
 },
 {
   "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
-  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/mymain/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/mymain.dir/src/step1.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/step1.cpp",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/a10.dir/src/a10.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a10.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a10.cpp",
+  "output": "mymain/CMakeFiles/a10.dir/src/a10.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/a11.dir/src/a11.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a11.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a11.cpp",
+  "output": "mymain/CMakeFiles/a11.dir/src/a11.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/a12.dir/src/a12.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a12.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a12.cpp",
+  "output": "mymain/CMakeFiles/a12.dir/src/a12.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/a13.dir/src/a13.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a13.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a13.cpp",
+  "output": "mymain/CMakeFiles/a13.dir/src/a13.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/a2.dir/src/a2.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a2.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a2.cpp",
+  "output": "mymain/CMakeFiles/a2.dir/src/a2.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/a3.dir/src/a3.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a3.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a3.cpp",
+  "output": "mymain/CMakeFiles/a3.dir/src/a3.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/a4.dir/src/a4.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a4.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a4.cpp",
+  "output": "mymain/CMakeFiles/a4.dir/src/a4.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/a5.dir/src/a5.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a5.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a5.cpp",
+  "output": "mymain/CMakeFiles/a5.dir/src/a5.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/a6.dir/src/a6.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a6.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a6.cpp",
+  "output": "mymain/CMakeFiles/a6.dir/src/a6.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/a7.dir/src/a7.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a7.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a7.cpp",
+  "output": "mymain/CMakeFiles/a7.dir/src/a7.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/a8.dir/src/a8.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a8.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a8.cpp",
+  "output": "mymain/CMakeFiles/a8.dir/src/a8.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/a9.dir/src/a9.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a9.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a9.cpp",
+  "output": "mymain/CMakeFiles/a9.dir/src/a9.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/main.dir/src/main.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/main.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/main.cpp",
+  "output": "mymain/CMakeFiles/main.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++20 -o mymain/CMakeFiles/step1.dir/src/step1.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/step1.cpp",
   "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/step1.cpp",
-  "output": "mymain/CMakeFiles/mymain.dir/src/step1.cpp.o"
+  "output": "mymain/CMakeFiles/step1.dir/src/step1.cpp.o"
 },
 {
   "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",

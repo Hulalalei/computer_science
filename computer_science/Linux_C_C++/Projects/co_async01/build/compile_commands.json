@@ -1,0 +1,26 @@
+[
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/build",
+  "command": "/usr/bin/c++ -DFMT_SHARED -DHAS_epoll_pwait2 -I/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/main/include -I/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/utils/include -I/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/co_context/include -I/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/co_server/include -g -std=c++20 -o main/CMakeFiles/main.dir/src/main.cpp.o -c /home/hsf/computer_science/Linux_C_C++/Projects/co_async01/main/src/main.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/main/src/main.cpp",
+  "output": "main/CMakeFiles/main.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/build",
+  "command": "/usr/bin/c++ -DHAS_epoll_pwait2 -I/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/utils/include -g -std=c++20 -o utils/CMakeFiles/utils.dir/src/t.cpp.o -c /home/hsf/computer_science/Linux_C_C++/Projects/co_async01/utils/src/t.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/utils/src/t.cpp",
+  "output": "utils/CMakeFiles/utils.dir/src/t.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/build",
+  "command": "/usr/bin/c++ -DHAS_epoll_pwait2 -I/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/co_context/include -I/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/utils/include -g -std=c++20 -o co_context/CMakeFiles/co_context.dir/src/t.cpp.o -c /home/hsf/computer_science/Linux_C_C++/Projects/co_async01/co_context/src/t.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/co_context/src/t.cpp",
+  "output": "co_context/CMakeFiles/co_context.dir/src/t.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/build",
+  "command": "/usr/bin/c++ -DHAS_epoll_pwait2 -I/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/co_server/include -g -std=c++20 -o co_server/CMakeFiles/co_server.dir/src/t.cpp.o -c /home/hsf/computer_science/Linux_C_C++/Projects/co_async01/co_server/src/t.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/Projects/co_async01/co_server/src/t.cpp",
+  "output": "co_server/CMakeFiles/co_server.dir/src/t.cpp.o"
+}
+]

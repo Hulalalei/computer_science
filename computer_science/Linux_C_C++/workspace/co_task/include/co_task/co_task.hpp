@@ -1,5 +1,6 @@
 #include <coroutine>
 #include <debug.hpp>
+#include <enum_magic/enum_magic.hpp>
 
 
 
@@ -34,6 +35,20 @@
 
 
 namespace co_task {
+struct previous_awaiter {
+    std::coroutine_handle<> m_previous;
+
+    bool await_ready() const noexcept {
+        return false;
+    }
+
+    std::coroutine_handle<>
+    await_suspend(std::coroutine_handle<> coroutine) const noexcept {
+        return m_previous;
+    }
+
+    void await_resume() const noexcept {}
+};
 
 template <class T> struct co_task {
     template <class TP> struct __promise {
@@ -42,7 +57,10 @@ template <class T> struct co_task {
         std::suspend_always initial_suspend() { debug(), "init suspend"; return {}; }
         // 此协程即将结束时co_return，需要的处理
         // 可以选择将CPU权交到调用者那，和await_suspend类似
-        std::suspend_always final_suspend() noexcept { debug(), "final suspend"; return {}; }
+        auto final_suspend() noexcept { 
+            debug(), "final suspend"; 
+            return previous_awaiter(m_previous); 
+        }
         void unhandled_exception() { throw; }
         // co_yield和co_return的返回值
         // co_yield必须resume来唤醒
@@ -53,6 +71,7 @@ template <class T> struct co_task {
         std::coroutine_handle<__promise> get_return_object() { debug(), "get suspend"; return std::coroutine_handle<__promise>::from_promise(*this); }
 
         TP m_val;
+        std::coroutine_handle<> m_previous = std::noop_coroutine();
     };
     using promise_type = __promise<T>;
 
@@ -70,12 +89,17 @@ template <class T> struct co_task {
         // 是否准备充分，充分后执行await_suspend，否则执行resume;
         bool await_ready() const noexcept { return false; }
         // 挂起后，CPU权该返回到何处: 此协程 || main
-        // 如果返回到此协程，则会再调用一次await_resume
-        std::coroutine_handle<> await_suspend(std::coroutine_handle<> coroutine) const noexcept { debug(), "after ready, begin to process"; return coroutine; }
+        // 如果返回到其他协程，则会再调用自身协程await_resume
+        // 如果返回到自身协程，则不会调用await_resume
+        std::coroutine_handle<> await_suspend(std::coroutine_handle<> coroutine) const noexcept { 
+            debug(), "after ready, begin to process"; 
+            m_coroutine.promise().m_previous = coroutine;
+            return m_coroutine; 
+        }
         // co_await此对象后的返回值
-        T await_resume() const noexcept { debug(), "resume"; return 10; }
+        T await_resume() const noexcept { debug(), "await_resume"; return T{}; }
 
-        std::coroutine_handle<> m_coroutine;
+        std::coroutine_handle<promise_type> m_coroutine;
     };
     __awaiter operator co_await() const noexcept { return __awaiter{m_coroutine}; }
     operator std::coroutine_handle<>() const noexcept { return m_coroutine; }
