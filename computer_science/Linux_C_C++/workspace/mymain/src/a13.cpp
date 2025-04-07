@@ -1,12 +1,13 @@
 #include <cstdio>
 #include <iostream>
+#include <ostream>
 
-
+int gcd(int a, int b) {
+    return b ? gcd(b, a % b) : a;
+}
 
 int main() {
-    int a = 10, b = 20;
-    (a = 0) || (b = 2);
-    std::cout << a << " " << b;
+    // gcd * lcm == a * b
 
     return 0;
 }

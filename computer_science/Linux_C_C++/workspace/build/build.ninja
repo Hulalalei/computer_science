@@ -239,6 +239,108 @@ build mymain/a13: CXX_EXECUTABLE_LINKER__a13_Debug co_async/CMakeFiles/co_async.
   TARGET_PDB = a13.dbg
 
 # =============================================================================
+# Object build statements for EXECUTABLE target a14
+
+
+#############################################
+# Order-only phony target for a14
+
+build cmake_object_order_depends_target_a14: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
+
+build mymain/CMakeFiles/a14.dir/src/a14.cpp.o: CXX_COMPILER__a14_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a14.cpp || cmake_object_order_depends_target_a14
+  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEP_FILE = mymain/CMakeFiles/a14.dir/src/a14.cpp.o.d
+  FLAGS = -g -std=c++20
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  OBJECT_DIR = mymain/CMakeFiles/a14.dir
+  OBJECT_FILE_DIR = mymain/CMakeFiles/a14.dir/src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target a14
+
+
+#############################################
+# Link the executable mymain/a14
+
+build mymain/a14: CXX_EXECUTABLE_LINKER__a14_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a14.dir/src/a14.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+  FLAGS = -g
+  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  OBJECT_DIR = mymain/CMakeFiles/a14.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = mymain/a14
+  TARGET_PDB = a14.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target a15
+
+
+#############################################
+# Order-only phony target for a15
+
+build cmake_object_order_depends_target_a15: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
+
+build mymain/CMakeFiles/a15.dir/src/a15.cpp.o: CXX_COMPILER__a15_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a15.cpp || cmake_object_order_depends_target_a15
+  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEP_FILE = mymain/CMakeFiles/a15.dir/src/a15.cpp.o.d
+  FLAGS = -g -std=c++20
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  OBJECT_DIR = mymain/CMakeFiles/a15.dir
+  OBJECT_FILE_DIR = mymain/CMakeFiles/a15.dir/src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target a15
+
+
+#############################################
+# Link the executable mymain/a15
+
+build mymain/a15: CXX_EXECUTABLE_LINKER__a15_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a15.dir/src/a15.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+  FLAGS = -g
+  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  OBJECT_DIR = mymain/CMakeFiles/a15.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = mymain/a15
+  TARGET_PDB = a15.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target a16
+
+
+#############################################
+# Order-only phony target for a16
+
+build cmake_object_order_depends_target_a16: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
+
+build mymain/CMakeFiles/a16.dir/src/a16.cpp.o: CXX_COMPILER__a16_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a16.cpp || cmake_object_order_depends_target_a16
+  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEP_FILE = mymain/CMakeFiles/a16.dir/src/a16.cpp.o.d
+  FLAGS = -g -std=c++20
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  OBJECT_DIR = mymain/CMakeFiles/a16.dir
+  OBJECT_FILE_DIR = mymain/CMakeFiles/a16.dir/src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target a16
+
+
+#############################################
+# Link the executable mymain/a16
+
+build mymain/a16: CXX_EXECUTABLE_LINKER__a16_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a16.dir/src/a16.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+  FLAGS = -g
+  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  OBJECT_DIR = mymain/CMakeFiles/a16.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = mymain/a16
+  TARGET_PDB = a16.dbg
+
+# =============================================================================
 # Object build statements for EXECUTABLE target a2
 
 
@@ -951,6 +1053,12 @@ build a12: phony mymain/a12
 
 build a13: phony mymain/a13
 
+build a14: phony mymain/a14
+
+build a15: phony mymain/a15
+
+build a16: phony mymain/a16
+
 build a2: phony mymain/a2
 
 build a3: phony mymain/a3
@@ -1019,7 +1127,7 @@ build enum_magic/all: phony enum_magic/libenum_magic.a
 #############################################
 # Folder: /home/hsf/computer_science/Linux_C_C++/workspace/build/mymain
 
-build mymain/all: phony mymain/a1 mymain/a10 mymain/a11 mymain/a12 mymain/a13 mymain/a2 mymain/a3 mymain/a4 mymain/a5 mymain/a6 mymain/a7 mymain/a8 mymain/a9 mymain/main mymain/step1
+build mymain/all: phony mymain/a1 mymain/a10 mymain/a11 mymain/a12 mymain/a13 mymain/a14 mymain/a15 mymain/a16 mymain/a2 mymain/a3 mymain/a4 mymain/a5 mymain/a6 mymain/a7 mymain/a8 mymain/a9 mymain/main mymain/step1
 
 # =============================================================================
 # Built-in targets
