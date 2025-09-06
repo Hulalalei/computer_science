@@ -1,49 +1,33 @@
-#include <co_async/co_async.hpp>
-#include <co_async/std.hpp>
+#include <chrono>
 
-using namespace co_async;
-using namespace std::literals;
+#include <co_content/co_task.hpp>
+#include <coroutine>
+#include <debug.hpp>
+#include <thread>
 
-static Task<Expected<>> amain() {
-    co_await co_await stdio().putline("listening at: 127.0.0.1:8080"sv);
-    auto listener = co_await co_await listener_bind(co_await AddressResolver().host("127.0.0.1").port(8080).resolve_one());
-
-    HTTPServer server;
-    server.route("GET", "/", [](HTTPServer::IO &io) -> Task<Expected<>> {
-        co_await co_await HTTPServerUtils::make_ok_response(io, "<h1>It works!</h1>");
-        co_return {};
-    });
-
-    // Queue<Task<Expected<>>> tasks(512);
-    // co_spawn(co_catch(co_bind([&] () -> Task<Expected<>> {
-    //     while (true) {
-    //         auto task = co_await co_await tasks.pop();
-    //         co_spawn(std::move(task));
-    //     }
-    // })));
-
-    while (true) {
-        auto income = co_await co_await listener_accept(listener);
-        co_spawn(server.handle_http(std::move(income)));
+template <class T>
+struct echo {
+    bool await_ready() const noexcept { return m_flag; }
+    std::coroutine_handle<> await_suspend(std::coroutine_handle<> coroutine) const noexcept { 
+        return coroutine;
     }
+    T await_resume() const noexcept { 
+        debug(), "await_resume"; return T{}; 
+    }
+    echo(T buf): m_buf(buf), m_flag(true) {}
+    std::string m_buf;
+    bool m_flag;
+};
+
+co_task<int> echo_chat() {
+    co_await echo{"hello"};
+    debug(), "please insert content: ";
+    // std::string buf;
+    // std::cin >> buf;
+    co_return {};
 }
 
-int main() {
-    co_main(amain());
-    return 0;
+int main(void) {
+    auto t = echo_chat();
+    t.m_coroutine.resume();
 }
-//
-// #include <concepts>
-// template <class T, class U>
-// concept TEST = requires(T const &t, U const &u) {
-//     { t == u } -> std::convertible_to<bool>;
-//     { t != u } -> std::convertible_to<bool>;
-// };
-//
-//
-// template <TEST<int>>
-// void func() {}
-//
-// int main() {
-//     func<int>();
-// }

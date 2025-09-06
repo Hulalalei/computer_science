@@ -78,12 +78,14 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 build cmake_object_order_depends_target_a1: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a1.dir/src/a1.cpp.o: CXX_COMPILER__a1_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a1.cpp || cmake_object_order_depends_target_a1
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a1.dir/src/a1.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a1.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a1.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a1.dir/
+  TARGET_PDB = mymain/a1.pdb
 
 
 # =============================================================================
@@ -93,14 +95,15 @@ build mymain/CMakeFiles/a1.dir/src/a1.cpp.o: CXX_COMPILER__a1_unscanned_Debug /h
 #############################################
 # Link the executable mymain/a1
 
-build mymain/a1: CXX_EXECUTABLE_LINKER__a1_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a1.dir/src/a1.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a1: CXX_EXECUTABLE_LINKER__a1_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a1.dir/src/a1.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a1.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a1.dir/
   TARGET_FILE = mymain/a1
-  TARGET_PDB = a1.dbg
+  TARGET_PDB = mymain/a1.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target a10
@@ -112,12 +115,14 @@ build mymain/a1: CXX_EXECUTABLE_LINKER__a1_Debug co_async/CMakeFiles/co_async.di
 build cmake_object_order_depends_target_a10: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a10.dir/src/a10.cpp.o: CXX_COMPILER__a10_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a10.cpp || cmake_object_order_depends_target_a10
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a10.dir/src/a10.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a10.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a10.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a10.dir/
+  TARGET_PDB = mymain/a10.pdb
 
 
 # =============================================================================
@@ -127,14 +132,15 @@ build mymain/CMakeFiles/a10.dir/src/a10.cpp.o: CXX_COMPILER__a10_unscanned_Debug
 #############################################
 # Link the executable mymain/a10
 
-build mymain/a10: CXX_EXECUTABLE_LINKER__a10_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a10.dir/src/a10.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a10: CXX_EXECUTABLE_LINKER__a10_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a10.dir/src/a10.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a10.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a10.dir/
   TARGET_FILE = mymain/a10
-  TARGET_PDB = a10.dbg
+  TARGET_PDB = mymain/a10.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target a11
@@ -146,12 +152,14 @@ build mymain/a10: CXX_EXECUTABLE_LINKER__a10_Debug co_async/CMakeFiles/co_async.
 build cmake_object_order_depends_target_a11: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a11.dir/src/a11.cpp.o: CXX_COMPILER__a11_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a11.cpp || cmake_object_order_depends_target_a11
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a11.dir/src/a11.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a11.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a11.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a11.dir/
+  TARGET_PDB = mymain/a11.pdb
 
 
 # =============================================================================
@@ -161,14 +169,15 @@ build mymain/CMakeFiles/a11.dir/src/a11.cpp.o: CXX_COMPILER__a11_unscanned_Debug
 #############################################
 # Link the executable mymain/a11
 
-build mymain/a11: CXX_EXECUTABLE_LINKER__a11_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a11.dir/src/a11.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a11: CXX_EXECUTABLE_LINKER__a11_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a11.dir/src/a11.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a11.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a11.dir/
   TARGET_FILE = mymain/a11
-  TARGET_PDB = a11.dbg
+  TARGET_PDB = mymain/a11.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target a12
@@ -180,12 +189,14 @@ build mymain/a11: CXX_EXECUTABLE_LINKER__a11_Debug co_async/CMakeFiles/co_async.
 build cmake_object_order_depends_target_a12: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a12.dir/src/a12.cpp.o: CXX_COMPILER__a12_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a12.cpp || cmake_object_order_depends_target_a12
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a12.dir/src/a12.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a12.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a12.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a12.dir/
+  TARGET_PDB = mymain/a12.pdb
 
 
 # =============================================================================
@@ -195,14 +206,15 @@ build mymain/CMakeFiles/a12.dir/src/a12.cpp.o: CXX_COMPILER__a12_unscanned_Debug
 #############################################
 # Link the executable mymain/a12
 
-build mymain/a12: CXX_EXECUTABLE_LINKER__a12_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a12.dir/src/a12.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a12: CXX_EXECUTABLE_LINKER__a12_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a12.dir/src/a12.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a12.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a12.dir/
   TARGET_FILE = mymain/a12
-  TARGET_PDB = a12.dbg
+  TARGET_PDB = mymain/a12.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target a13
@@ -214,12 +226,14 @@ build mymain/a12: CXX_EXECUTABLE_LINKER__a12_Debug co_async/CMakeFiles/co_async.
 build cmake_object_order_depends_target_a13: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a13.dir/src/a13.cpp.o: CXX_COMPILER__a13_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a13.cpp || cmake_object_order_depends_target_a13
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a13.dir/src/a13.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a13.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a13.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a13.dir/
+  TARGET_PDB = mymain/a13.pdb
 
 
 # =============================================================================
@@ -229,14 +243,15 @@ build mymain/CMakeFiles/a13.dir/src/a13.cpp.o: CXX_COMPILER__a13_unscanned_Debug
 #############################################
 # Link the executable mymain/a13
 
-build mymain/a13: CXX_EXECUTABLE_LINKER__a13_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a13.dir/src/a13.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a13: CXX_EXECUTABLE_LINKER__a13_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a13.dir/src/a13.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a13.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a13.dir/
   TARGET_FILE = mymain/a13
-  TARGET_PDB = a13.dbg
+  TARGET_PDB = mymain/a13.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target a14
@@ -248,12 +263,14 @@ build mymain/a13: CXX_EXECUTABLE_LINKER__a13_Debug co_async/CMakeFiles/co_async.
 build cmake_object_order_depends_target_a14: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a14.dir/src/a14.cpp.o: CXX_COMPILER__a14_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a14.cpp || cmake_object_order_depends_target_a14
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a14.dir/src/a14.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a14.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a14.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a14.dir/
+  TARGET_PDB = mymain/a14.pdb
 
 
 # =============================================================================
@@ -263,14 +280,15 @@ build mymain/CMakeFiles/a14.dir/src/a14.cpp.o: CXX_COMPILER__a14_unscanned_Debug
 #############################################
 # Link the executable mymain/a14
 
-build mymain/a14: CXX_EXECUTABLE_LINKER__a14_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a14.dir/src/a14.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a14: CXX_EXECUTABLE_LINKER__a14_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a14.dir/src/a14.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a14.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a14.dir/
   TARGET_FILE = mymain/a14
-  TARGET_PDB = a14.dbg
+  TARGET_PDB = mymain/a14.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target a15
@@ -282,12 +300,14 @@ build mymain/a14: CXX_EXECUTABLE_LINKER__a14_Debug co_async/CMakeFiles/co_async.
 build cmake_object_order_depends_target_a15: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a15.dir/src/a15.cpp.o: CXX_COMPILER__a15_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a15.cpp || cmake_object_order_depends_target_a15
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a15.dir/src/a15.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a15.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a15.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a15.dir/
+  TARGET_PDB = mymain/a15.pdb
 
 
 # =============================================================================
@@ -297,14 +317,15 @@ build mymain/CMakeFiles/a15.dir/src/a15.cpp.o: CXX_COMPILER__a15_unscanned_Debug
 #############################################
 # Link the executable mymain/a15
 
-build mymain/a15: CXX_EXECUTABLE_LINKER__a15_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a15.dir/src/a15.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a15: CXX_EXECUTABLE_LINKER__a15_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a15.dir/src/a15.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a15.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a15.dir/
   TARGET_FILE = mymain/a15
-  TARGET_PDB = a15.dbg
+  TARGET_PDB = mymain/a15.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target a16
@@ -316,12 +337,14 @@ build mymain/a15: CXX_EXECUTABLE_LINKER__a15_Debug co_async/CMakeFiles/co_async.
 build cmake_object_order_depends_target_a16: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a16.dir/src/a16.cpp.o: CXX_COMPILER__a16_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a16.cpp || cmake_object_order_depends_target_a16
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a16.dir/src/a16.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a16.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a16.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a16.dir/
+  TARGET_PDB = mymain/a16.pdb
 
 
 # =============================================================================
@@ -331,14 +354,15 @@ build mymain/CMakeFiles/a16.dir/src/a16.cpp.o: CXX_COMPILER__a16_unscanned_Debug
 #############################################
 # Link the executable mymain/a16
 
-build mymain/a16: CXX_EXECUTABLE_LINKER__a16_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a16.dir/src/a16.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a16: CXX_EXECUTABLE_LINKER__a16_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a16.dir/src/a16.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a16.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a16.dir/
   TARGET_FILE = mymain/a16
-  TARGET_PDB = a16.dbg
+  TARGET_PDB = mymain/a16.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target a2
@@ -350,12 +374,14 @@ build mymain/a16: CXX_EXECUTABLE_LINKER__a16_Debug co_async/CMakeFiles/co_async.
 build cmake_object_order_depends_target_a2: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a2.dir/src/a2.cpp.o: CXX_COMPILER__a2_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a2.cpp || cmake_object_order_depends_target_a2
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a2.dir/src/a2.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a2.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a2.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a2.dir/
+  TARGET_PDB = mymain/a2.pdb
 
 
 # =============================================================================
@@ -365,14 +391,15 @@ build mymain/CMakeFiles/a2.dir/src/a2.cpp.o: CXX_COMPILER__a2_unscanned_Debug /h
 #############################################
 # Link the executable mymain/a2
 
-build mymain/a2: CXX_EXECUTABLE_LINKER__a2_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a2.dir/src/a2.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a2: CXX_EXECUTABLE_LINKER__a2_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a2.dir/src/a2.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a2.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a2.dir/
   TARGET_FILE = mymain/a2
-  TARGET_PDB = a2.dbg
+  TARGET_PDB = mymain/a2.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target a3
@@ -384,12 +411,14 @@ build mymain/a2: CXX_EXECUTABLE_LINKER__a2_Debug co_async/CMakeFiles/co_async.di
 build cmake_object_order_depends_target_a3: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a3.dir/src/a3.cpp.o: CXX_COMPILER__a3_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a3.cpp || cmake_object_order_depends_target_a3
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a3.dir/src/a3.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a3.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a3.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a3.dir/
+  TARGET_PDB = mymain/a3.pdb
 
 
 # =============================================================================
@@ -399,14 +428,15 @@ build mymain/CMakeFiles/a3.dir/src/a3.cpp.o: CXX_COMPILER__a3_unscanned_Debug /h
 #############################################
 # Link the executable mymain/a3
 
-build mymain/a3: CXX_EXECUTABLE_LINKER__a3_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a3.dir/src/a3.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a3: CXX_EXECUTABLE_LINKER__a3_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a3.dir/src/a3.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a3.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a3.dir/
   TARGET_FILE = mymain/a3
-  TARGET_PDB = a3.dbg
+  TARGET_PDB = mymain/a3.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target a4
@@ -418,12 +448,14 @@ build mymain/a3: CXX_EXECUTABLE_LINKER__a3_Debug co_async/CMakeFiles/co_async.di
 build cmake_object_order_depends_target_a4: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a4.dir/src/a4.cpp.o: CXX_COMPILER__a4_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a4.cpp || cmake_object_order_depends_target_a4
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a4.dir/src/a4.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a4.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a4.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a4.dir/
+  TARGET_PDB = mymain/a4.pdb
 
 
 # =============================================================================
@@ -433,14 +465,15 @@ build mymain/CMakeFiles/a4.dir/src/a4.cpp.o: CXX_COMPILER__a4_unscanned_Debug /h
 #############################################
 # Link the executable mymain/a4
 
-build mymain/a4: CXX_EXECUTABLE_LINKER__a4_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a4.dir/src/a4.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a4: CXX_EXECUTABLE_LINKER__a4_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a4.dir/src/a4.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a4.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a4.dir/
   TARGET_FILE = mymain/a4
-  TARGET_PDB = a4.dbg
+  TARGET_PDB = mymain/a4.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target a5
@@ -452,12 +485,14 @@ build mymain/a4: CXX_EXECUTABLE_LINKER__a4_Debug co_async/CMakeFiles/co_async.di
 build cmake_object_order_depends_target_a5: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a5.dir/src/a5.cpp.o: CXX_COMPILER__a5_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a5.cpp || cmake_object_order_depends_target_a5
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a5.dir/src/a5.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a5.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a5.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a5.dir/
+  TARGET_PDB = mymain/a5.pdb
 
 
 # =============================================================================
@@ -467,14 +502,15 @@ build mymain/CMakeFiles/a5.dir/src/a5.cpp.o: CXX_COMPILER__a5_unscanned_Debug /h
 #############################################
 # Link the executable mymain/a5
 
-build mymain/a5: CXX_EXECUTABLE_LINKER__a5_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a5.dir/src/a5.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a5: CXX_EXECUTABLE_LINKER__a5_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a5.dir/src/a5.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a5.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a5.dir/
   TARGET_FILE = mymain/a5
-  TARGET_PDB = a5.dbg
+  TARGET_PDB = mymain/a5.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target a6
@@ -486,12 +522,14 @@ build mymain/a5: CXX_EXECUTABLE_LINKER__a5_Debug co_async/CMakeFiles/co_async.di
 build cmake_object_order_depends_target_a6: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a6.dir/src/a6.cpp.o: CXX_COMPILER__a6_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a6.cpp || cmake_object_order_depends_target_a6
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a6.dir/src/a6.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a6.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a6.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a6.dir/
+  TARGET_PDB = mymain/a6.pdb
 
 
 # =============================================================================
@@ -501,14 +539,15 @@ build mymain/CMakeFiles/a6.dir/src/a6.cpp.o: CXX_COMPILER__a6_unscanned_Debug /h
 #############################################
 # Link the executable mymain/a6
 
-build mymain/a6: CXX_EXECUTABLE_LINKER__a6_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a6.dir/src/a6.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a6: CXX_EXECUTABLE_LINKER__a6_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a6.dir/src/a6.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a6.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a6.dir/
   TARGET_FILE = mymain/a6
-  TARGET_PDB = a6.dbg
+  TARGET_PDB = mymain/a6.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target a7
@@ -520,12 +559,14 @@ build mymain/a6: CXX_EXECUTABLE_LINKER__a6_Debug co_async/CMakeFiles/co_async.di
 build cmake_object_order_depends_target_a7: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a7.dir/src/a7.cpp.o: CXX_COMPILER__a7_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a7.cpp || cmake_object_order_depends_target_a7
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a7.dir/src/a7.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a7.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a7.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a7.dir/
+  TARGET_PDB = mymain/a7.pdb
 
 
 # =============================================================================
@@ -535,14 +576,15 @@ build mymain/CMakeFiles/a7.dir/src/a7.cpp.o: CXX_COMPILER__a7_unscanned_Debug /h
 #############################################
 # Link the executable mymain/a7
 
-build mymain/a7: CXX_EXECUTABLE_LINKER__a7_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a7.dir/src/a7.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a7: CXX_EXECUTABLE_LINKER__a7_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a7.dir/src/a7.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a7.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a7.dir/
   TARGET_FILE = mymain/a7
-  TARGET_PDB = a7.dbg
+  TARGET_PDB = mymain/a7.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target a8
@@ -554,12 +596,14 @@ build mymain/a7: CXX_EXECUTABLE_LINKER__a7_Debug co_async/CMakeFiles/co_async.di
 build cmake_object_order_depends_target_a8: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a8.dir/src/a8.cpp.o: CXX_COMPILER__a8_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a8.cpp || cmake_object_order_depends_target_a8
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a8.dir/src/a8.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a8.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a8.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a8.dir/
+  TARGET_PDB = mymain/a8.pdb
 
 
 # =============================================================================
@@ -569,14 +613,15 @@ build mymain/CMakeFiles/a8.dir/src/a8.cpp.o: CXX_COMPILER__a8_unscanned_Debug /h
 #############################################
 # Link the executable mymain/a8
 
-build mymain/a8: CXX_EXECUTABLE_LINKER__a8_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a8.dir/src/a8.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a8: CXX_EXECUTABLE_LINKER__a8_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a8.dir/src/a8.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a8.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a8.dir/
   TARGET_FILE = mymain/a8
-  TARGET_PDB = a8.dbg
+  TARGET_PDB = mymain/a8.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target a9
@@ -588,12 +633,14 @@ build mymain/a8: CXX_EXECUTABLE_LINKER__a8_Debug co_async/CMakeFiles/co_async.di
 build cmake_object_order_depends_target_a9: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/a9.dir/src/a9.cpp.o: CXX_COMPILER__a9_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a9.cpp || cmake_object_order_depends_target_a9
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/a9.dir/src/a9.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/a9.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/a9.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a9.dir/
+  TARGET_PDB = mymain/a9.pdb
 
 
 # =============================================================================
@@ -603,14 +650,15 @@ build mymain/CMakeFiles/a9.dir/src/a9.cpp.o: CXX_COMPILER__a9_unscanned_Debug /h
 #############################################
 # Link the executable mymain/a9
 
-build mymain/a9: CXX_EXECUTABLE_LINKER__a9_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a9.dir/src/a9.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/a9: CXX_EXECUTABLE_LINKER__a9_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/a9.dir/src/a9.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/a9.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/a9.dir/
   TARGET_FILE = mymain/a9
-  TARGET_PDB = a9.dbg
+  TARGET_PDB = mymain/a9.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target main
@@ -622,12 +670,14 @@ build mymain/a9: CXX_EXECUTABLE_LINKER__a9_Debug co_async/CMakeFiles/co_async.di
 build cmake_object_order_depends_target_main: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/main.dir/src/main.cpp.o: CXX_COMPILER__main_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/main.cpp || cmake_object_order_depends_target_main
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/main.dir/src/main.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/main.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/main.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/main.dir/
+  TARGET_PDB = mymain/main.pdb
 
 
 # =============================================================================
@@ -637,14 +687,15 @@ build mymain/CMakeFiles/main.dir/src/main.cpp.o: CXX_COMPILER__main_unscanned_De
 #############################################
 # Link the executable mymain/main
 
-build mymain/main: CXX_EXECUTABLE_LINKER__main_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/main.dir/src/main.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/main: CXX_EXECUTABLE_LINKER__main_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/main.dir/src/main.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/main.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/main.dir/
   TARGET_FILE = mymain/main
-  TARGET_PDB = main.dbg
+  TARGET_PDB = mymain/main.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target step1
@@ -656,12 +707,14 @@ build mymain/main: CXX_EXECUTABLE_LINKER__main_Debug co_async/CMakeFiles/co_asyn
 build cmake_object_order_depends_target_step1: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
 
 build mymain/CMakeFiles/step1.dir/src/step1.cpp.o: CXX_COMPILER__step1_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/step1.cpp || cmake_object_order_depends_target_step1
-  DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
   DEP_FILE = mymain/CMakeFiles/step1.dir/src/step1.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = mymain/CMakeFiles/step1.dir
   OBJECT_FILE_DIR = mymain/CMakeFiles/step1.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/step1.dir/
+  TARGET_PDB = mymain/step1.pdb
 
 
 # =============================================================================
@@ -671,14 +724,52 @@ build mymain/CMakeFiles/step1.dir/src/step1.cpp.o: CXX_COMPILER__step1_unscanned
 #############################################
 # Link the executable mymain/step1
 
-build mymain/step1: CXX_EXECUTABLE_LINKER__step1_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/step1.dir/src/step1.cpp.o | co_task/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_task/libco_task.a enum_magic/libenum_magic.a
+build mymain/step1: CXX_EXECUTABLE_LINKER__step1_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/step1.dir/src/step1.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
   FLAGS = -g
-  LINK_LIBRARIES = co_task/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
   OBJECT_DIR = mymain/CMakeFiles/step1.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/step1.dir/
   TARGET_FILE = mymain/step1
-  TARGET_PDB = step1.dbg
+  TARGET_PDB = mymain/step1.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test
+
+
+#############################################
+# Order-only phony target for test
+
+build cmake_object_order_depends_target_test: phony || cmake_object_order_depends_target_co_async cmake_object_order_depends_target_co_task cmake_object_order_depends_target_enum_magic
+
+build mymain/CMakeFiles/test.dir/src/test.cpp.o: CXX_COMPILER__test_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/test.cpp || cmake_object_order_depends_target_test
+  DEFINES = -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG
+  DEP_FILE = mymain/CMakeFiles/test.dir/src/test.cpp.o.d
+  FLAGS = -g -std=c++20
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
+  OBJECT_DIR = mymain/CMakeFiles/test.dir
+  OBJECT_FILE_DIR = mymain/CMakeFiles/test.dir/src
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/test.dir/
+  TARGET_PDB = mymain/test.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test
+
+
+#############################################
+# Link the executable mymain/test
+
+build mymain/test: CXX_EXECUTABLE_LINKER__test_Debug co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o mymain/CMakeFiles/test.dir/src/test.cpp.o | co_content/libco_task.a enum_magic/libenum_magic.a /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0 /usr/lib/x86_64-linux-gnu/libtbb.so.12.11 || co_async/co_async co_content/libco_task.a enum_magic/libenum_magic.a
+  FLAGS = -g
+  LINK_LIBRARIES = co_content/libco_task.a  enum_magic/libenum_magic.a  /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0  /usr/lib/x86_64-linux-gnu/libtbb.so.12.11
+  OBJECT_DIR = mymain/CMakeFiles/test.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_COMPILE_PDB = mymain/CMakeFiles/test.dir/
+  TARGET_FILE = mymain/test
+  TARGET_PDB = mymain/test.pdb
 
 
 #############################################
@@ -715,14 +806,16 @@ build mymain/rebuild_cache: phony mymain/CMakeFiles/rebuild_cache.util
 #############################################
 # Order-only phony target for co_task
 
-build cmake_object_order_depends_target_co_task: phony || co_task/CMakeFiles/co_task.dir
+build cmake_object_order_depends_target_co_task: phony || co_content/CMakeFiles/co_task.dir
 
-build co_task/CMakeFiles/co_task.dir/src/co_task.cpp.o: CXX_COMPILER__co_task_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_task/src/co_task.cpp || cmake_object_order_depends_target_co_task
-  DEP_FILE = co_task/CMakeFiles/co_task.dir/src/co_task.cpp.o.d
+build co_content/CMakeFiles/co_task.dir/src/co_task.cpp.o: CXX_COMPILER__co_task_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_content/src/co_task.cpp || cmake_object_order_depends_target_co_task
+  DEP_FILE = co_content/CMakeFiles/co_task.dir/src/co_task.cpp.o.d
   FLAGS = -g -std=c++20
-  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_task/include
-  OBJECT_DIR = co_task/CMakeFiles/co_task.dir
-  OBJECT_FILE_DIR = co_task/CMakeFiles/co_task.dir/src
+  INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include
+  OBJECT_DIR = co_content/CMakeFiles/co_task.dir
+  OBJECT_FILE_DIR = co_content/CMakeFiles/co_task.dir/src
+  TARGET_COMPILE_PDB = co_content/CMakeFiles/co_task.dir/co_task.pdb
+  TARGET_PDB = co_content/libco_task.pdb
 
 
 # =============================================================================
@@ -730,38 +823,39 @@ build co_task/CMakeFiles/co_task.dir/src/co_task.cpp.o: CXX_COMPILER__co_task_un
 
 
 #############################################
-# Link the static library co_task/libco_task.a
+# Link the static library co_content/libco_task.a
 
-build co_task/libco_task.a: CXX_STATIC_LIBRARY_LINKER__co_task_Debug co_task/CMakeFiles/co_task.dir/src/co_task.cpp.o
+build co_content/libco_task.a: CXX_STATIC_LIBRARY_LINKER__co_task_Debug co_content/CMakeFiles/co_task.dir/src/co_task.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = co_task/CMakeFiles/co_task.dir
+  OBJECT_DIR = co_content/CMakeFiles/co_task.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = co_task/libco_task.a
-  TARGET_PDB = co_task.a.dbg
+  TARGET_COMPILE_PDB = co_content/CMakeFiles/co_task.dir/co_task.pdb
+  TARGET_FILE = co_content/libco_task.a
+  TARGET_PDB = co_content/libco_task.pdb
 
 
 #############################################
 # Utility command for edit_cache
 
-build co_task/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/hsf/computer_science/Linux_C_C++/workspace/build/co_task && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+build co_content/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/hsf/computer_science/Linux_C_C++/workspace/build/co_content && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
-build co_task/edit_cache: phony co_task/CMakeFiles/edit_cache.util
+build co_content/edit_cache: phony co_content/CMakeFiles/edit_cache.util
 
 
 #############################################
 # Utility command for rebuild_cache
 
-build co_task/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/hsf/computer_science/Linux_C_C++/workspace/build/co_task && /usr/bin/cmake --regenerate-during-build -S/home/hsf/computer_science/Linux_C_C++/workspace -B/home/hsf/computer_science/Linux_C_C++/workspace/build
+build co_content/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/hsf/computer_science/Linux_C_C++/workspace/build/co_content && /usr/bin/cmake --regenerate-during-build -S/home/hsf/computer_science/Linux_C_C++/workspace -B/home/hsf/computer_science/Linux_C_C++/workspace/build
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
-build co_task/rebuild_cache: phony co_task/CMakeFiles/rebuild_cache.util
+build co_content/rebuild_cache: phony co_content/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -784,6 +878,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o: CXX_COM
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/generic
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/generic/generic_io.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -792,6 +888,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o: CXX_CO
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/generic
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/generic/io_context.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -800,6 +898,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o: CXX_CO
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/generic
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/generic/io_context_mt.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -808,6 +908,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o: CXX
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/generic
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/generic/thread_pool.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -816,6 +918,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o: CXX_C
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/generic
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/iostream/directory_stream.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -824,6 +928,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o:
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/iostream
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/iostream/file_stream.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -832,6 +938,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o: CXX_
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/iostream
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/iostream/pipe_stream.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -840,6 +948,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o: CXX_
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/iostream
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/iostream/ssl_socket_stream.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -848,6 +958,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/iostream
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/iostream/stdio_stream.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -856,6 +968,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o: CXX
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/iostream
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/iostream/zlib_stream.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -864,6 +978,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o: CXX_
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/iostream
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/net/http_protocol.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -872,6 +988,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o: CXX_COM
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/net
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/net/http_server.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -880,6 +998,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o: CXX_COMPI
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/net
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/net/http_server_utils.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -888,6 +1008,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o: CXX
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/net
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/net/http_string_utils.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -896,6 +1018,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o: CXX
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/net
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/net/socket_proxy.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -904,6 +1028,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o: CXX_COMP
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/net
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/net/uri.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -912,6 +1038,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o: CXX_COMPILER__co_
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/net
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/platform/platform_io.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -920,6 +1048,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o: CXX_
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/platform
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/co_async/platform/socket.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -928,6 +1058,8 @@ build co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o: CXX_COMPI
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/co_async/platform
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 build co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o: CXX_COMPILER__co_async_unscanned_Debug /home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/liburing.cpp || cmake_object_order_depends_target_co_async
   DEFINES = -DCO_ASYNC_DEBUG -DTBB_USE_DEBUG
@@ -936,6 +1068,8 @@ build co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o: CXX_COMPILER
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include
   OBJECT_DIR = co_async/CMakeFiles/co_async.dir
   OBJECT_FILE_DIR = co_async/CMakeFiles/co_async.dir/3rd/liburing
+  TARGET_COMPILE_PDB = co_async/CMakeFiles/co_async.dir/
+  TARGET_PDB = ""
 
 
 
@@ -1000,6 +1134,8 @@ build enum_magic/CMakeFiles/enum_magic.dir/src/enum_magic.cpp.o: CXX_COMPILER__e
   INCLUDES = -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include
   OBJECT_DIR = enum_magic/CMakeFiles/enum_magic.dir
   OBJECT_FILE_DIR = enum_magic/CMakeFiles/enum_magic.dir/src
+  TARGET_COMPILE_PDB = enum_magic/CMakeFiles/enum_magic.dir/enum_magic.pdb
+  TARGET_PDB = enum_magic/libenum_magic.pdb
 
 
 # =============================================================================
@@ -1014,8 +1150,9 @@ build enum_magic/libenum_magic.a: CXX_STATIC_LIBRARY_LINKER__enum_magic_Debug en
   OBJECT_DIR = enum_magic/CMakeFiles/enum_magic.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = enum_magic/CMakeFiles/enum_magic.dir/enum_magic.pdb
   TARGET_FILE = enum_magic/libenum_magic.a
-  TARGET_PDB = enum_magic.a.dbg
+  TARGET_PDB = enum_magic/libenum_magic.pdb
 
 
 #############################################
@@ -1077,19 +1214,21 @@ build a9: phony mymain/a9
 
 build co_async: phony co_async/co_async
 
-build co_task: phony co_task/libco_task.a
+build co_task: phony co_content/libco_task.a
 
 build enum_magic: phony enum_magic/libenum_magic.a
 
 build format: phony co_async/format
 
-build libco_task.a: phony co_task/libco_task.a
+build libco_task.a: phony co_content/libco_task.a
 
 build libenum_magic.a: phony enum_magic/libenum_magic.a
 
 build main: phony mymain/main
 
 build step1: phony mymain/step1
+
+build test: phony mymain/test
 
 # =============================================================================
 # Folder targets.
@@ -1099,7 +1238,7 @@ build step1: phony mymain/step1
 #############################################
 # Folder: /home/hsf/computer_science/Linux_C_C++/workspace/build
 
-build all: phony mymain/all co_task/all co_async/all enum_magic/all
+build all: phony mymain/all co_content/all co_async/all enum_magic/all
 
 # =============================================================================
 
@@ -1111,9 +1250,9 @@ build co_async/all: phony co_async/co_async
 # =============================================================================
 
 #############################################
-# Folder: /home/hsf/computer_science/Linux_C_C++/workspace/build/co_task
+# Folder: /home/hsf/computer_science/Linux_C_C++/workspace/build/co_content
 
-build co_task/all: phony co_task/libco_task.a
+build co_content/all: phony co_content/libco_task.a
 
 # =============================================================================
 
@@ -1127,7 +1266,7 @@ build enum_magic/all: phony enum_magic/libenum_magic.a
 #############################################
 # Folder: /home/hsf/computer_science/Linux_C_C++/workspace/build/mymain
 
-build mymain/all: phony mymain/a1 mymain/a10 mymain/a11 mymain/a12 mymain/a13 mymain/a14 mymain/a15 mymain/a16 mymain/a2 mymain/a3 mymain/a4 mymain/a5 mymain/a6 mymain/a7 mymain/a8 mymain/a9 mymain/main mymain/step1
+build mymain/all: phony mymain/a1 mymain/a10 mymain/a11 mymain/a12 mymain/a13 mymain/a14 mymain/a15 mymain/a16 mymain/a2 mymain/a3 mymain/a4 mymain/a5 mymain/a6 mymain/a7 mymain/a8 mymain/a9 mymain/main mymain/step1 mymain/test
 
 # =============================================================================
 # Built-in targets
@@ -1150,14 +1289,14 @@ build /home/hsf/computer_science/Linux_C_C++/workspace/build/CMakeFiles/cmake.ve
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE /home/hsf/computer_science/Linux_C_C++/workspace/build/CMakeFiles/cmake.verify_globs | /home/hsf/computer_science/Linux_C_C++/workspace/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/build/CMakeFiles/VerifyGlobs.cmake /home/hsf/computer_science/Linux_C_C++/workspace/co_async/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/co_task/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/mymain/CMakeLists.txt /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBConfig.cmake /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBTargets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBTargets.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake /usr/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake /usr/share/cmake-3.28/Modules/CheckIncludeFileCXX.cmake /usr/share/cmake-3.28/Modules/CheckLibraryExists.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/FindThreads.cmake /usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake /usr/share/cmake-3.28/Modules/Internal/CheckFlagCommonConfig.cmake /usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE /home/hsf/computer_science/Linux_C_C++/workspace/build/CMakeFiles/cmake.verify_globs | /home/hsf/computer_science/Linux_C_C++/workspace/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/build/CMakeFiles/VerifyGlobs.cmake /home/hsf/computer_science/Linux_C_C++/workspace/co_async/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/co_content/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/mymain/CMakeLists.txt /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBConfig.cmake /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBTargets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBTargets.cmake /usr/lib/x86_64-linux-gnu/cmake/fmt/fmt-config-version.cmake /usr/lib/x86_64-linux-gnu/cmake/fmt/fmt-config.cmake /usr/lib/x86_64-linux-gnu/cmake/fmt/fmt-targets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/fmt/fmt-targets.cmake /usr/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompileFeatures.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake /usr/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeNinjaFindMake.cmake /usr/share/cmake-3.28/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake-3.28/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake-3.28/Modules/CMakeSystem.cmake.in /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake-3.28/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake /usr/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake /usr/share/cmake-3.28/Modules/CheckIncludeFileCXX.cmake /usr/share/cmake-3.28/Modules/CheckLibraryExists.cmake /usr/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/share/cmake-3.28/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/CrayClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-FindBinUtils.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/share/cmake-3.28/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/OrangeC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/TI-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Tasking-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/FindThreads.cmake /usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake /usr/share/cmake-3.28/Modules/Internal/CheckFlagCommonConfig.cmake /usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Determine-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/hsf/computer_science/Linux_C_C++/workspace/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/build/CMakeFiles/VerifyGlobs.cmake /home/hsf/computer_science/Linux_C_C++/workspace/co_async/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/co_task/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/mymain/CMakeLists.txt /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBConfig.cmake /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBTargets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBTargets.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake /usr/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake /usr/share/cmake-3.28/Modules/CheckIncludeFileCXX.cmake /usr/share/cmake-3.28/Modules/CheckLibraryExists.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/FindThreads.cmake /usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake /usr/share/cmake-3.28/Modules/Internal/CheckFlagCommonConfig.cmake /usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake: phony
+build /home/hsf/computer_science/Linux_C_C++/workspace/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/build/CMakeFiles/VerifyGlobs.cmake /home/hsf/computer_science/Linux_C_C++/workspace/co_async/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/co_content/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/workspace/mymain/CMakeLists.txt /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBConfig.cmake /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBTargets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/TBB/TBBTargets.cmake /usr/lib/x86_64-linux-gnu/cmake/fmt/fmt-config-version.cmake /usr/lib/x86_64-linux-gnu/cmake/fmt/fmt-config.cmake /usr/lib/x86_64-linux-gnu/cmake/fmt/fmt-targets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/fmt/fmt-targets.cmake /usr/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompileFeatures.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake /usr/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeNinjaFindMake.cmake /usr/share/cmake-3.28/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake-3.28/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake-3.28/Modules/CMakeSystem.cmake.in /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake-3.28/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake /usr/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake /usr/share/cmake-3.28/Modules/CheckIncludeFileCXX.cmake /usr/share/cmake-3.28/Modules/CheckLibraryExists.cmake /usr/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/share/cmake-3.28/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/CrayClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-FindBinUtils.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/share/cmake-3.28/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/OrangeC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/TI-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Tasking-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/FindThreads.cmake /usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake /usr/share/cmake-3.28/Modules/Internal/CheckFlagCommonConfig.cmake /usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Determine-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake: phony
 
 
 #############################################

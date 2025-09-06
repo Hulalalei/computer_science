@@ -11,7 +11,6 @@
 #include "stop_source.hpp"
 #include "http_codec.hpp"
 #include "thread_pool.hpp"
-#include "connection_pool.hpp"
 #include "file_utils.hpp"
 #include "minilog.hpp"
 
@@ -199,7 +198,7 @@ struct http_server : std::enable_shared_from_this<http_server> {
             // std::println("接受了一个连接: {}", connfd);
             // 可以借助多线程处理，多反应堆模型
             self->m_t_pool.submit([connfd, self]() {
-                io_context sub_ctx;
+                io_context sub_ctx; // extra
                 http_connection_handler::make()->do_start(&self->m_router, connfd);
                 sub_ctx.join();
             });

@@ -74,7 +74,7 @@ namespace lockfree {
         tail.store(vir_node, std::memory_order_relaxed);
     }
 
-
+    // headnode -> tailvir
     template <class T, bool Mod, class Allocater>
     void lock_free_queue<T, Mod, Allocater>::push(T data) {
         T *new_data = alloc.template new_obj<T>(data);

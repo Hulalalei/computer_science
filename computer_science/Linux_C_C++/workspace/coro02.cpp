@@ -29,7 +29,8 @@ struct printer {
     }
 
     void start() {
-        handle.resume();
+        while(!handle.done())
+            handle.resume();
     }
 };
 

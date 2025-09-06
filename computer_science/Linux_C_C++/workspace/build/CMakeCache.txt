@@ -197,6 +197,9 @@ co_async_IS_TOP_LEVEL:STATIC=OFF
 //Value Computed by CMake
 co_async_SOURCE_DIR:STATIC=/home/hsf/computer_science/Linux_C_C++/workspace/co_async
 
+//The directory containing a CMake configuration file for fmt.
+fmt_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/fmt
+
 //Value Computed by CMake
 main_BINARY_DIR:STATIC=/home/hsf/computer_science/Linux_C_C++/workspace/build
 

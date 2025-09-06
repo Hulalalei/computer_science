@@ -91,6 +91,7 @@ auto ThreadPool::manager(void *arg) -> void* {
         }
         pthread_mutex_unlock(&ptr->mutexPool);
     }
+    return nullptr;
 }
 
 auto ThreadPool::worker(void *arg) -> void* {
@@ -125,6 +126,7 @@ auto ThreadPool::worker(void *arg) -> void* {
         sleep(2);   /* 与manager同步 */
     }
     //std::cout << "worker end...\n";
+    return nullptr;
 }
 
 auto ThreadPool::addTask(void (*func)(void *arg), void *arg) -> bool {
