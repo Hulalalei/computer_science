@@ -37,4 +37,4 @@ git常用命令：
     流程：
         1、git add computer_science/                                        暂存区
         2、git commit -m "1st" computer_science/                            本地库
-        3、git push git@github.com:hulalalei/computer_science.git master    github
+        3、git push git@github.com:hulalalei/computer_science.git master    github(梯子关掉)
