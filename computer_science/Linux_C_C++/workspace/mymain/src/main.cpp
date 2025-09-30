@@ -1,33 +1,18 @@
-#include <chrono>
+#include <iostream>
+#include <unistd.h>
 
-#include <co_content/co_task.hpp>
-#include <coroutine>
-#include <debug.hpp>
-#include <thread>
+#define BUFFSIZE 4096
 
-template <class T>
-struct echo {
-    bool await_ready() const noexcept { return m_flag; }
-    std::coroutine_handle<> await_suspend(std::coroutine_handle<> coroutine) const noexcept { 
-        return coroutine;
+int main(int argc, char **argv) {
+    std::cout << "argc: " << argc << std::endl;
+    int n{};
+    char buf[BUFFSIZE]{};
+
+    while ((n = read(STDIN_FILENO, buf, BUFFSIZE)) > 0) {
+        if (write(STDOUT_FILENO, buf, BUFFSIZE) != n)
+            std::cout << "write error\n";
     }
-    T await_resume() const noexcept { 
-        debug(), "await_resume"; return T{}; 
-    }
-    echo(T buf): m_buf(buf), m_flag(true) {}
-    std::string m_buf;
-    bool m_flag;
-};
-
-co_task<int> echo_chat() {
-    co_await echo{"hello"};
-    debug(), "please insert content: ";
-    // std::string buf;
-    // std::cin >> buf;
-    co_return {};
-}
-
-int main(void) {
-    auto t = echo_chat();
-    t.m_coroutine.resume();
+    if (n < 0)
+        std::cout << "read error\n";
+    exit(0);
 }
