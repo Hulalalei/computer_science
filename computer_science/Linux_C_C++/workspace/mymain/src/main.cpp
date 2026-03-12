@@ -1,18 +1,38 @@
-#include <iostream>
+#include <string>
+#include <thread>
 #include <unistd.h>
 
-#define BUFFSIZE 4096
 
-int main(int argc, char **argv) {
-    std::cout << "argc: " << argc << std::endl;
-    int n{};
-    char buf[BUFFSIZE]{};
+class RDT_protocol {
+    struct transfer_data {
+        int type;
+        int seq; // start with 1
+        int len;
+        std::string data;
+    };
 
-    while ((n = read(STDIN_FILENO, buf, BUFFSIZE)) > 0) {
-        if (write(STDOUT_FILENO, buf, BUFFSIZE) != n)
-            std::cout << "write error\n";
+    void Sender() { // lock
+        while (1) {
+            // send data
+            // receive ack
+        }
+
     }
-    if (n < 0)
-        std::cout << "read error\n";
-    exit(0);
+
+    void Receiver() { // lock
+        while (1) {
+            // receive data
+            // send ack
+        }
+    }
+public:
+    void run() {
+        
+    }
+};
+
+
+int main() {
+    pause();
+    _exit(0);
 }

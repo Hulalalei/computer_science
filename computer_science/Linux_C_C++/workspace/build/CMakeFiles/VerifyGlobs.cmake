@@ -45,22 +45,6 @@ endif()
 # srcs at mymain/CMakeLists.txt:1 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/*.cpp")
 set(OLD_GLOB
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a1.cpp"
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a10.cpp"
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a11.cpp"
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a12.cpp"
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a13.cpp"
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a14.cpp"
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a15.cpp"
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a16.cpp"
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a2.cpp"
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a3.cpp"
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a4.cpp"
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a5.cpp"
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a6.cpp"
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a7.cpp"
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a8.cpp"
-  "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/a9.cpp"
   "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/main.cpp"
   "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/step1.cpp"
   "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/test.cpp"

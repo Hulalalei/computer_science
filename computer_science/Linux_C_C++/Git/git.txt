@@ -38,3 +38,7 @@ git常用命令：
         1、git add computer_science/                                        暂存区
         2、git commit -m "1st" computer_science/                            本地库
         3、git push git@github.com:hulalalei/computer_science.git master    github(梯子关掉)
+
+    删除历史大文件：
+        1、apt install git-filter-repo
+        2、git filter-repo --path my_path --invert-paths --force

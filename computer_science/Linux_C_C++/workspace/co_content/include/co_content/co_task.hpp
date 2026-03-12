@@ -7,15 +7,15 @@
 //////////////////////////// coroutine template ////////////////////////////////
 // usage: 
 //
-// #include <co_task/co_task.hpp>
+// #include <co_content/co_task.hpp>
 // #include <debug.hpp>
 //
-// co_task::co_task<int> world() {
+// co_task<int> world() {
 //     debug(), "world";
 //     co_return 02;
 // }
 //
-// co_task::co_task<int> hello() {
+// co_task<int> hello() {
 //     debug(), "hello";
 //     debug(), co_await world();
 //     debug(), "yield";
@@ -26,7 +26,7 @@
 //
 // int main() {
 //     // get_return_object()获取的对象，进行初始构造
-//     co_task::co_task t = hello();
+//     co_task t = hello();
 //     debug(), "yield value: ", t.m_coroutine.promise().m_val;
 //     debug(), "resuming";
 //     t.m_coroutine.resume();

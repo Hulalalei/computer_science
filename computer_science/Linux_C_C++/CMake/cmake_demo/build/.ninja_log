@@ -1,0 +1,12 @@
+# ninja log v5
+1	7	0	/home/hsf/computer_science/Linux_C_C++/CMake/cmake_demo/build/CMakeFiles/cmake.verify_globs	a148c96f8897f1c4
+168	207	1773307902886055511	demo02/main_demo	300f6e636333acc
+7	18	1773307902697651255	demo02/CMakeFiles/main_demo.dir/__/lib/math_module.cpp.o	73ec9373d6fbef9d
+7	168	1773307902844649628	demo02/CMakeFiles/main_demo.dir/main.cpp.o	8646b3c7f4c76323
+7	29	1773313680043659116	build.ninja	e15033e007247650
+7	29	1773313680043659116	build.ninja	e15033e007247650
+0	6	0	/home/hsf/computer_science/Linux_C_C++/CMake/cmake_demo/build/CMakeFiles/cmake.verify_globs	a148c96f8897f1c4
+7	19	1773313680069709705	demo02/CMakeFiles/main_demo.dir/__/lib/math_module.cpp.o	c2d839c4f5df51fe
+6	184	1773313680232710957	demo02/CMakeFiles/main_demo.dir/main.cpp.o	3de5f2c37e4cef43
+184	228	1773313680279003407	demo02/main_demo	300f6e636333acc
+0	6	0	/home/hsf/computer_science/Linux_C_C++/CMake/cmake_demo/build/CMakeFiles/cmake.verify_globs	a148c96f8897f1c4
