@@ -1,0 +1,30 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "Clang",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : 
+	{
+		"module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o" : 
+		{
+			"bmi-only" : false,
+			"destination" : null,
+			"name" : "CXX_MODULES",
+			"relative-directory" : "modules",
+			"source" : "/home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/math.cppm",
+			"type" : "CXX_MODULES",
+			"visibility" : "PUBLIC"
+		}
+	},
+	"dir-cur-bld" : "/home/hsf/computer_science/Linux_C_C++/minispace/build/module_demo",
+	"dir-cur-src" : "/home/hsf/computer_science/Linux_C_C++/minispace/module_demo",
+	"dir-top-bld" : "/home/hsf/computer_science/Linux_C_C++/minispace/build",
+	"dir-top-src" : "/home/hsf/computer_science/Linux_C_C++/minispace",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : [],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "/home/hsf/computer_science/Linux_C_C++/minispace/build/module_demo/CMakeFiles/module_demo.dir"
+}

@@ -1,0 +1,6 @@
+ninja_dyndep_version = 1.0
+build module_demo/CMakeFiles/module_demo.dir/main.cpp.o: dyndep | module_demo/CMakeFiles/module_demo.dir/math.pcm
+
+build module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o | module_demo/CMakeFiles/module_demo.dir/math.pcm: dyndep
+  restat = 1
+

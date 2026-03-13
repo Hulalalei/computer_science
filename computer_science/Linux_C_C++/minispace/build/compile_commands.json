@@ -1,0 +1,26 @@
+[
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/minispace/build",
+  "command": "/usr/bin/clang++ -g -std=c++23 @demo01/CMakeFiles/demo01.dir/main.cpp.o.modmap -o demo01/CMakeFiles/demo01.dir/main.cpp.o -c /home/hsf/computer_science/Linux_C_C++/minispace/demo01/main.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/minispace/demo01/main.cpp",
+  "output": "demo01/CMakeFiles/demo01.dir/main.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/minispace/build",
+  "command": "/usr/bin/clang++ -g -std=c++23 @demo03/CMakeFiles/demo03.dir/main.cpp.o.modmap -o demo03/CMakeFiles/demo03.dir/main.cpp.o -c /home/hsf/computer_science/Linux_C_C++/minispace/demo03/main.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/minispace/demo03/main.cpp",
+  "output": "demo03/CMakeFiles/demo03.dir/main.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/minispace/build",
+  "command": "/usr/bin/clang++ -g -std=c++23 -std=c++23 @module_demo/CMakeFiles/module_demo.dir/main.cpp.o.modmap -o module_demo/CMakeFiles/module_demo.dir/main.cpp.o -c /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/main.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/minispace/module_demo/main.cpp",
+  "output": "module_demo/CMakeFiles/module_demo.dir/main.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/minispace/build",
+  "command": "/usr/bin/clang++ -g -std=c++23 -std=c++23 @module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.modmap -o module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o -c /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/math.cppm",
+  "file": "/home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/math.cppm",
+  "output": "module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o"
+}
+]

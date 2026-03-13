@@ -1,0 +1,16 @@
+# ninja log v5
+51	817	1773413318994029823	module_demo/CMakeFiles/module_demo.dir/math.pcm	2aa97946aef725b3
+1054	1101	1773413319281108396	module_demo/module_demo	ddfea3d981c181f0
+817	1054	1773413319233029830	module_demo/CMakeFiles/module_demo.dir/main.cpp.o	338cb31a754a299a
+46	51	1773413318233100058	module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.modmap	f52d2a098068506b
+46	51	1773413318233100058	module_demo/CMakeFiles/module_demo.dir/main.cpp.o.modmap	f52d2a098068506b
+46	51	1773413318233100058	/home/hsf/computer_science/Linux_C_C++/minispace/build/module_demo/CMakeFiles/module_demo.dir/CXXModules.json	f52d2a098068506b
+46	51	1773413318233100058	module_demo/CMakeFiles/module_demo.dir/CXX.dd	f52d2a098068506b
+0	46	1773413318225170860	module_demo/CMakeFiles/module_demo.dir/main.cpp.o.ddi	9f53d5ad8bdcc6c5
+51	817	1773413318994029823	module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o	2aa97946aef725b3
+1	46	1773413318225170860	module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.ddi	689151060aab7afb
+1	22	1773413776106997020	build.ninja	6a906bfbc064b95f
+0	58	1773413783780999033	demo03/CMakeFiles/demo03.dir/main.cpp.o.ddi	5c5d64c7406a7494
+58	64	1773413783789303656	demo03/CMakeFiles/demo03.dir/CXX.dd	f141b0b29571177d
+58	64	1773413783789303656	/home/hsf/computer_science/Linux_C_C++/minispace/build/demo03/CMakeFiles/demo03.dir/CXXModules.json	f141b0b29571177d
+58	64	1773413783789303656	demo03/CMakeFiles/demo03.dir/main.cpp.o.modmap	f141b0b29571177d
