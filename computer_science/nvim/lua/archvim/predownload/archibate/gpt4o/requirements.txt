@@ -1,0 +1,4 @@
+neovim
+openai>=1.44.0
+tiktoken>=0.7.0
+fastembed
