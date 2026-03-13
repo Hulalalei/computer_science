@@ -1,0 +1,2 @@
+-x c++-module
+-fmodule-output=module_demo/CMakeFiles/module_demo.dir/math.pcm

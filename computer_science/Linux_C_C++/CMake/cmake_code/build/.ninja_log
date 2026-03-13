@@ -1,0 +1,11 @@
+# ninja log v5
+1	39	1773412040485162988	module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.ddi	7787d92dbec043d8
+0	41	1773412040486238026	module_demo/CMakeFiles/module_demo.dir/main.cpp.o.ddi	44e11a8771498e30
+41	46	1773412040494181413	module_demo/CMakeFiles/module_demo.dir/CXX.dd	f52d2a098068506b
+41	46	1773412040494181413	/home/hsf/computer_science/Linux_C_C++/CMake/cmake_code/build/module_demo/CMakeFiles/module_demo.dir/CXXModules.json	f52d2a098068506b
+41	46	1773412040494181413	module_demo/CMakeFiles/module_demo.dir/main.cpp.o.modmap	f52d2a098068506b
+41	46	1773412040494181413	module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.modmap	f52d2a098068506b
+46	812	1773412041255372049	module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o	8f63d9e13ccd610e
+46	812	1773412041255372049	module_demo/CMakeFiles/module_demo.dir/math.pcm	8f63d9e13ccd610e
+812	1036	1773412041480376029	module_demo/CMakeFiles/module_demo.dir/main.cpp.o	8043a77c8c18eb6
+1036	1082	1773412041527926435	module_demo/module_demo	ddfea3d981c181f0

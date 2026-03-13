@@ -1,0 +1,19 @@
+{
+	"modules" : 
+	{
+		"math" : 
+		{
+			"bmi" : "/home/hsf/computer_science/Linux_C_C++/CMake/cmake_code/build/module_demo/CMakeFiles/module_demo.dir/math.pcm",
+			"is-private" : false
+		}
+	},
+	"references" : 
+	{
+		"math" : 
+		{
+			"lookup-method" : "by-name",
+			"path" : "module_demo/CMakeFiles/module_demo.dir/math.pcm"
+		}
+	},
+	"usages" : {}
+}

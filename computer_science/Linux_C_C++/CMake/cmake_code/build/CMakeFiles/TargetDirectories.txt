@@ -1,0 +1,5 @@
+/home/hsf/computer_science/Linux_C_C++/CMake/cmake_code/build/CMakeFiles/edit_cache.dir
+/home/hsf/computer_science/Linux_C_C++/CMake/cmake_code/build/CMakeFiles/rebuild_cache.dir
+/home/hsf/computer_science/Linux_C_C++/CMake/cmake_code/build/module_demo/CMakeFiles/module_demo.dir
+/home/hsf/computer_science/Linux_C_C++/CMake/cmake_code/build/module_demo/CMakeFiles/edit_cache.dir
+/home/hsf/computer_science/Linux_C_C++/CMake/cmake_code/build/module_demo/CMakeFiles/rebuild_cache.dir

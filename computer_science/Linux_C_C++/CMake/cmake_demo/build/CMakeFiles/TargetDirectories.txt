@@ -1,8 +1,0 @@
-/home/hsf/computer_science/Linux_C_C++/CMake/cmake_demo/build/CMakeFiles/edit_cache.dir
-/home/hsf/computer_science/Linux_C_C++/CMake/cmake_demo/build/CMakeFiles/rebuild_cache.dir
-/home/hsf/computer_science/Linux_C_C++/CMake/cmake_demo/build/demo02/CMakeFiles/main_demo.dir
-/home/hsf/computer_science/Linux_C_C++/CMake/cmake_demo/build/demo02/CMakeFiles/edit_cache.dir
-/home/hsf/computer_science/Linux_C_C++/CMake/cmake_demo/build/demo02/CMakeFiles/rebuild_cache.dir
-/home/hsf/computer_science/Linux_C_C++/CMake/cmake_demo/build/lib/CMakeFiles/math_module.dir
-/home/hsf/computer_science/Linux_C_C++/CMake/cmake_demo/build/lib/CMakeFiles/edit_cache.dir
-/home/hsf/computer_science/Linux_C_C++/CMake/cmake_demo/build/lib/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,16 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o",
+      "provides": [
+        {
+          "is-interface": true,
+          "logical-name": "math",
+          "source-path": "/home/hsf/computer_science/Linux_C_C++/CMake/cmake_code/module_demo/modules/math.cppm"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}

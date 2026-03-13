@@ -1,0 +1,21 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "Clang",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"dir-cur-bld" : "/home/hsf/computer_science/Linux_C_C++/workspace/build/enum_magic",
+	"dir-cur-src" : "/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic",
+	"dir-top-bld" : "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+	"dir-top-src" : "/home/hsf/computer_science/Linux_C_C++/workspace",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : 
+	[
+		"/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include"
+	],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "/home/hsf/computer_science/Linux_C_C++/workspace/build/enum_magic/CMakeFiles/enum_magic.dir"
+}

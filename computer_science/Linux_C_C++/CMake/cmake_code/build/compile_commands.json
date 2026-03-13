@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/CMake/cmake_code/build",
+  "command": "/usr/bin/clang++ -g -std=c++23 -std=c++23 @module_demo/CMakeFiles/module_demo.dir/main.cpp.o.modmap -o module_demo/CMakeFiles/module_demo.dir/main.cpp.o -c /home/hsf/computer_science/Linux_C_C++/CMake/cmake_code/module_demo/main.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/CMake/cmake_code/module_demo/main.cpp",
+  "output": "module_demo/CMakeFiles/module_demo.dir/main.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/CMake/cmake_code/build",
+  "command": "/usr/bin/clang++ -g -std=c++23 -std=c++23 @module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.modmap -o module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o -c /home/hsf/computer_science/Linux_C_C++/CMake/cmake_code/module_demo/modules/math.cppm",
+  "file": "/home/hsf/computer_science/Linux_C_C++/CMake/cmake_code/module_demo/modules/math.cppm",
+  "output": "module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o"
+}
+]

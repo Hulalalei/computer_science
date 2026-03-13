@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/build",
+  "command": "/usr/bin/c++ -DFMT_SHARED -g -o CMakeFiles/main.dir/src/main.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/main.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/main.cpp",
+  "output": "CMakeFiles/main.dir/src/main.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/build",
+  "command": "/usr/bin/c++ -DFMT_SHARED -g -o CMakeFiles/step1.dir/src/step1.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/step1.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/step1.cpp",
+  "output": "CMakeFiles/step1.dir/src/step1.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/build",
+  "command": "/usr/bin/c++ -DFMT_SHARED -g -o CMakeFiles/test.dir/src/test.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/test.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/test.cpp",
+  "output": "CMakeFiles/test.dir/src/test.o"
+}
+]
