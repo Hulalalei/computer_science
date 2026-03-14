@@ -18,7 +18,7 @@
 #############################################
 # Minimal version of Ninja required by this file
 
-ninja_required_version = 1.5
+ninja_required_version = 1.8
 
 
 #############################################
@@ -150,14 +150,14 @@ build cmake_object_order_depends_target_demo03: phony || demo03/CMakeFiles/demo0
 build demo03/CMakeFiles/demo03.dir/main.cpp.o.ddi: CXX_SCAN__demo03_Debug /home/hsf/computer_science/Linux_C_C++/minispace/demo03/main.cpp || cmake_object_order_depends_target_demo03
   DEP_FILE = demo03/CMakeFiles/demo03.dir/main.cpp.o.ddi.d
   DYNDEP_INTERMEDIATE_FILE = demo03/CMakeFiles/demo03.dir/main.cpp.o.ddi
-  FLAGS = -g -std=c++23
+  FLAGS = -g -std=c++23 -fcoroutines
   OBJ_FILE = demo03/CMakeFiles/demo03.dir/main.cpp.o
   PREPROCESSED_OUTPUT_FILE = demo03/CMakeFiles/demo03.dir/main.cpp.o.ddi.i
 
 build demo03/CMakeFiles/demo03.dir/main.cpp.o: CXX_COMPILER__demo03_scanned_Debug /home/hsf/computer_science/Linux_C_C++/minispace/demo03/main.cpp || cmake_object_order_depends_target_demo03 demo03/CMakeFiles/demo03.dir/CXX.dd demo03/CMakeFiles/demo03.dir/main.cpp.o.modmap
   DEP_FILE = demo03/CMakeFiles/demo03.dir/main.cpp.o.d
   DYNDEP_MODULE_MAP_FILE = demo03/CMakeFiles/demo03.dir/main.cpp.o.modmap
-  FLAGS = -g -std=c++23
+  FLAGS = -g -std=c++23 -fcoroutines
   OBJECT_DIR = demo03/CMakeFiles/demo03.dir
   OBJECT_FILE_DIR = demo03/CMakeFiles/demo03.dir
   dyndep = demo03/CMakeFiles/demo03.dir/CXX.dd
@@ -232,22 +232,37 @@ build module_demo/CMakeFiles/module_demo.dir/main.cpp.o: CXX_COMPILER__module_de
   OBJECT_FILE_DIR = module_demo/CMakeFiles/module_demo.dir
   dyndep = module_demo/CMakeFiles/module_demo.dir/CXX.dd
 
-build module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.ddi: CXX_SCAN__module_demo_Debug /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/math.cppm || cmake_object_order_depends_target_module_demo
-  DEP_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.ddi.d
-  DYNDEP_INTERMEDIATE_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.ddi
+build module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.ddi: CXX_SCAN__module_demo_Debug /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/co_content/co_content.cppm || cmake_object_order_depends_target_module_demo
+  DEP_FILE = module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.ddi
   FLAGS = -g -std=c++23 -std=c++23
-  OBJ_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o
-  PREPROCESSED_OUTPUT_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.ddi.i
+  OBJ_FILE = module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o
+  PREPROCESSED_OUTPUT_FILE = module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.ddi.i
 
-build module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o: CXX_COMPILER__module_demo_scanned_Debug /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/math.cppm || cmake_object_order_depends_target_module_demo module_demo/CMakeFiles/module_demo.dir/CXX.dd module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.modmap
-  DEP_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.d
-  DYNDEP_MODULE_MAP_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.modmap
+build module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o: CXX_COMPILER__module_demo_scanned_Debug /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/co_content/co_content.cppm || cmake_object_order_depends_target_module_demo module_demo/CMakeFiles/module_demo.dir/CXX.dd module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.modmap
+  DEP_FILE = module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.d
+  DYNDEP_MODULE_MAP_FILE = module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.modmap
   FLAGS = -g -std=c++23 -std=c++23
   OBJECT_DIR = module_demo/CMakeFiles/module_demo.dir
-  OBJECT_FILE_DIR = module_demo/CMakeFiles/module_demo.dir/modules
+  OBJECT_FILE_DIR = module_demo/CMakeFiles/module_demo.dir/modules/co_content
   dyndep = module_demo/CMakeFiles/module_demo.dir/CXX.dd
 
-build module_demo/CMakeFiles/module_demo.dir/CXX.dd | /home/hsf/computer_science/Linux_C_C++/minispace/build/module_demo/CMakeFiles/module_demo.dir/CXXModules.json module_demo/CMakeFiles/module_demo.dir/main.cpp.o.modmap module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.modmap: CXX_DYNDEP__module_demo_Debug module_demo/CMakeFiles/module_demo.dir/main.cpp.o.ddi module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.ddi
+build module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.ddi: CXX_SCAN__module_demo_Debug /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/math/math.cppm || cmake_object_order_depends_target_module_demo
+  DEP_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.ddi
+  FLAGS = -g -std=c++23 -std=c++23
+  OBJ_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o
+  PREPROCESSED_OUTPUT_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.ddi.i
+
+build module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o: CXX_COMPILER__module_demo_scanned_Debug /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/math/math.cppm || cmake_object_order_depends_target_module_demo module_demo/CMakeFiles/module_demo.dir/CXX.dd module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.modmap
+  DEP_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.d
+  DYNDEP_MODULE_MAP_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.modmap
+  FLAGS = -g -std=c++23 -std=c++23
+  OBJECT_DIR = module_demo/CMakeFiles/module_demo.dir
+  OBJECT_FILE_DIR = module_demo/CMakeFiles/module_demo.dir/modules/math
+  dyndep = module_demo/CMakeFiles/module_demo.dir/CXX.dd
+
+build module_demo/CMakeFiles/module_demo.dir/CXX.dd | /home/hsf/computer_science/Linux_C_C++/minispace/build/module_demo/CMakeFiles/module_demo.dir/CXXModules.json module_demo/CMakeFiles/module_demo.dir/main.cpp.o.modmap module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.modmap module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.modmap: CXX_DYNDEP__module_demo_Debug module_demo/CMakeFiles/module_demo.dir/main.cpp.o.ddi module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.ddi module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.ddi
 
 
 # =============================================================================
@@ -257,7 +272,7 @@ build module_demo/CMakeFiles/module_demo.dir/CXX.dd | /home/hsf/computer_science
 #############################################
 # Link the executable module_demo/module_demo
 
-build module_demo/module_demo: CXX_EXECUTABLE_LINKER__module_demo_Debug module_demo/CMakeFiles/module_demo.dir/main.cpp.o module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o
+build module_demo/module_demo: CXX_EXECUTABLE_LINKER__module_demo_Debug module_demo/CMakeFiles/module_demo.dir/main.cpp.o module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o
   FLAGS = -g
   OBJECT_DIR = module_demo/CMakeFiles/module_demo.dir
   POST_BUILD = :
@@ -333,16 +348,30 @@ build module_demo/all: phony module_demo/module_demo
 
 
 #############################################
+# Phony target to force glob verification run.
+
+build /home/hsf/computer_science/Linux_C_C++/minispace/build/CMakeFiles/VerifyGlobs.cmake_force: phony
+
+
+#############################################
+# Re-run CMake to check if globbed directories changed.
+
+build /home/hsf/computer_science/Linux_C_C++/minispace/build/CMakeFiles/cmake.verify_globs: VERIFY_GLOBS | /home/hsf/computer_science/Linux_C_C++/minispace/build/CMakeFiles/VerifyGlobs.cmake_force
+  pool = console
+  restat = 1
+
+
+#############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/hsf/computer_science/Linux_C_C++/minispace/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/minispace/demo01/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/minispace/demo03/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/CMakeLists.txt /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE /home/hsf/computer_science/Linux_C_C++/minispace/build/CMakeFiles/cmake.verify_globs | /home/hsf/computer_science/Linux_C_C++/minispace/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/minispace/build/CMakeFiles/VerifyGlobs.cmake /home/hsf/computer_science/Linux_C_C++/minispace/demo01/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/minispace/demo03/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/CMakeLists.txt /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/hsf/computer_science/Linux_C_C++/minispace/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/minispace/demo01/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/minispace/demo03/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/CMakeLists.txt /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake: phony
+build /home/hsf/computer_science/Linux_C_C++/minispace/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/minispace/build/CMakeFiles/VerifyGlobs.cmake /home/hsf/computer_science/Linux_C_C++/minispace/demo01/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/minispace/demo03/CMakeLists.txt /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/CMakeLists.txt /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake: phony
 
 
 #############################################

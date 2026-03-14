@@ -6,13 +6,23 @@
 	"config" : "Debug",
 	"cxx-modules" : 
 	{
-		"module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o" : 
+		"module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o" : 
 		{
 			"bmi-only" : false,
 			"destination" : null,
 			"name" : "CXX_MODULES",
-			"relative-directory" : "modules",
-			"source" : "/home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/math.cppm",
+			"relative-directory" : "modules/co_content",
+			"source" : "/home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/co_content/co_content.cppm",
+			"type" : "CXX_MODULES",
+			"visibility" : "PUBLIC"
+		},
+		"module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o" : 
+		{
+			"bmi-only" : false,
+			"destination" : null,
+			"name" : "CXX_MODULES",
+			"relative-directory" : "modules/math",
+			"source" : "/home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/math/math.cppm",
 			"type" : "CXX_MODULES",
 			"visibility" : "PUBLIC"
 		}

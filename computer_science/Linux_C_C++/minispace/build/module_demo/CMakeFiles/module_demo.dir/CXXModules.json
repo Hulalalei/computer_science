@@ -1,6 +1,11 @@
 {
 	"modules" : 
 	{
+		"co_content" : 
+		{
+			"bmi" : "/home/hsf/computer_science/Linux_C_C++/minispace/build/module_demo/CMakeFiles/module_demo.dir/co_content.pcm",
+			"is-private" : false
+		},
 		"math" : 
 		{
 			"bmi" : "/home/hsf/computer_science/Linux_C_C++/minispace/build/module_demo/CMakeFiles/module_demo.dir/math.pcm",
@@ -9,11 +14,22 @@
 	},
 	"references" : 
 	{
+		"co_content" : 
+		{
+			"lookup-method" : "by-name",
+			"path" : "module_demo/CMakeFiles/module_demo.dir/co_content.pcm"
+		},
 		"math" : 
 		{
 			"lookup-method" : "by-name",
 			"path" : "module_demo/CMakeFiles/module_demo.dir/math.pcm"
 		}
 	},
-	"usages" : {}
+	"usages" : 
+	{
+		"co_content" : 
+		[
+			"math"
+		]
+	}
 }

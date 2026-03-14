@@ -141,30 +141,6 @@ struct task_promise {
     void return_value(T val) { result = std::move(val); }
 };
 
-template<>
-struct task_promise<void> {
-    std::coroutine_handle<> waiter;
-
-    task<void> get_return_object() {
-        return task<void>{std::coroutine_handle<task_promise>::from_promise(*this)};
-    }
-
-    std::suspend_always initial_suspend() noexcept { return {}; }
-
-    struct final_awaiter {
-        bool await_ready() noexcept { return false; }
-        void await_suspend(std::coroutine_handle<task_promise> h) noexcept {
-            if (h.promise().waiter)
-                h.promise().waiter.resume();
-        }
-        void await_resume() noexcept {}
-    };
-    final_awaiter final_suspend() noexcept { return {}; }
-
-    void unhandled_exception() { std::terminate(); }
-    void return_void() {}
-};
-
 template<typename T>
 struct task {
     using promise_type = task_promise<T>;
@@ -200,8 +176,34 @@ struct task {
 
     void resume() { if (coro && !coro.done()) coro.resume(); }
 
+    handle_type get_handle() const { return coro; }
+
 private:
     handle_type coro;
+};
+
+template<>
+struct task_promise<void> {
+    std::coroutine_handle<> waiter;
+
+    task<void> get_return_object() {
+        return task<void>{std::coroutine_handle<task_promise>::from_promise(*this)};
+    }
+
+    std::suspend_always initial_suspend() noexcept { return {}; }
+
+    struct final_awaiter {
+        bool await_ready() noexcept { return false; }
+        void await_suspend(std::coroutine_handle<task_promise> h) noexcept {
+            if (h.promise().waiter)
+                h.promise().waiter.resume();
+        }
+        void await_resume() noexcept {}
+    };
+    final_awaiter final_suspend() noexcept { return {}; }
+
+    void unhandled_exception() { std::terminate(); }
+    void return_void() {}
 };
 
 // -------------------- 睡眠等待器 --------------------
@@ -398,8 +400,8 @@ task<void> game_main() {
     auto snake_task = snake_movement(game);
     auto input_task = input_handler(game);
 
-    Scheduler::get().schedule(snake_task.coro);
-    Scheduler::get().schedule(input_task.coro);
+    Scheduler::get().schedule(snake_task.get_handle());
+    Scheduler::get().schedule(input_task.get_handle());
 
     co_await snake_task;  // 等待蛇移动任务完成
     co_await input_task;  // 等待输入任务完成
@@ -410,7 +412,7 @@ int main() {
     TerminalRawMode raw;  // 设置终端原始模式，析构时恢复
 
     auto& sched = Scheduler::get();
-    sched.schedule(game_main().coro);
+    sched.schedule(game_main().get_handle());
     sched.run();
 
     std::cout << "Thanks for playing!\n";

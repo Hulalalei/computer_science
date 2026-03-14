@@ -1,0 +1,21 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o",
+      "provides": [
+        {
+          "is-interface": true,
+          "logical-name": "co_content",
+          "source-path": "/home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/co_content/co_content.cppm"
+        }
+      ],
+      "requires": [
+        {
+          "logical-name": "math"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}

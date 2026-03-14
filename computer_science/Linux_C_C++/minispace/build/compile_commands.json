@@ -7,7 +7,7 @@
 },
 {
   "directory": "/home/hsf/computer_science/Linux_C_C++/minispace/build",
-  "command": "/usr/bin/clang++ -g -std=c++23 @demo03/CMakeFiles/demo03.dir/main.cpp.o.modmap -o demo03/CMakeFiles/demo03.dir/main.cpp.o -c /home/hsf/computer_science/Linux_C_C++/minispace/demo03/main.cpp",
+  "command": "/usr/bin/clang++ -g -std=c++23 -fcoroutines @demo03/CMakeFiles/demo03.dir/main.cpp.o.modmap -o demo03/CMakeFiles/demo03.dir/main.cpp.o -c /home/hsf/computer_science/Linux_C_C++/minispace/demo03/main.cpp",
   "file": "/home/hsf/computer_science/Linux_C_C++/minispace/demo03/main.cpp",
   "output": "demo03/CMakeFiles/demo03.dir/main.cpp.o"
 },
@@ -19,8 +19,14 @@
 },
 {
   "directory": "/home/hsf/computer_science/Linux_C_C++/minispace/build",
-  "command": "/usr/bin/clang++ -g -std=c++23 -std=c++23 @module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o.modmap -o module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o -c /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/math.cppm",
-  "file": "/home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/math.cppm",
-  "output": "module_demo/CMakeFiles/module_demo.dir/modules/math.cppm.o"
+  "command": "/usr/bin/clang++ -g -std=c++23 -std=c++23 @module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.modmap -o module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o -c /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/co_content/co_content.cppm",
+  "file": "/home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/co_content/co_content.cppm",
+  "output": "module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/minispace/build",
+  "command": "/usr/bin/clang++ -g -std=c++23 -std=c++23 @module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.modmap -o module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o -c /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/math/math.cppm",
+  "file": "/home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/math/math.cppm",
+  "output": "module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o"
 }
 ]

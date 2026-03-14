@@ -5,7 +5,7 @@
       "primary-output": "module_demo/CMakeFiles/module_demo.dir/main.cpp.o",
       "requires": [
         {
-          "logical-name": "math"
+          "logical-name": "co_content"
         }
       ]
     }
