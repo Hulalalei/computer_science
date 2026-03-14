@@ -31,7 +31,7 @@ add_subdirectory(module_demo)
 
 # 在.cpp文件中设置宏
 # 这样，文件中就定义了CO_ASYNC的宏
-add_compile_definitions(CO_ASYNC)
+# add_compile_definitions(CO_ASYNC)
 
 # 为目标提供额外的编译选项
-target_compile_options(module_demo PRIVATE -std=c++23)
+# target_compile_options(module_demo PRIVATE -std=c++23)

@@ -1,11 +1,9 @@
 import co_content;
-import math;
 
 
 #include <iostream>
 #include <coroutine>
 #include <debug.hpp>
-
 
 co_task<int> world() {
     debug(), "world";
@@ -14,7 +12,7 @@ co_task<int> world() {
 
 co_task<int> hello() {
     debug(), "hello";
-    debug(), co_await world();
+    debug(), "co_await world(): ", co_await world();
     debug(), "yield";
     co_yield 03;
     debug(), "after yield";
@@ -24,12 +22,14 @@ co_task<int> hello() {
 int main() {
     // get_return_object()获取的对象，进行初始构造
     co_task t = hello();
-    debug(), "yield value: ", t.m_coroutine.promise().m_val;
     debug(), "resuming";
     t.m_coroutine.resume();
-    debug(), "return value: ", t.m_coroutine.promise().m_val;
-    std::cout << add(1, 2) << std::endl;
-    std::cout << circle_area(6.50) << std::endl;
+    debug(), "after first resume, yield value01: ", t.m_coroutine.promise().m_val;
+    debug(), "resuming again";
+    t.m_coroutine.resume();
+    debug(), "after second resume, yield value02: ", t.m_coroutine.promise().m_val;
+    t.m_coroutine.resume();
+    debug(), "after third resume, return value03: ", t.m_coroutine.promise().m_val;
 
     return 0;
 }

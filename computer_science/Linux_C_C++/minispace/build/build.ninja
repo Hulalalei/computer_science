@@ -220,14 +220,14 @@ build cmake_object_order_depends_target_module_demo: phony || module_demo/CMakeF
 build module_demo/CMakeFiles/module_demo.dir/main.cpp.o.ddi: CXX_SCAN__module_demo_Debug /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/main.cpp || cmake_object_order_depends_target_module_demo
   DEP_FILE = module_demo/CMakeFiles/module_demo.dir/main.cpp.o.ddi.d
   DYNDEP_INTERMEDIATE_FILE = module_demo/CMakeFiles/module_demo.dir/main.cpp.o.ddi
-  FLAGS = -g -std=c++23 -std=c++23
+  FLAGS = -g -std=c++23
   OBJ_FILE = module_demo/CMakeFiles/module_demo.dir/main.cpp.o
   PREPROCESSED_OUTPUT_FILE = module_demo/CMakeFiles/module_demo.dir/main.cpp.o.ddi.i
 
 build module_demo/CMakeFiles/module_demo.dir/main.cpp.o: CXX_COMPILER__module_demo_scanned_Debug /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/main.cpp || cmake_object_order_depends_target_module_demo module_demo/CMakeFiles/module_demo.dir/CXX.dd module_demo/CMakeFiles/module_demo.dir/main.cpp.o.modmap
   DEP_FILE = module_demo/CMakeFiles/module_demo.dir/main.cpp.o.d
   DYNDEP_MODULE_MAP_FILE = module_demo/CMakeFiles/module_demo.dir/main.cpp.o.modmap
-  FLAGS = -g -std=c++23 -std=c++23
+  FLAGS = -g -std=c++23
   OBJECT_DIR = module_demo/CMakeFiles/module_demo.dir
   OBJECT_FILE_DIR = module_demo/CMakeFiles/module_demo.dir
   dyndep = module_demo/CMakeFiles/module_demo.dir/CXX.dd
@@ -235,14 +235,14 @@ build module_demo/CMakeFiles/module_demo.dir/main.cpp.o: CXX_COMPILER__module_de
 build module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.ddi: CXX_SCAN__module_demo_Debug /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/co_content/co_content.cppm || cmake_object_order_depends_target_module_demo
   DEP_FILE = module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.ddi.d
   DYNDEP_INTERMEDIATE_FILE = module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.ddi
-  FLAGS = -g -std=c++23 -std=c++23
+  FLAGS = -g -std=c++23
   OBJ_FILE = module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o
   PREPROCESSED_OUTPUT_FILE = module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.ddi.i
 
 build module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o: CXX_COMPILER__module_demo_scanned_Debug /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/co_content/co_content.cppm || cmake_object_order_depends_target_module_demo module_demo/CMakeFiles/module_demo.dir/CXX.dd module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.modmap
   DEP_FILE = module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.d
   DYNDEP_MODULE_MAP_FILE = module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.o.modmap
-  FLAGS = -g -std=c++23 -std=c++23
+  FLAGS = -g -std=c++23
   OBJECT_DIR = module_demo/CMakeFiles/module_demo.dir
   OBJECT_FILE_DIR = module_demo/CMakeFiles/module_demo.dir/modules/co_content
   dyndep = module_demo/CMakeFiles/module_demo.dir/CXX.dd
@@ -250,14 +250,14 @@ build module_demo/CMakeFiles/module_demo.dir/modules/co_content/co_content.cppm.
 build module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.ddi: CXX_SCAN__module_demo_Debug /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/math/math.cppm || cmake_object_order_depends_target_module_demo
   DEP_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.ddi.d
   DYNDEP_INTERMEDIATE_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.ddi
-  FLAGS = -g -std=c++23 -std=c++23
+  FLAGS = -g -std=c++23
   OBJ_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o
   PREPROCESSED_OUTPUT_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.ddi.i
 
 build module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o: CXX_COMPILER__module_demo_scanned_Debug /home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/math/math.cppm || cmake_object_order_depends_target_module_demo module_demo/CMakeFiles/module_demo.dir/CXX.dd module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.modmap
   DEP_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.d
   DYNDEP_MODULE_MAP_FILE = module_demo/CMakeFiles/module_demo.dir/modules/math/math.cppm.o.modmap
-  FLAGS = -g -std=c++23 -std=c++23
+  FLAGS = -g -std=c++23
   OBJECT_DIR = module_demo/CMakeFiles/module_demo.dir
   OBJECT_FILE_DIR = module_demo/CMakeFiles/module_demo.dir/modules/math
   dyndep = module_demo/CMakeFiles/module_demo.dir/CXX.dd

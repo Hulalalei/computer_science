@@ -25,11 +25,5 @@
 			"path" : "module_demo/CMakeFiles/module_demo.dir/math.pcm"
 		}
 	},
-	"usages" : 
-	{
-		"co_content" : 
-		[
-			"math"
-		]
-	}
+	"usages" : {}
 }

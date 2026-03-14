@@ -82,8 +82,9 @@ private:
     Scheduler() = default;
 
     void poll_input() {
+        // 检测到字符输入，则字符队列和就绪队列均更新
         char ch;
-        while (read(STDIN_FILENO, &ch, 1) == 1) {
+        while (read(STDIN_FILENO, &ch, 1) == 1) { // 非阻塞
             input_queue.push(ch);
         }
         if (input_waiter && !input_queue.empty()) {
@@ -92,11 +93,12 @@ private:
         }
     }
 
+    // 检测到就绪协程后，将其放入就绪队列ready_queue中
     void process_sleep() {
         auto now = clock::now();
         auto it = sleep_list.begin();
         while (it != sleep_list.end()) {
-            if (it->first <= now) {
+            if (it->first <= now) { // 超时-》协程就绪
                 ready_queue.push(it->second);
                 it = sleep_list.erase(it);
             } else {

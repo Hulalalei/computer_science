@@ -9,11 +9,6 @@
           "logical-name": "co_content",
           "source-path": "/home/hsf/computer_science/Linux_C_C++/minispace/module_demo/modules/co_content/co_content.cppm"
         }
-      ],
-      "requires": [
-        {
-          "logical-name": "math"
-        }
       ]
     }
   ],
