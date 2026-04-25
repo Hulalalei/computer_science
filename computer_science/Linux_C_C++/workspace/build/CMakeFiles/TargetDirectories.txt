@@ -1,10 +1,5 @@
 /home/hsf/computer_science/Linux_C_C++/workspace/build/CMakeFiles/edit_cache.dir
 /home/hsf/computer_science/Linux_C_C++/workspace/build/CMakeFiles/rebuild_cache.dir
-/home/hsf/computer_science/Linux_C_C++/workspace/build/mymain/CMakeFiles/main.dir
-/home/hsf/computer_science/Linux_C_C++/workspace/build/mymain/CMakeFiles/step1.dir
-/home/hsf/computer_science/Linux_C_C++/workspace/build/mymain/CMakeFiles/test.dir
-/home/hsf/computer_science/Linux_C_C++/workspace/build/mymain/CMakeFiles/edit_cache.dir
-/home/hsf/computer_science/Linux_C_C++/workspace/build/mymain/CMakeFiles/rebuild_cache.dir
 /home/hsf/computer_science/Linux_C_C++/workspace/build/co_content/CMakeFiles/co_task.dir
 /home/hsf/computer_science/Linux_C_C++/workspace/build/co_content/CMakeFiles/edit_cache.dir
 /home/hsf/computer_science/Linux_C_C++/workspace/build/co_content/CMakeFiles/rebuild_cache.dir
@@ -15,3 +10,8 @@
 /home/hsf/computer_science/Linux_C_C++/workspace/build/enum_magic/CMakeFiles/enum_magic.dir
 /home/hsf/computer_science/Linux_C_C++/workspace/build/enum_magic/CMakeFiles/edit_cache.dir
 /home/hsf/computer_science/Linux_C_C++/workspace/build/enum_magic/CMakeFiles/rebuild_cache.dir
+/home/hsf/computer_science/Linux_C_C++/workspace/build/mymain/CMakeFiles/main.dir
+/home/hsf/computer_science/Linux_C_C++/workspace/build/mymain/CMakeFiles/step1.dir
+/home/hsf/computer_science/Linux_C_C++/workspace/build/mymain/CMakeFiles/test.dir
+/home/hsf/computer_science/Linux_C_C++/workspace/build/mymain/CMakeFiles/edit_cache.dir
+/home/hsf/computer_science/Linux_C_C++/workspace/build/mymain/CMakeFiles/rebuild_cache.dir

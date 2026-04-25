@@ -20,11 +20,12 @@ message(STATUS "C++ compiler ID: ${CMAKE_CXX_COMPILER_ID}")
 # 在.cpp文件中设置宏
 # 这样，文件中就定义了CO_ASYNC的宏
 # target_compile_definitions(${PROJECT_NAME} PRIVATE CO_ASYNC)
-set(CMMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake;${CMAKE_MODULE_PATH}")
+# set(CMMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake;${CMAKE_MODULE_PATH}")
 
 
 
-add_subdirectory(mymain)
 add_subdirectory(co_content)
 add_subdirectory(co_async)
 add_subdirectory(enum_magic)
+add_subdirectory(mymain)
+target_link_libraries(main PRIVATE co_async)

@@ -1,0 +1,9 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "enum_magic/CMakeFiles/enum_magic.dir/src/enum_magic.cpp.o"
+    }
+  ],
+  "version": 1
+}

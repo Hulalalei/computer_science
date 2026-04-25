@@ -1,0 +1,41 @@
+ninja_dyndep_version = 1.0
+build co_async/CMakeFiles/co_async.dir/co_async/generic/allocator.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/generic/io_context.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/generic/io_context_mt.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/generic/thread_pool.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/iostream/directory_stream.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/iostream/file_stream.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/iostream/pipe_stream.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/iostream/ssl_socket_stream.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/iostream/zlib_stream.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/net/http_protocol.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/net/http_server.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/net/http_server_utils.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/net/http_string_utils.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/net/socket_proxy.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/net/uri.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/platform/platform_io.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/co_async/platform/socket.cpp.o: dyndep
+
+build co_async/CMakeFiles/co_async.dir/3rd/liburing/liburing.cpp.o: dyndep
+

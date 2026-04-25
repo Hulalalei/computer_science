@@ -6,6 +6,9 @@
 /home/hsf/computer_science/Linux_C_C++/minispace/build/demo03/CMakeFiles/demo03.dir
 /home/hsf/computer_science/Linux_C_C++/minispace/build/demo03/CMakeFiles/edit_cache.dir
 /home/hsf/computer_science/Linux_C_C++/minispace/build/demo03/CMakeFiles/rebuild_cache.dir
+/home/hsf/computer_science/Linux_C_C++/minispace/build/demo04/CMakeFiles/demo04.dir
+/home/hsf/computer_science/Linux_C_C++/minispace/build/demo04/CMakeFiles/edit_cache.dir
+/home/hsf/computer_science/Linux_C_C++/minispace/build/demo04/CMakeFiles/rebuild_cache.dir
 /home/hsf/computer_science/Linux_C_C++/minispace/build/module_demo/CMakeFiles/module_demo.dir
 /home/hsf/computer_science/Linux_C_C++/minispace/build/module_demo/CMakeFiles/edit_cache.dir
 /home/hsf/computer_science/Linux_C_C++/minispace/build/module_demo/CMakeFiles/rebuild_cache.dir

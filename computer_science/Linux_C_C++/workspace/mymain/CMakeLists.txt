@@ -4,7 +4,6 @@ foreach(src IN ITEMS ${srcs})
     get_filename_component(name "${src}" NAME_WLE)
     add_executable(${name} src/${name}.cpp)
     message(${name})
-
     target_link_libraries(${name} PUBLIC co_task)
     target_link_libraries(${name} PRIVATE co_async)
     target_link_libraries(${name} PUBLIC enum_magic)

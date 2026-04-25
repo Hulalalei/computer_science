@@ -22,6 +22,141 @@ rule CUSTOM_COMMAND
 #############################################
 # Rule for generating CXX dependencies.
 
+rule CXX_SCAN__co_task_Debug
+  depfile = $DEP_FILE
+  command = "/usr/bin/clang-scan-deps-18" -format=p1689 -- /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -x c++ $in -c -o $OBJ_FILE -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE > $DYNDEP_INTERMEDIATE_FILE.tmp && mv $DYNDEP_INTERMEDIATE_FILE.tmp $DYNDEP_INTERMEDIATE_FILE
+  description = Scanning $in for CXX dependencies
+
+
+#############################################
+# Rule to generate ninja dyndep files for CXX.
+
+rule CXX_DYNDEP__co_task_Debug
+  command = /usr/bin/cmake -E cmake_ninja_dyndep --tdi=co_content/CMakeFiles/co_task.dir/CXXDependInfo.json --lang=CXX --modmapfmt=clang --dd=$out @$out.rsp
+  description = Generating CXX dyndep file $out
+  rspfile = $out.rsp
+  rspfile_content = $in
+
+
+#############################################
+# Rule for compiling CXX files.
+
+rule CXX_COMPILER__co_task_scanned_Debug
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE @$DYNDEP_MODULE_MAP_FILE -o $out -c $in
+  description = Building CXX object $out
+
+
+#############################################
+# Rule for compiling CXX files.
+
+rule CXX_COMPILER__co_task_unscanned_Debug
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building CXX object $out
+
+
+#############################################
+# Rule for linking CXX static library.
+
+rule CXX_STATIC_LIBRARY_LINKER__co_task_Debug
+  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking CXX static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for generating CXX dependencies.
+
+rule CXX_SCAN__co_async_Debug
+  depfile = $DEP_FILE
+  command = "/usr/bin/clang-scan-deps-18" -format=p1689 -- /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -x c++ $in -c -o $OBJ_FILE -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE > $DYNDEP_INTERMEDIATE_FILE.tmp && mv $DYNDEP_INTERMEDIATE_FILE.tmp $DYNDEP_INTERMEDIATE_FILE
+  description = Scanning $in for CXX dependencies
+
+
+#############################################
+# Rule to generate ninja dyndep files for CXX.
+
+rule CXX_DYNDEP__co_async_Debug
+  command = /usr/bin/cmake -E cmake_ninja_dyndep --tdi=co_async/CMakeFiles/co_async.dir/CXXDependInfo.json --lang=CXX --modmapfmt=clang --dd=$out @$out.rsp
+  description = Generating CXX dyndep file $out
+  rspfile = $out.rsp
+  rspfile_content = $in
+
+
+#############################################
+# Rule for compiling CXX files.
+
+rule CXX_COMPILER__co_async_scanned_Debug
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE @$DYNDEP_MODULE_MAP_FILE -o $out -c $in
+  description = Building CXX object $out
+
+
+#############################################
+# Rule for compiling CXX files.
+
+rule CXX_COMPILER__co_async_unscanned_Debug
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building CXX object $out
+
+
+#############################################
+# Rule for generating CXX dependencies.
+
+rule CXX_SCAN__enum_magic_Debug
+  depfile = $DEP_FILE
+  command = "/usr/bin/clang-scan-deps-18" -format=p1689 -- /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -x c++ $in -c -o $OBJ_FILE -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE > $DYNDEP_INTERMEDIATE_FILE.tmp && mv $DYNDEP_INTERMEDIATE_FILE.tmp $DYNDEP_INTERMEDIATE_FILE
+  description = Scanning $in for CXX dependencies
+
+
+#############################################
+# Rule to generate ninja dyndep files for CXX.
+
+rule CXX_DYNDEP__enum_magic_Debug
+  command = /usr/bin/cmake -E cmake_ninja_dyndep --tdi=enum_magic/CMakeFiles/enum_magic.dir/CXXDependInfo.json --lang=CXX --modmapfmt=clang --dd=$out @$out.rsp
+  description = Generating CXX dyndep file $out
+  rspfile = $out.rsp
+  rspfile_content = $in
+
+
+#############################################
+# Rule for compiling CXX files.
+
+rule CXX_COMPILER__enum_magic_scanned_Debug
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE @$DYNDEP_MODULE_MAP_FILE -o $out -c $in
+  description = Building CXX object $out
+
+
+#############################################
+# Rule for compiling CXX files.
+
+rule CXX_COMPILER__enum_magic_unscanned_Debug
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building CXX object $out
+
+
+#############################################
+# Rule for linking CXX static library.
+
+rule CXX_STATIC_LIBRARY_LINKER__enum_magic_Debug
+  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking CXX static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for generating CXX dependencies.
+
 rule CXX_SCAN__main_Debug
   depfile = $DEP_FILE
   command = "/usr/bin/clang-scan-deps-18" -format=p1689 -- /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -x c++ $in -c -o $OBJ_FILE -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE > $DYNDEP_INTERMEDIATE_FILE.tmp && mv $DYNDEP_INTERMEDIATE_FILE.tmp $DYNDEP_INTERMEDIATE_FILE
@@ -160,141 +295,6 @@ rule CXX_COMPILER__test_unscanned_Debug
 rule CXX_EXECUTABLE_LINKER__test_Debug
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
-  restat = $RESTAT
-
-
-#############################################
-# Rule for generating CXX dependencies.
-
-rule CXX_SCAN__co_task_Debug
-  depfile = $DEP_FILE
-  command = "/usr/bin/clang-scan-deps-18" -format=p1689 -- /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -x c++ $in -c -o $OBJ_FILE -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE > $DYNDEP_INTERMEDIATE_FILE.tmp && mv $DYNDEP_INTERMEDIATE_FILE.tmp $DYNDEP_INTERMEDIATE_FILE
-  description = Scanning $in for CXX dependencies
-
-
-#############################################
-# Rule to generate ninja dyndep files for CXX.
-
-rule CXX_DYNDEP__co_task_Debug
-  command = /usr/bin/cmake -E cmake_ninja_dyndep --tdi=co_content/CMakeFiles/co_task.dir/CXXDependInfo.json --lang=CXX --modmapfmt=clang --dd=$out @$out.rsp
-  description = Generating CXX dyndep file $out
-  rspfile = $out.rsp
-  rspfile_content = $in
-
-
-#############################################
-# Rule for compiling CXX files.
-
-rule CXX_COMPILER__co_task_scanned_Debug
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE @$DYNDEP_MODULE_MAP_FILE -o $out -c $in
-  description = Building CXX object $out
-
-
-#############################################
-# Rule for compiling CXX files.
-
-rule CXX_COMPILER__co_task_unscanned_Debug
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building CXX object $out
-
-
-#############################################
-# Rule for linking CXX static library.
-
-rule CXX_STATIC_LIBRARY_LINKER__co_task_Debug
-  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
-  description = Linking CXX static library $TARGET_FILE
-  restat = $RESTAT
-
-
-#############################################
-# Rule for generating CXX dependencies.
-
-rule CXX_SCAN__co_async_Debug
-  depfile = $DEP_FILE
-  command = "/usr/bin/clang-scan-deps-18" -format=p1689 -- /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -x c++ $in -c -o $OBJ_FILE -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE > $DYNDEP_INTERMEDIATE_FILE.tmp && mv $DYNDEP_INTERMEDIATE_FILE.tmp $DYNDEP_INTERMEDIATE_FILE
-  description = Scanning $in for CXX dependencies
-
-
-#############################################
-# Rule to generate ninja dyndep files for CXX.
-
-rule CXX_DYNDEP__co_async_Debug
-  command = /usr/bin/cmake -E cmake_ninja_dyndep --tdi=co_async/CMakeFiles/co_async.dir/CXXDependInfo.json --lang=CXX --modmapfmt=clang --dd=$out @$out.rsp
-  description = Generating CXX dyndep file $out
-  rspfile = $out.rsp
-  rspfile_content = $in
-
-
-#############################################
-# Rule for compiling CXX files.
-
-rule CXX_COMPILER__co_async_scanned_Debug
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE @$DYNDEP_MODULE_MAP_FILE -o $out -c $in
-  description = Building CXX object $out
-
-
-#############################################
-# Rule for compiling CXX files.
-
-rule CXX_COMPILER__co_async_unscanned_Debug
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building CXX object $out
-
-
-#############################################
-# Rule for generating CXX dependencies.
-
-rule CXX_SCAN__enum_magic_Debug
-  depfile = $DEP_FILE
-  command = "/usr/bin/clang-scan-deps-18" -format=p1689 -- /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -x c++ $in -c -o $OBJ_FILE -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE > $DYNDEP_INTERMEDIATE_FILE.tmp && mv $DYNDEP_INTERMEDIATE_FILE.tmp $DYNDEP_INTERMEDIATE_FILE
-  description = Scanning $in for CXX dependencies
-
-
-#############################################
-# Rule to generate ninja dyndep files for CXX.
-
-rule CXX_DYNDEP__enum_magic_Debug
-  command = /usr/bin/cmake -E cmake_ninja_dyndep --tdi=enum_magic/CMakeFiles/enum_magic.dir/CXXDependInfo.json --lang=CXX --modmapfmt=clang --dd=$out @$out.rsp
-  description = Generating CXX dyndep file $out
-  rspfile = $out.rsp
-  rspfile_content = $in
-
-
-#############################################
-# Rule for compiling CXX files.
-
-rule CXX_COMPILER__enum_magic_scanned_Debug
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE @$DYNDEP_MODULE_MAP_FILE -o $out -c $in
-  description = Building CXX object $out
-
-
-#############################################
-# Rule for compiling CXX files.
-
-rule CXX_COMPILER__enum_magic_unscanned_Debug
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building CXX object $out
-
-
-#############################################
-# Rule for linking CXX static library.
-
-rule CXX_STATIC_LIBRARY_LINKER__enum_magic_Debug
-  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
-  description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
 
 

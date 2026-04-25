@@ -1,0 +1,18 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "Clang",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"dir-cur-bld" : "/home/hsf/computer_science/Linux_C_C++/minispace/build/demo04",
+	"dir-cur-src" : "/home/hsf/computer_science/Linux_C_C++/minispace/demo04",
+	"dir-top-bld" : "/home/hsf/computer_science/Linux_C_C++/minispace/build",
+	"dir-top-src" : "/home/hsf/computer_science/Linux_C_C++/minispace",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : [],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "/home/hsf/computer_science/Linux_C_C++/minispace/build/demo04/CMakeFiles/demo04.dir"
+}

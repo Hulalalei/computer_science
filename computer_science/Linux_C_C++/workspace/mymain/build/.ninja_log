@@ -1,8 +1,0 @@
-# ninja log v5
-0	7	0	/home/hsf/computer_science/Linux_C_C++/workspace/mymain/build/CMakeFiles/cmake.verify_globs	adf384b5dfa16ebc
-7	169	1773386126079011642	CMakeFiles/main.dir/src/main.o	5451079e07b953a2
-1	7	0	/home/hsf/computer_science/Linux_C_C++/workspace/mymain/build/CMakeFiles/cmake.verify_globs	adf384b5dfa16ebc
-1	7	0	/home/hsf/computer_science/Linux_C_C++/workspace/mymain/build/CMakeFiles/cmake.verify_globs	adf384b5dfa16ebc
-8	15	1773386135375158883	CMakeFiles/step1.dir/src/step1.o	f1d3b797128734f1
-1	7	0	/home/hsf/computer_science/Linux_C_C++/workspace/mymain/build/CMakeFiles/cmake.verify_globs	adf384b5dfa16ebc
-7	192	1773386148566047479	CMakeFiles/test.dir/src/test.o	1ed5b1c30b094b1d

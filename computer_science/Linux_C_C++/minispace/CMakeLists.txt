@@ -24,6 +24,7 @@ message(STATUS "C++ compiler ID: ${CMAKE_CXX_COMPILER_ID}")
 add_subdirectory(demo01)
 # add_subdirectory(demo02)
 add_subdirectory(demo03)
+add_subdirectory(demo04)
 add_subdirectory(module_demo)
 
 # 导入静态库文件

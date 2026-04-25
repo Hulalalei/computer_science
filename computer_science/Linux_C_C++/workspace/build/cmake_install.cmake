@@ -44,11 +44,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/hsf/computer_science/Linux_C_C++/workspace/build/mymain/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
   include("/home/hsf/computer_science/Linux_C_C++/workspace/build/co_content/cmake_install.cmake")
 endif()
 
@@ -60,6 +55,11 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
   include("/home/hsf/computer_science/Linux_C_C++/workspace/build/enum_magic/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/hsf/computer_science/Linux_C_C++/workspace/build/mymain/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

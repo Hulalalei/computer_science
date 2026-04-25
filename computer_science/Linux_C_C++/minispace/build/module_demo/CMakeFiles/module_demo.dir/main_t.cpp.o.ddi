@@ -1,0 +1,14 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "module_demo/CMakeFiles/module_demo.dir/main_t.cpp.o",
+      "requires": [
+        {
+          "logical-name": "co_content"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}

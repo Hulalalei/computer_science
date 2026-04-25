@@ -1,0 +1,9 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "co_async/CMakeFiles/co_async.dir/co_async/iostream/stdio_stream.cpp.o"
+    }
+  ],
+  "version": 1
+}

@@ -1,0 +1,9 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "co_async/CMakeFiles/co_async.dir/co_async/generic/generic_io.cpp.o"
+    }
+  ],
+  "version": 1
+}

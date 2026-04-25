@@ -1,24 +1,6 @@
 [
 {
   "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
-  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++23 @mymain/CMakeFiles/main.dir/src/main.cpp.o.modmap -o mymain/CMakeFiles/main.dir/src/main.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/main.cpp",
-  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/main.cpp",
-  "output": "mymain/CMakeFiles/main.dir/src/main.cpp.o"
-},
-{
-  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
-  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++23 @mymain/CMakeFiles/step1.dir/src/step1.cpp.o.modmap -o mymain/CMakeFiles/step1.dir/src/step1.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/step1.cpp",
-  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/step1.cpp",
-  "output": "mymain/CMakeFiles/step1.dir/src/step1.cpp.o"
-},
-{
-  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
-  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++23 @mymain/CMakeFiles/test.dir/src/test.cpp.o.modmap -o mymain/CMakeFiles/test.dir/src/test.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/test.cpp",
-  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/test.cpp",
-  "output": "mymain/CMakeFiles/test.dir/src/test.cpp.o"
-},
-{
-  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
   "command": "/usr/bin/c++ -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -g -std=c++23 @co_content/CMakeFiles/co_task.dir/src/co_task.cpp.o.modmap -o co_content/CMakeFiles/co_task.dir/src/co_task.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/co_content/src/co_task.cpp",
   "file": "/home/hsf/computer_science/Linux_C_C++/workspace/co_content/src/co_task.cpp",
   "output": "co_content/CMakeFiles/co_task.dir/src/co_task.cpp.o"
@@ -148,5 +130,23 @@
   "command": "/usr/bin/c++ -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++23 @enum_magic/CMakeFiles/enum_magic.dir/src/enum_magic.cpp.o.modmap -o enum_magic/CMakeFiles/enum_magic.dir/src/enum_magic.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/src/enum_magic.cpp",
   "file": "/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/src/enum_magic.cpp",
   "output": "enum_magic/CMakeFiles/enum_magic.dir/src/enum_magic.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++23 @mymain/CMakeFiles/main.dir/src/main.cpp.o.modmap -o mymain/CMakeFiles/main.dir/src/main.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/main.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/main.cpp",
+  "output": "mymain/CMakeFiles/main.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++23 @mymain/CMakeFiles/step1.dir/src/step1.cpp.o.modmap -o mymain/CMakeFiles/step1.dir/src/step1.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/step1.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/step1.cpp",
+  "output": "mymain/CMakeFiles/step1.dir/src/step1.cpp.o"
+},
+{
+  "directory": "/home/hsf/computer_science/Linux_C_C++/workspace/build",
+  "command": "/usr/bin/c++ -DCO_ASYNC_DEBUG -DFMT_SHARED -DTBB_USE_DEBUG -I/home/hsf/computer_science/Linux_C_C++/workspace/co_content/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/. -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/liburing/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/hashlib/include -I/home/hsf/computer_science/Linux_C_C++/workspace/co_async/3rd/bearssl/include -I/home/hsf/computer_science/Linux_C_C++/workspace/enum_magic/include -g -std=c++23 @mymain/CMakeFiles/test.dir/src/test.cpp.o.modmap -o mymain/CMakeFiles/test.dir/src/test.cpp.o -c /home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/test.cpp",
+  "file": "/home/hsf/computer_science/Linux_C_C++/workspace/mymain/src/test.cpp",
+  "output": "mymain/CMakeFiles/test.dir/src/test.cpp.o"
 }
 ]
