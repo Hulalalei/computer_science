@@ -155,6 +155,14 @@ String guessContentTypeByExtension(std::string_view ext,
         return String{"video/webm"sv};
     } else if (ext == ".ico"sv) {
         return String{"image/x-icon"sv};
+    } else if (ext == ".webp"sv) {
+        return String{"image/webp"sv};
+    } else if (ext == ".woff2"sv) {
+        return String{"font/woff2"sv};
+    } else if (ext == ".woff"sv) {
+        return String{"font/woff"sv};
+    } else if (ext == ".ttf"sv) {
+        return String{"font/ttf"sv};
     } else if (ext == ".rar"sv) {
         return String{"application/x-rar-compressed"sv};
     } else if (ext == ".7z"sv) {

@@ -6,20 +6,21 @@ using namespace co_async;
 using namespace std::literals;
 
 static Task<Expected<>> amain(std::string serveAt) {
-    chdir("/home/hsf/computer_science/hsBUPT.github.io/");
+    chdir("/home/hsf/computer_science/Linux_C_C++/Html_Css_Js/project/homepage_final/");
 
     co_await co_await stdio().putline("listening at: "s + serveAt);
     auto listener = co_await co_await listener_bind(co_await AddressResolver().host(serveAt).resolve_one());
 
     HTTPServer server;
-    server.route("GET", "/", [](HTTPServer::IO &io) -> Task<Expected<>> {
-        std::cout << "io reques_body: " << co_await co_await io.request_body() << std::endl;
-        if (io.request.uri.path == "/") {
-            // co_await co_await HTTPServerUtils::make_ok_response(io, "<h1>It works!</h1>");
-            co_await co_await HTTPServerUtils::make_response_from_file(io, "./index.html");
+    /* default (catch-all) route: serve static files */
+    server.route([](HTTPServer::IO &io) -> Task<Expected<>> {
+        auto path = io.request.uri.path;
+        if (path == "/") {
+            path = "./index.html";
         } else {
-            co_await co_await HTTPServerUtils::make_response_from_file(io, io.request.uri.path);
+            path = "." + path;
         }
+        co_await co_await HTTPServerUtils::make_response_from_file(io, path);
         co_return {};
     });
 
